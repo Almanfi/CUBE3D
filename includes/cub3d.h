@@ -6,7 +6,7 @@
 /*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 16:37:34 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/06/27 19:28:57 by bamrouch         ###   ########.fr       */
+/*   Updated: 2023/06/28 21:20:58 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,12 @@ typedef struct s_rgb
 
 typedef struct s_textures
 {
-    int north;
-    int east;
-    int south;
-    int west;
-    int floor;
+    int         north;
+    int         east;
+    int         south;
+    int         west;
+    t_rgb       floor;
+    t_boolean   floor_is_set;
 }   t_textures;
 
 typedef struct s_cub3d
@@ -45,8 +46,12 @@ typedef struct s_cub3d
 
 // utils
 //skip_space.c
+t_boolean	ft_is_space(char c);
 t_boolean	skip_space(char *str);
-
+// strdup.c
+char	*pro_strdup(char *str);
+//substr.c
+char	*pro_substr(char const *s, unsigned int start, size_t len);
 // array_utils.c
 void	*add_element_to_array(void *old_array, void *new_elem, size_t data_size);
 void	*add_arr_to_array(void *dest_arr, void *src_arr, size_t data_size);

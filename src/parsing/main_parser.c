@@ -6,7 +6,7 @@
 /*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 19:16:25 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/06/27 17:23:16 by bamrouch         ###   ########.fr       */
+/*   Updated: 2023/06/28 18:47:57 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,5 @@ void    cub3d_parser(int argc, char *argv[], t_cub3d *cub3d)
     if (map_file == -1)
         exit_cub3d(-1, "couldn't open the map file");
     read_map(map_file, cub3d);
-
 }
 
