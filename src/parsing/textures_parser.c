@@ -6,7 +6,7 @@
 /*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 16:31:38 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/06/28 22:17:19 by bamrouch         ###   ########.fr       */
+/*   Updated: 2023/06/29 19:19:10 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void    parse_textures(t_cub3d *cub3d)
 	char	*line;
 	int		*texture_to_fill;
 
-	while (cub3d->map_content)
+	while (*cub3d->map_content)
 	{
 		texture_to_fill = NULL;
 		line = skip_space(*cub3d->map_content);

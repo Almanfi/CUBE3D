@@ -6,7 +6,7 @@
 /*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 16:37:34 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/06/28 21:20:58 by bamrouch         ###   ########.fr       */
+/*   Updated: 2023/06/29 19:28:53 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ typedef struct s_textures
 typedef struct s_cub3d
 {
     char        **map_content;
+    char        **mini_map;
+    t_boolean   player_set;
     t_textures  texture;
 }   t_cub3d;
 
