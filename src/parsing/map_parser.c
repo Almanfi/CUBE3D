@@ -6,7 +6,7 @@
 /*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 17:13:43 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/06/29 23:27:26 by bamrouch         ###   ########.fr       */
+/*   Updated: 2023/06/30 13:15:36 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,11 +83,6 @@ static  void    justify_lines(t_cub3d *cub3d)
 }   
 
 
-static  t_boolean   map_break(t_cub3d *cub3d)
-{
-
-}
-
 void    map_parser(t_cub3d *cub3d)
 {
     char    **map;
@@ -117,6 +112,8 @@ void    map_parser(t_cub3d *cub3d)
                 else
                     cub3d->player_set = TRUE;
             }
+            else
+                exit_cub3d(-1, "wrong map caracter");
             j++;
         }
     }
