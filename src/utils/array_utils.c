@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   array_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maboulkh <maboulkh@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 04:30:17 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/05/30 11:20:36 by maboulkh         ###   ########.fr       */
+/*   Updated: 2023/07/02 14:35:19 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "cub3d.h"
 
 static void	*skip_bytes(void *pointer, size_t bytes)
 {
@@ -61,7 +61,7 @@ void	*add_element_to_array(void *old_array, void *new_elem, size_t data_size)
 	new_array = ft_malloc((array_len + 2) * data_size, m_info(NULL, 1, NULL,
 				0));
 	if (!new_array)
-		exit_minishell(ENOMEM, "couldn't add element to array", TRUE);
+		exit_cub3d(ENOMEM, "couldn't add element to array");
 	cpy_mem_size = array_len * data_size;
 	if (old_array)
 		ft_memcpy(new_array, old_array, cpy_mem_size);
@@ -85,7 +85,7 @@ void	*add_arr_to_array(void *dest_arr, void *src_arr, size_t data_size)
 	new_array = ft_malloc((total_len + 1) * data_size, m_info(NULL, 1, NULL,
 				0));
 	if (!new_array)
-		exit_minishell(ENOMEM, "couldn't combine arrays", TRUE);
+		exit_cub3d(ENOMEM, "couldn't combine arrays");
 	cpy_mem_size = dest_len * data_size;
 	if (dest_arr)
 		ft_memcpy(new_array, dest_arr, cpy_mem_size);

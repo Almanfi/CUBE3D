@@ -6,7 +6,7 @@ CC = cc
 
 OBJ_FILES = ${SRC_FILES:%.c=%.o}
 
-FLAGS = -Wall -Werror -Wextra $(INCLUDES)
+FLAGS = -Wall -Werror -Wextra $(INCLUDES) -fsanitize=address,undefined
 
 NAME = cub3D
 

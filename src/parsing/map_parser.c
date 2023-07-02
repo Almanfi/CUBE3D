@@ -6,7 +6,7 @@
 /*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 17:13:43 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/06/30 13:15:36 by bamrouch         ###   ########.fr       */
+/*   Updated: 2023/07/02 22:51:15 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static  void    skip_empty_lines(t_cub3d *cub3d)
     t_boolean   start_wall;
 
     start_wall = FALSE;
-    while (cub3d->map_content && !start_wall)
+    while (*cub3d->map_content && !start_wall)
     {
         line = skip_space(*cub3d->map_content);
         while (*line && (*line == '1' || ft_is_space(*line)))
@@ -29,7 +29,7 @@ static  void    skip_empty_lines(t_cub3d *cub3d)
         }
         if (*line)
             exit_cub3d(-1, "surround map with walls");
-        ft_free_node(1, *cub3d->map_content)
+        ft_free_node(1, *cub3d->map_content);
         cub3d->map_content++;
     }
     if (!start_wall)
@@ -49,7 +49,7 @@ static  void    fill_short_lines(size_t max_len, t_cub3d *cub3d)
         j = ft_strlen(cub3d->map_content[i]);
         if (j < max_len)
         {
-            line = ft_malloc(max_len * sizeof(char));
+            line = ft_malloc(max_len * sizeof(char), (t_mem_param){0,GNL_SCOPE, NULL, 0});
             if (!line)
                 exit_cub3d(ENOMEM, "couldn't malloc evened lines");
             temp = cub3d->map_content[i];
@@ -91,17 +91,18 @@ void    map_parser(t_cub3d *cub3d)
 
     skip_empty_lines(cub3d);
     justify_lines(cub3d);
-    i = 0;
+    i = 1;
     map = cub3d->map_content;
-    while (map[++i])
+    while (map[i])
     {
+        printf("entered here \n");
         j = 0;
         while (map[i][j])
         {
             if (map[i][j] == '1' || ft_is_space(map[i][j]))
                 ;
             else if (map[i][j] == '0' && (j == 0 ||
-                ft_is_space(map[i - 1][j - 1]) || ft_is_space(map[i - 1][j]) || ft_is_space(map[i - 1][j + 1] ||)
+                ft_is_space(map[i - 1][j - 1]) || ft_is_space(map[i - 1][j]) || ft_is_space(map[i - 1][j + 1]) ||
                 ft_is_space(map[i][j - 1]) || ft_is_space(map[i][j + 1]) ||
                 ft_is_space(map[i + 1][j - 1]) || ft_is_space(map[i + 1][j]) || ft_is_space(map[i + 1][j + 1])))
                 exit_cub3d(-1, "unvalid map due to unclosed walls");
@@ -116,6 +117,7 @@ void    map_parser(t_cub3d *cub3d)
                 exit_cub3d(-1, "wrong map caracter");
             j++;
         }
+        i++;
     }
 }
 

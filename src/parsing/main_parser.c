@@ -6,7 +6,7 @@
 /*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 19:16:25 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/06/29 23:00:58 by bamrouch         ###   ########.fr       */
+/*   Updated: 2023/07/02 18:37:58 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ static void read_map(int map_file,t_cub3d *cub3d)
         if (!cub3d->map_content)
             exit_cub3d(ENOMEM, "couldn't malloc the map content");
         ft_free_node(1, prev_content);
+        line = get_next_line(map_file);
     }
     if (!cub3d->map_content)
         exit_cub3d(-1, "empty map file");
@@ -61,5 +62,6 @@ void    cub3d_parser(int argc, char *argv[], t_cub3d *cub3d)
         exit_cub3d(-1, "couldn't open the map file");
     read_map(map_file, cub3d);
     parse_textures(cub3d);
+    map_parser(cub3d);
 }
 

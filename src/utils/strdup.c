@@ -6,7 +6,7 @@
 /*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 01:09:17 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/06/28 19:12:56 by bamrouch         ###   ########.fr       */
+/*   Updated: 2023/07/02 14:35:39 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*pro_strdup(char *str)
 
 	str_len = ft_strlen(str);
 	res = ft_malloc((str_len + 1) * sizeof(char),
-			(t_mem_info) {NULL, 1, NULL, 0});
+			(t_mem_param) {NULL, 1, NULL, 0});
 	if (!res)
 		return (NULL);
 	i = 0;

@@ -6,11 +6,11 @@
 /*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 14:22:15 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/06/28 19:00:28 by bamrouch         ###   ########.fr       */
+/*   Updated: 2023/07/02 14:22:42 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Philosophers.h"
+#include "cub3d.h"
 
 t_boolean	ft_str_is_integer(const char *str, int *res)
 {

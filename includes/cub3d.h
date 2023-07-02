@@ -6,7 +6,7 @@
 /*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 16:37:34 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/06/29 19:28:53 by bamrouch         ###   ########.fr       */
+/*   Updated: 2023/07/02 14:33:56 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 #define CUB3D_H
 
 #include "ft_garbage_collector.h"
-#include "cub3d_parsing.h"
 #include "errno.h"
 #include <mlx.h>
 
@@ -45,11 +44,13 @@ typedef struct s_cub3d
     t_textures  texture;
 }   t_cub3d;
 
+// exit_cub3d.c
+void    exit_cub3d(int  err_code, char *message);
 
 // utils
 //skip_space.c
 t_boolean	ft_is_space(char c);
-t_boolean	skip_space(char *str);
+char        *skip_space(char *str);
 // strdup.c
 char	*pro_strdup(char *str);
 //substr.c
@@ -58,5 +59,6 @@ char	*pro_substr(char const *s, unsigned int start, size_t len);
 void	*add_element_to_array(void *old_array, void *new_elem, size_t data_size);
 void	*add_arr_to_array(void *dest_arr, void *src_arr, size_t data_size);
 
+#include "cub3d_parsing.h"
 
 #endif

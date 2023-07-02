@@ -6,7 +6,7 @@
 /*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 20:14:53 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/06/28 21:21:53 by bamrouch         ###   ########.fr       */
+/*   Updated: 2023/07/02 20:13:40 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,17 @@ static	char	*substr_to_comma(char **str)
 	i = 0;
 	while ((*str)[i] && (*str)[i] != ',')
 		i++;
-	temp = pro_substr(str, 0, i - 1);
+	temp = pro_substr(*str, 0, i);
 	if (!temp)
 		exit_cub3d(ENOMEM, "couldn't malloc a substr to coma");
-	*str = *str + i;
+	*str = *str + i + ((*str)[i] != 0);
 	i = 0;
 	while (temp[i] && !ft_is_space(temp[i]))
 		i++;
-	number = pro_substr(temp, 0, i - 1);
+	number = pro_substr(temp, 0, i); 
+	temp = skip_space(&(temp[i]));
+	if (*temp)
+		exit_cub3d(-1,"extra content after floor colors");
 	if (!number)
 		exit_cub3d(ENOMEM, "couldn't malloc a substr to coma");
 	ft_free_node(1, temp);
@@ -50,11 +53,10 @@ static	void	get_color(char **line, int *color)
 
 void	floor_parser(char *line, t_cub3d *cub3d)
 {
-	char *number;
-
-	if (!ft_strncmp(line, "F ", 2))
+	if (!ft_strncmp(line, "F", 1) && ft_is_space(*(line + 1)))
 	{
-		get_color(&(line + 1), &cub3d->texture.floor.r);
+		line = line + 1;
+		get_color(&line, &cub3d->texture.floor.r);
 		get_color(&line, &cub3d->texture.floor.g);
 		get_color(&line, &cub3d->texture.floor.b);
 		line = skip_space(line);

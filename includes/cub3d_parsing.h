@@ -6,7 +6,7 @@
 /*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 16:46:50 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/06/29 16:58:55 by bamrouch         ###   ########.fr       */
+/*   Updated: 2023/07/02 17:56:13 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,10 @@ void        floor_parser(char *line, t_cub3d *cub3d);
 // textures_parser.c
 void		parse_textures(t_cub3d *cub3d);
 
-void    exit_cub3d(int  err_code, char *message);
+// map_parser.c
+void    map_parser(t_cub3d *cub3d);
+
+// main_parser.c
+void    cub3d_parser(int argc, char *argv[], t_cub3d *cub3d);
 
 #endif

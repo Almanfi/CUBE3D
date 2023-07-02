@@ -6,7 +6,7 @@
 /*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 18:14:37 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/06/27 19:56:24 by bamrouch         ###   ########.fr       */
+/*   Updated: 2023/07/02 20:11:48 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,12 @@ t_boolean	ft_is_space(char c)
     return FALSE;
 }
 
-t_boolean	skip_space(char *str)
+char	*skip_space(char *str)
 {
-	while (ft_is_space(*str))
+    if (!str)
+        return str;
+    while (*str && ft_is_space(*str))
 		str++;
+    // printf("skip space after |%s|\n", str);
 	return str;
 }

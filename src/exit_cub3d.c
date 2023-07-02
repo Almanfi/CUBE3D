@@ -6,7 +6,7 @@
 /*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 15:45:13 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/06/27 15:57:19 by bamrouch         ###   ########.fr       */
+/*   Updated: 2023/07/02 14:37:46 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,4 +21,5 @@ void    exit_cub3d(int  err_code, char *message)
         ft_putstr_fd(message, STDERR_FILENO);
     ft_putendl_fd("", STDERR_FILENO);
     ft_free(0, TRUE);
+    exit(1);
 }
