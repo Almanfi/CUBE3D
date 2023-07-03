@@ -6,7 +6,7 @@
 /*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 17:13:43 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/07/02 22:51:15 by bamrouch         ###   ########.fr       */
+/*   Updated: 2023/07/03 12:44:19 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,11 @@ static  void    skip_empty_lines(t_cub3d *cub3d)
         }
         if (*line)
             exit_cub3d(-1, "surround map with walls");
-        ft_free_node(1, *cub3d->map_content);
-        cub3d->map_content++;
+        if (!start_wall)
+        {
+            ft_free_node(1, *cub3d->map_content);
+            cub3d->map_content++;
+        }
     }
     if (!start_wall)
         exit_cub3d(-1, "no map given");
@@ -49,16 +52,14 @@ static  void    fill_short_lines(size_t max_len, t_cub3d *cub3d)
         j = ft_strlen(cub3d->map_content[i]);
         if (j < max_len)
         {
-            line = ft_malloc(max_len * sizeof(char), (t_mem_param){0,GNL_SCOPE, NULL, 0});
+            line = ft_malloc((max_len + 1)* sizeof(char), (t_mem_param){0,GNL_SCOPE, NULL, 0});
             if (!line)
                 exit_cub3d(ENOMEM, "couldn't malloc evened lines");
             temp = cub3d->map_content[i];
-            cub3d->map_content[i] = ft_memcpy(line, temp, sizeof(char) * j);
+            cub3d->map_content[i] = ft_memmove(line, temp, sizeof(char) * j);
             ft_free_node(GNL_SCOPE, temp);
-            j--;
-            while(j < max_len - 1)
+            while(j < max_len)
                 cub3d->map_content[i][j++] = ' ';
-            cub3d->map_content[i][j++] = '\n';
             cub3d->map_content[i][j] = 0;
         }
         i++;
@@ -91,12 +92,13 @@ void    map_parser(t_cub3d *cub3d)
 
     skip_empty_lines(cub3d);
     justify_lines(cub3d);
+
     i = 1;
     map = cub3d->map_content;
     while (map[i])
     {
-        printf("entered here \n");
         j = 0;
+        printf("|%s|\n", map[i]);
         while (map[i][j])
         {
             if (map[i][j] == '1' || ft_is_space(map[i][j]))
@@ -116,6 +118,7 @@ void    map_parser(t_cub3d *cub3d)
             else
                 exit_cub3d(-1, "wrong map caracter");
             j++;
+            printf("the |%c|\n", map[i][j]);
         }
         i++;
     }
