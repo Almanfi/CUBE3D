@@ -6,7 +6,7 @@
 /*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 16:37:34 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/07/02 14:33:56 by bamrouch         ###   ########.fr       */
+/*   Updated: 2023/07/04 18:58:51 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,10 @@ typedef struct s_cub3d
 void    exit_cub3d(int  err_code, char *message);
 
 // utils
+// map_utils.c
+void    skip_empty_lines(t_cub3d *cub3d);
+void    justify_lines(t_cub3d *cub3d);
+
 //skip_space.c
 t_boolean	ft_is_space(char c);
 char        *skip_space(char *str);
