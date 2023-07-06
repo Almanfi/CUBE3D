@@ -6,7 +6,7 @@
 /*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 16:37:34 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/07/04 18:58:51 by bamrouch         ###   ########.fr       */
+/*   Updated: 2023/07/06 22:27:11 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@
 #include "ft_garbage_collector.h"
 #include "errno.h"
 #include <mlx.h>
+
+#define WINDOW_HEIGHT   1080
+#define WINDOW_WIDTH    1920
 
 typedef struct s_rgb
 {
@@ -36,13 +39,31 @@ typedef struct s_textures
     t_boolean   floor_is_set;
 }   t_textures;
 
+typedef struct s_frame_data
+{
+	void			*img;
+	char			*addr;
+	int				bits_per_pixel;
+	int				line_length;
+	int				endian;
+}					t_frame_data;
+
 typedef struct s_cub3d
 {
     char        **map_content;
     char        **mini_map;
     t_boolean   player_set;
     t_textures  texture;
+    void        *mlx;
+    void        *window;
+    t_frame_data    frame;
 }   t_cub3d;
+
+// mlx
+// init_mlx.c
+void    cub3d_window_init(t_cub3d *cub3d);
+void    cub3d_frame_init(t_cub3d *cub3d);
+void    cub3d_mlx_init(t_cub3d *cub3d);
 
 // exit_cub3d.c
 void    exit_cub3d(int  err_code, char *message);
@@ -64,5 +85,6 @@ void	*add_element_to_array(void *old_array, void *new_elem, size_t data_size);
 void	*add_arr_to_array(void *dest_arr, void *src_arr, size_t data_size);
 
 #include "cub3d_parsing.h"
+#include "cub3d_raycasting.h"
 
 #endif
