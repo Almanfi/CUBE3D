@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 16:37:34 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/07/06 22:27:11 by bamrouch         ###   ########.fr       */
+/*   Updated: 2023/07/07 21:47:46 by maboulkh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,53 @@
 #include "ft_garbage_collector.h"
 #include "errno.h"
 #include <mlx.h>
+#include <math.h>
 
 #define WINDOW_HEIGHT   1080
 #define WINDOW_WIDTH    1920
+#define DATA_SCOPE      17
+
+typedef enum e_side
+{
+    UP,
+    DOWN,
+    LEFT,
+    RIGHT
+}   t_side;
+
+typedef struct s_point
+{
+    int     x;
+    int     y;
+    t_side  side;
+}   t_point;
+
+typedef struct s_point2
+{
+    float     x;
+    float     y;
+}   t_pnt2;
+
+typedef struct s_wall
+{
+    t_side  side;
+    int     s;
+    int     from;
+    int     to;
+    float   a;
+    float   b;
+    float   c;
+}   t_wall;
+
+typedef struct s_walls
+{
+    t_wall  **up;
+    t_wall  **down;
+    t_wall  **left;
+    t_wall  **right;
+}   t_walls;
+
+
 
 typedef struct s_rgb
 {
@@ -48,15 +92,27 @@ typedef struct s_frame_data
 	int				endian;
 }					t_frame_data;
 
+typedef struct s_player
+{
+	float	x;
+	float	y;
+	float	angle;
+	float	v_angle;
+    float   a1;
+    float   a2;
+}	t_player;
+
 typedef struct s_cub3d
 {
-    char        **map_content;
-    char        **mini_map;
-    t_boolean   player_set;
-    t_textures  texture;
-    void        *mlx;
-    void        *window;
-    t_frame_data    frame;
+	char			**map_content;
+	char			**mini_map;
+	t_boolean		player_set;
+	t_textures		texture;
+	void			*mlx;
+	void			*window;
+	t_frame_data	frame;
+	t_walls			walls;
+	t_player		player;
 }   t_cub3d;
 
 // mlx
