@@ -6,7 +6,7 @@
 /*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 16:37:34 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/07/06 22:27:11 by bamrouch         ###   ########.fr       */
+/*   Updated: 2023/07/07 17:37:43 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,6 @@
 #include "ft_garbage_collector.h"
 #include "errno.h"
 #include <mlx.h>
-
-#define WINDOW_HEIGHT   1080
-#define WINDOW_WIDTH    1920
 
 typedef struct s_rgb
 {
@@ -48,6 +45,12 @@ typedef struct s_frame_data
 	int				endian;
 }					t_frame_data;
 
+typedef struct  s_player_move
+{
+    int x;
+    int y;
+}   t_player_move;
+
 typedef struct s_cub3d
 {
     char        **map_content;
@@ -57,6 +60,7 @@ typedef struct s_cub3d
     void        *mlx;
     void        *window;
     t_frame_data    frame;
+    t_player_move   p_move;
 }   t_cub3d;
 
 // mlx
@@ -64,6 +68,8 @@ typedef struct s_cub3d
 void    cub3d_window_init(t_cub3d *cub3d);
 void    cub3d_frame_init(t_cub3d *cub3d);
 void    cub3d_mlx_init(t_cub3d *cub3d);
+//  pixel_put.c
+void    cub3d_pixel_put(t_cub3d *cub3d, int x, int y, unsigned int color);
 
 // exit_cub3d.c
 void    exit_cub3d(int  err_code, char *message);

@@ -6,7 +6,7 @@
 /*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 21:28:19 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/07/06 22:25:41 by bamrouch         ###   ########.fr       */
+/*   Updated: 2023/07/07 18:32:43 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,12 @@
 
 void    cub3d_window_init(t_cub3d *cub3d)
 {
-    if (cub3d->window)
+    if (!cub3d->window)
     {
         cub3d->window = mlx_new_window(cub3d->mlx, WINDOW_WIDTH, WINDOW_HEIGHT, "cub3D");
         if (!cub3d->window)
             exit_cub3d(-1, "mlx new window didnt work");
+        cub3d_hooks(cub3d);
     }
     else
         mlx_clear_window(cub3d->mlx, cub3d->window);

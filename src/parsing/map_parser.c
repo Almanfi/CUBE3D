@@ -6,13 +6,13 @@
 /*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 17:13:43 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/07/04 19:31:24 by bamrouch         ###   ########.fr       */
+/*   Updated: 2023/07/07 13:02:05 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-static t_boolean is_start_pos(char c)
+t_boolean is_start_pos(char c)
 {
     if (c == 'N' || c == 'E' || c == 'S' || c == 'W')
         return TRUE;

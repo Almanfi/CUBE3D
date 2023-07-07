@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   pixel_put.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/25 16:55:41 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/07/07 19:00:14 by bamrouch         ###   ########.fr       */
+/*   Created: 2023/07/07 13:35:04 by bamrouch          #+#    #+#             */
+/*   Updated: 2023/07/07 14:23:13 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int main(int argc, char *argv[])
+void    cub3d_pixel_put(t_cub3d *cub3d, int x, int y, unsigned int color)
 {
-    (void) argc;
-    (void) argv;
-    t_cub3d cub3d;
+  unsigned int    *addr;
 
-    ft_bzero(&cub3d, sizeof(t_cub3d));
-    cub3d_parser(argc, argv, &cub3d);
-    cub3d_mlx_init(&cub3d);
-    draw_cub3d(&cub3d);
-    mlx_loop(cub3d.mlx);
+  addr = (unsigned int *) cub3d->frame.addr;
+  if (x >= 0 && x < WINDOW_WIDTH && y >= 0
+    && y < WINDOW_HEIGHT)
+		addr[x + (y * WINDOW_WIDTH)] = (unsigned int)color;
 }
+
