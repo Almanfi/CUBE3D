@@ -6,7 +6,7 @@
 /*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 16:55:41 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/07/08 00:15:25 by maboulkh         ###   ########.fr       */
+/*   Updated: 2023/07/08 02:49:42 by maboulkh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -421,14 +421,14 @@ t_wall    find_player_line_equation(t_player *player, int n)
         printf("error line number is wrong\n");
         exit(1);
     }
-    printf("angle is = %.15f\n", angle);
+    printf("angle is = %.4f\n", angle * 180 / M_PI);
     if (is_epsilon(angle - M_PI_2) || is_epsilon(angle + M_PI_2))
     {
         wall.a = 1;
         wall.b = 0;
         wall.c = - player->x;
     }
-    else if (is_epsilon(angle - M_PI) || is_epsilon(angle))
+    else if (is_epsilon(angle - M_PI) || is_epsilon(angle))// same as bellow
     {
         wall.a = 0;
         wall.b = 1;
@@ -438,7 +438,7 @@ t_wall    find_player_line_equation(t_player *player, int n)
     {
         wall.a = - tan(angle);
         wall.b = 1;
-        wall.c = - player->y + wall.a * player->x;
+        wall.c = - player->y - (wall.a * player->x);
     }
     return (wall);
 }
@@ -452,12 +452,12 @@ static t_boolean   find_line_intersect(t_wall *player, t_wall *wall)
     float   y;
 
     delta = wall->a * player->b - wall->b * player->a;
-    if (delta < 0.000000001 && delta > - 0.000000001) // this is iffy
+    if (is_epsilon(delta)) // this is iffy
     {
         printf("no intersection\n");
         return (FALSE);
     }
-    x = (wall->c * player->b - wall->b * player->c) / delta;
+    x = (wall->b * player->c - wall->c * player->b) / delta;
     y = (wall->c * player->a - wall->a * player->c) / delta;
     printf("intersection at point (%f,%f)\n", x, y);
     return (TRUE);
@@ -548,8 +548,8 @@ int main(int argc, char *argv[])
     do_all_walls((&cub3d.walls), calculate_lines_params);
     cub3d.player.x = 4;
     cub3d.player.y = 3;
-    cub3d.player.angle = 0.01;
-    cub3d.player.v_angle = M_PI;
+    cub3d.player.angle = 0.2;
+    cub3d.player.v_angle = 0.0001;
     find_intersections(&cub3d);
     // sort_all_walls(&(cub3d.walls));
     // print_walls(cub3d.walls.down);
