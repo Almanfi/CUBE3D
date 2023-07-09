@@ -6,7 +6,7 @@
 /*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 17:13:43 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/07/07 13:02:05 by bamrouch         ###   ########.fr       */
+/*   Updated: 2023/07/09 12:49:47 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,13 @@ static void set_mini_map(t_cub3d *cub3d, size_t last_line)
         exit_cub3d(ENOMEM, "couldn't malloc the mini map");
     i = 0;
     while (i < last_line - 1)
-    {
+    {   
+        cub3d->raycaster.rows_count++;
         cub3d->mini_map[i] = cub3d->map_content[i + 1];
         i++;
     }
     cub3d->mini_map[i] = NULL;
+
 }
 
 void    map_parser(t_cub3d *cub3d)

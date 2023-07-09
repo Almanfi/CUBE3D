@@ -6,7 +6,7 @@
 /*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 16:37:34 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/07/07 17:37:43 by bamrouch         ###   ########.fr       */
+/*   Updated: 2023/07/09 17:51:29 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,33 @@ typedef struct  s_player_move
     int y;
 }   t_player_move;
 
+typedef struct  s_raycaster_data
+{
+    size_t  rows_count;
+    size_t  columns_count;
+    double	player_x;
+	double	player_y;
+	double	direction_x;
+	double	direction_y;
+	double	camera_x;
+	double	camera_y;
+    double  rayX;
+    double  rayY;
+    int     mapX;
+    int     mapY;
+    double  sideDistX;
+    double  sideDistY;
+    double  deltadistX;
+    double  deltadistY;
+    double  perpwallDist;
+    int     step_x;
+    int     step_y;
+    t_boolean     hit;
+    t_boolean     side;
+    int           draw_start;
+    int           draw_end;
+}   t_raycaster_data;
+
 typedef struct s_cub3d
 {
     char        **map_content;
@@ -61,6 +88,7 @@ typedef struct s_cub3d
     void        *window;
     t_frame_data    frame;
     t_player_move   p_move;
+    t_raycaster_data    raycaster;
 }   t_cub3d;
 
 // mlx

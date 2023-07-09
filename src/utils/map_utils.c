@@ -6,7 +6,7 @@
 /*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 18:29:31 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/07/04 18:59:02 by bamrouch         ###   ########.fr       */
+/*   Updated: 2023/07/09 18:44:39 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,5 +83,6 @@ void    justify_lines(t_cub3d *cub3d)
         if (max_len < j)
             max_len = j;
     }
+    cub3d->raycaster.columns_count = max_len;
     fill_lines(cub3d, max_len);
 }   
