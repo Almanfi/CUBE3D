@@ -6,7 +6,7 @@
 /*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 19:39:12 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/07/09 12:54:52 by bamrouch         ###   ########.fr       */
+/*   Updated: 2023/07/10 23:16:05 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #define CUB3D_RAYCASTING_H
 #include "cub3d.h"
 
-#define CUBE_DIMENSIONS 64
+
 
 
 # define ESC_KEY 53

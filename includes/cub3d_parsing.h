@@ -6,7 +6,7 @@
 /*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 16:46:50 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/07/07 13:39:13 by bamrouch         ###   ########.fr       */
+/*   Updated: 2023/07/10 22:34:17 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 #define CUB3D_PARSING_H
 #include "cub3d.h"
 
-#define WINDOW_HEIGHT   1080
-#define WINDOW_WIDTH    1920
+
 // int_parser.c
 t_boolean	ft_str_is_integer(const char *str, int *res);
 

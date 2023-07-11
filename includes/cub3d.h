@@ -6,7 +6,7 @@
 /*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 16:37:34 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/07/09 17:51:29 by bamrouch         ###   ########.fr       */
+/*   Updated: 2023/07/11 05:41:46 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,14 @@
 #define CUB3D_H
 
 #include "ft_garbage_collector.h"
-#include "errno.h"
+#include <errno.h>
 #include <mlx.h>
+#include <math.h>
+
+#define WINDOW_HEIGHT   1080
+#define WINDOW_WIDTH    1920
+
+#define TEX_DIMENSIONS 64
 
 typedef struct s_rgb
 {
@@ -34,6 +40,7 @@ typedef struct s_textures
     int         west;
     t_rgb       floor;
     t_boolean   floor_is_set;
+    int         r_textures[8][TEX_DIMENSIONS * TEX_DIMENSIONS];
 }   t_textures;
 
 typedef struct s_frame_data
@@ -47,8 +54,8 @@ typedef struct s_frame_data
 
 typedef struct  s_player_move
 {
-    int x;
-    int y;
+    double x;
+    double y;
 }   t_player_move;
 
 typedef struct  s_raycaster_data
@@ -76,11 +83,17 @@ typedef struct  s_raycaster_data
     t_boolean     side;
     int           draw_start;
     int           draw_end;
+    double	wallX;
+	double	tex_step;
+	double	tex_pos;
+	int		texX;
+	int		texY;
 }   t_raycaster_data;
 
 typedef struct s_cub3d
 {
     char        **map_content;
+    size_t      *content_len;         
     char        **mini_map;
     t_boolean   player_set;
     t_textures  texture;
@@ -103,6 +116,10 @@ void    cub3d_pixel_put(t_cub3d *cub3d, int x, int y, unsigned int color);
 void    exit_cub3d(int  err_code, char *message);
 
 // utils
+//math_utils.c
+double ft_abs(double value);
+double  degree_to_rad(double degree);
+
 // map_utils.c
 void    skip_empty_lines(t_cub3d *cub3d);
 void    justify_lines(t_cub3d *cub3d);

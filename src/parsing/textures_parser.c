@@ -6,7 +6,7 @@
 /*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 16:31:38 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/07/02 22:22:54 by bamrouch         ###   ########.fr       */
+/*   Updated: 2023/07/11 05:44:17 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,7 @@ void    parse_textures(t_cub3d *cub3d)
 		}
 		ft_free_node(GNL_SCOPE, *cub3d->map_content);
 		cub3d->map_content++;
+		cub3d->content_len++;
 	}
 	if (!filled_everything(cub3d))
 		exit_cub3d(-1, "not all textures are set");

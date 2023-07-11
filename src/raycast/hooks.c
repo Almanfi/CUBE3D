@@ -6,11 +6,14 @@
 /*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 16:59:39 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/07/07 19:08:16 by bamrouch         ###   ########.fr       */
+/*   Updated: 2023/07/11 04:32:31 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+#define MOVE_SPEED 0.3
+#define ROT_SPEED 10
 
 int    close_window(void)
 {
@@ -21,17 +24,54 @@ int    close_window(void)
 
 int	keyboard_hooks(int keycode,t_cub3d *cub3d)
 {
-	// printf("the keycode is %d\n", keycode);
+	int	x, y;
+	t_raycaster_data *raycaster;
+	double			rot_speed;
+	
+	rot_speed = degree_to_rad(ROT_SPEED);
+	raycaster = &cub3d->raycaster;
 	if (keycode == ESC_KEY)
 		close_window();
-	else if (keycode == W_KEY)
-		cub3d->p_move.y -= 5;
 	else if (keycode == S_KEY)
-		cub3d->p_move.y += 5;
-	else if (keycode == D_KEY)
-		cub3d->p_move.x += 5;
+	{
+		x = raycaster->player_x - raycaster->direction_x * MOVE_SPEED;
+		y = raycaster->player_y;
+		if (cub3d->mini_map[x][y] == '0')
+			raycaster->player_x -= raycaster->direction_x * MOVE_SPEED;
+		x = raycaster->player_x;
+		y = raycaster->player_y - raycaster->direction_y * MOVE_SPEED;
+		if (cub3d->mini_map[x][y] == '0')
+			raycaster->player_y -= raycaster->direction_y * MOVE_SPEED;
+	}
+	else if (keycode == W_KEY)
+	{
+		x = raycaster->player_x + raycaster->direction_x * MOVE_SPEED;
+		y = raycaster->player_y;
+		if (cub3d->mini_map[x][y] == '0')
+			raycaster->player_x += raycaster->direction_x * MOVE_SPEED;
+		x = raycaster->player_x;
+		y = raycaster->player_y + raycaster->direction_y * MOVE_SPEED;
+		if (cub3d->mini_map[x][y] == '0')
+			raycaster->player_y += raycaster->direction_y * MOVE_SPEED;
+	}
 	else if (keycode == A_KEY)
-		cub3d->p_move.x -= 5;
+	{
+		double	old_directionX = raycaster->direction_x;
+		raycaster->direction_x = old_directionX * cos(-rot_speed) - raycaster->direction_y * sin(-rot_speed);
+		raycaster->direction_y = old_directionX * sin(-rot_speed) + raycaster->direction_y * cos(-rot_speed);
+		double	old_cameraX = raycaster->camera_x;
+		raycaster->camera_x = old_cameraX * cos(-rot_speed) - raycaster->camera_y * sin(-rot_speed);
+		raycaster->camera_y = old_cameraX * sin(-rot_speed) + raycaster->camera_y * cos(-rot_speed);
+	}
+	else if (keycode == D_KEY)
+	{
+		double	old_directionX = raycaster->direction_x;
+		raycaster->direction_x = old_directionX * cos(rot_speed) - raycaster->direction_y * sin(rot_speed);
+		raycaster->direction_y = old_directionX * sin(rot_speed) + raycaster->direction_y * cos(rot_speed);
+		double	old_cameraX = raycaster->camera_x;
+		raycaster->camera_x = old_cameraX * cos(rot_speed) - raycaster->camera_y * sin(rot_speed);
+		raycaster->camera_y = old_cameraX * sin(rot_speed) + raycaster->camera_y * cos(rot_speed);
+	}
 	return (0);
 }
 

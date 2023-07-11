@@ -6,7 +6,7 @@
 /*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 17:13:43 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/07/09 12:49:47 by bamrouch         ###   ########.fr       */
+/*   Updated: 2023/07/11 06:00:50 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,20 +31,24 @@ static  t_boolean open_wall(char **map, size_t i, size_t j)
 static void set_mini_map(t_cub3d *cub3d, size_t last_line)
 {
     size_t i;
+    size_t max_content_len;
     
     cub3d->mini_map = ft_malloc(sizeof(char *) * last_line,
         (t_mem_param){NULL, 1, NULL, 0});
     if (!cub3d->mini_map)
         exit_cub3d(ENOMEM, "couldn't malloc the mini map");
     i = 0;
+    max_content_len = 0;
     while (i < last_line - 1)
     {   
         cub3d->raycaster.rows_count++;
         cub3d->mini_map[i] = cub3d->map_content[i + 1];
+        cub3d->mini_map[i][cub3d->content_len[i]] = 0;
+        if (cub3d->content_len[i] > max_content_len)
+            cub3d->raycaster.columns_count = cub3d->content_len[i];
         i++;
     }
     cub3d->mini_map[i] = NULL;
-
 }
 
 void    map_parser(t_cub3d *cub3d)

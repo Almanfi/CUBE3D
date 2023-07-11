@@ -6,7 +6,7 @@
 /*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 18:29:31 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/07/09 18:44:39 by bamrouch         ###   ########.fr       */
+/*   Updated: 2023/07/11 05:54:35 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static char	*copy_line_and_fill(char *line, size_t len)
 			new_line = ft_memmove(new_line, line, sizeof(char) * i);
 		ft_free_node(GNL_SCOPE, line);
 		while (i < len)
-			new_line[i++] = '\n';
+			new_line[i++] = ' ';
 		new_line[i] = 0;
 		return new_line;
 	}
@@ -63,9 +63,11 @@ void    skip_empty_lines(t_cub3d *cub3d)
         if (*line)
         {
             cub3d->map_content--;
+            cub3d->content_len--;
             break;
         }
         cub3d->map_content++;
+        cub3d->content_len++;
     }
 }
 
@@ -83,6 +85,5 @@ void    justify_lines(t_cub3d *cub3d)
         if (max_len < j)
             max_len = j;
     }
-    cub3d->raycaster.columns_count = max_len;
     fill_lines(cub3d, max_len);
 }   
