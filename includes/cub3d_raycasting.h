@@ -6,16 +6,13 @@
 /*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 19:39:12 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/07/10 23:16:05 by bamrouch         ###   ########.fr       */
+/*   Updated: 2023/07/11 09:52:23 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_RAYCASTING_H
 #define CUB3D_RAYCASTING_H
 #include "cub3d.h"
-
-
-
 
 # define ESC_KEY 53
 # define D_KEY 2
@@ -53,5 +50,14 @@ void	cub3d_hooks(t_cub3d *cub3d);
 
 // main_raycasting.c
 void	draw_cub3d(t_cub3d *cub3d);
+
+// walls.c
+void    draw_wall(t_cub3d *cub3d, size_t x);
+
+//movement.c
+void    move_backwards(t_cub3d *cub3d);
+void    move_forwards(t_cub3d *cub3d);
+void    rotate_clockwise(t_cub3d *cub3d);
+void    rotate_reverse_clockwise(t_cub3d *cub3d);
 
 #endif

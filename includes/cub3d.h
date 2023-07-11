@@ -6,10 +6,9 @@
 /*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 16:37:34 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/07/11 05:41:46 by bamrouch         ###   ########.fr       */
+/*   Updated: 2023/07/11 09:52:30 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #ifndef CUB3D_H
 #define CUB3D_H
@@ -23,6 +22,10 @@
 #define WINDOW_WIDTH    1920
 
 #define TEX_DIMENSIONS 64
+
+
+#define MOVE_SPEED 0.5
+#define ROT_SPEED 10
 
 typedef struct s_rgb
 {

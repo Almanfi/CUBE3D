@@ -6,7 +6,7 @@
 /*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 16:55:41 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/07/11 06:02:57 by bamrouch         ###   ########.fr       */
+/*   Updated: 2023/07/11 10:17:47 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void    set_starting_position(t_cub3d *cub3d)
 	cub3d->raycaster.direction_x = 1;
 	cub3d->raycaster.direction_y = 0;
 	cub3d->raycaster.camera_x = 0;
-	cub3d->raycaster.camera_y = 1;
+	cub3d->raycaster.camera_y = 0.66;
 }
 
 static void	generate_random_texture(t_cub3d *cub3d)
@@ -67,6 +67,12 @@ static void	generate_random_texture(t_cub3d *cub3d)
 		x++;
 	}
 }
+
+// static	void	read_textures(t_cub3d *cub3d)
+// {
+	
+
+// }
 
 int main(int argc, char *argv[])
 {
