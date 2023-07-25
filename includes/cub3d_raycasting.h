@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_raycasting.h                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: elasce <elasce@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 19:39:12 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/07/11 09:52:23 by bamrouch         ###   ########.fr       */
+/*   Updated: 2023/07/25 21:22:58 by elasce           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,43 @@
 #define CUB3D_RAYCASTING_H
 #include "cub3d.h"
 
-# define ESC_KEY 53
-# define D_KEY 2
-# define A_KEY 0
-# define W_KEY 13
-# define S_KEY 1
-# define P_KEY 35
-# define C_KEY 8
-# define RIGHT_KEY 124
-# define LEFT_KEY 123
-# define UP_KEY 126
-# define DOWN_KEY 125
-# define FORWARD_SCROLL 5
-# define BACKWARDS_SCROLL 4
-# define LEFT_CLIC 1
-# define RIGHT_CLIC 2
+# ifdef LINUX
+
+#  define ESC_KEY 65307
+#  define D_KEY 100
+#  define A_KEY 97
+#  define W_KEY 119
+#  define S_KEY 115
+#  define P_KEY 112
+#  define C_KEY 99
+#  define RIGHT_KEY 65363
+#  define LEFT_KEY 65361
+#  define UP_KEY 65362
+#  define DOWN_KEY 65364
+#  define FORWARD_SCROLL 5
+#  define BACKWARDS_SCROLL 4
+#  define LEFT_CLIC 1
+#  define RIGHT_CLIC 2
+
+# else
+
+#  define ESC_KEY 53
+#  define D_KEY 2
+#  define A_KEY 0
+#  define W_KEY 13
+#  define S_KEY 1
+#  define P_KEY 35
+#  define C_KEY 8
+#  define RIGHT_KEY 124
+#  define LEFT_KEY 123
+#  define UP_KEY 126
+#  define DOWN_KEY 125
+#  define FORWARD_SCROLL 5
+#  define BACKWARDS_SCROLL 4
+#  define LEFT_CLIC 1
+#  define RIGHT_CLIC 2
+
+# endif // LINUX
 
 // X11 Event Masks
 # define NOEVENTMASK 0L

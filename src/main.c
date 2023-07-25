@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: elasce <elasce@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 16:55:41 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/07/11 10:17:47 by bamrouch         ###   ########.fr       */
+/*   Updated: 2023/07/25 21:11:02 by elasce           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void    set_starting_position(t_cub3d *cub3d)
 	char	**map;
 
 	i = 0;
+	j = 0;
 	map = cub3d->mini_map;
 	while (map[i])
 	{
