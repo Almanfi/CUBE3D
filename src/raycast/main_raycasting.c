@@ -6,7 +6,7 @@
 /*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 19:31:04 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/08/14 16:38:52 by bamrouch         ###   ########.fr       */
+/*   Updated: 2023/08/14 22:53:28 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,9 @@ static	void	perform_dda(t_cub3d *cub3d)
 	raycaster = &cub3d->raycaster;
 	while (!raycaster->hit)
 	{
-		if (cub3d->mini_map[raycaster->mapY][raycaster->mapX] != '1' && cub3d->mini_map[raycaster->mapY][raycaster->mapX] != '\n')
+		if ( raycaster->mapX >= 0 && raycaster->mapY >= 0 && 
+			cub3d->mini_map[raycaster->mapY][raycaster->mapX] != '1'
+			&& cub3d->mini_map[raycaster->mapY][raycaster->mapX] != '\n')
 		{
 			if (raycaster->sideDistX < raycaster->sideDistY)
 			{
@@ -58,13 +60,13 @@ static	void	perform_dda(t_cub3d *cub3d)
 			}
 			else
 			{
-				// if (cub3d->mini_map[raycaster->mapY][raycaster->mapX] != '1')
 				raycaster->sideDistY += raycaster->deltadistY;
 				raycaster->mapY += raycaster->step_y;
 				raycaster->side = TRUE;
 			}
 		}
-		if (cub3d->mini_map[raycaster->mapY][raycaster->mapX] == '1')
+		if (raycaster->mapX <= 0 || raycaster->mapY <= 0 || cub3d->mini_map[raycaster->mapY][raycaster->mapX] == '1' 
+			|| cub3d->mini_map[raycaster->mapY][raycaster->mapX] == '\n')
 			raycaster->hit = TRUE;
 	}
 }

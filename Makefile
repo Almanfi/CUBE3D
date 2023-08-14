@@ -1,8 +1,8 @@
 SRC_FILES = ${wildcard ./src/**/*.c} ${wildcard ./src/*.c} ${wildcard ./src/**/**/*.c}
 
-INCLUDES = -I./includes -I./libft/includes
+INCLUDES = -I./includes -I./libft/includes -I./minilibx-linux
 
-CC = clang
+CC = cc
 
 OBJ_FILES = ${SRC_FILES:%.c=%.o}
 
@@ -12,7 +12,7 @@ NAME = cub3D
 
 OPTIMISATION = -O2
 
-MLX_FLAG = -lmlx -framework OpenGL -framework AppKit
+MLX_FLAG = -lmlx -framework OpenGL -framework AppKit 
 
 %.o : %.c
 	@$(CC) $(FLAGS) -c $^ -o $@ $(OPTIMISATION)
@@ -38,7 +38,7 @@ $(NAME) : $(OBJ_FILES) ./libft/libft.a
 lin : linflag all
 
 linflag : 
-	$(eval MLX_FLAG := -lm -lbsd -lmlx -lXext -lX11)
+	$(eval MLX_FLAG := -lm -lmlx -lXext -lX11 -L./minilibx-linux)
 	$(eval FLAGS = -Wall -Werror -Wextra $(INCLUDES) -fsanitize=address -DLINUX)
 
 clean :
