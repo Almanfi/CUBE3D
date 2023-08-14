@@ -17,7 +17,7 @@ INCLUDES = -I./includes
 
 FLAGS = -Wall -Wextra -Werror $(INCLUDES)
 
-GCC = @cc
+GCC = @clang
 
 NAME = libft.a
 

@@ -6,11 +6,12 @@
 /*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 19:31:04 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/07/11 09:49:02 by bamrouch         ###   ########.fr       */
+/*   Updated: 2023/08/14 16:38:52 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+#include <float.h>
 
 static void	set_ray_step(t_cub3d *cub3d)
 {
@@ -46,17 +47,22 @@ static	void	perform_dda(t_cub3d *cub3d)
 	raycaster = &cub3d->raycaster;
 	while (!raycaster->hit)
 	{
-		if (raycaster->sideDistX < raycaster->sideDistY)
+		if (cub3d->mini_map[raycaster->mapY][raycaster->mapX] != '1' && cub3d->mini_map[raycaster->mapY][raycaster->mapX] != '\n')
 		{
-			raycaster->sideDistX += raycaster->deltadistX;
-			raycaster->mapX += raycaster->step_x;
-			raycaster->side = FALSE;
-		}
-		else
-		{
-			raycaster->sideDistY += raycaster->deltadistY;
-			raycaster->mapY += raycaster->step_y;
-			raycaster->side = TRUE;
+			if (raycaster->sideDistX < raycaster->sideDistY)
+			{
+
+				raycaster->sideDistX += raycaster->deltadistX;
+				raycaster->mapX += raycaster->step_x;
+				raycaster->side = FALSE;
+			}
+			else
+			{
+				// if (cub3d->mini_map[raycaster->mapY][raycaster->mapX] != '1')
+				raycaster->sideDistY += raycaster->deltadistY;
+				raycaster->mapY += raycaster->step_y;
+				raycaster->side = TRUE;
+			}
 		}
 		if (cub3d->mini_map[raycaster->mapY][raycaster->mapX] == '1')
 			raycaster->hit = TRUE;
@@ -80,10 +86,12 @@ void	cast_rays(t_cub3d *cub3d)
 		raycaster->rayY = raycaster->direction_y + raycaster->camera_y * projected_ray;
 		raycaster->mapX = raycaster->player_x;
 		raycaster->mapY = raycaster->player_y;
-		raycaster->deltadistX = raycaster->rayX == 0.0 ? INT_MAX : ft_abs((double) 1 / raycaster->rayX);
-		raycaster->deltadistY = raycaster->rayY == 0.0 ? INT_MAX : ft_abs((double) 1 / raycaster->rayY);
+		raycaster->deltadistX = raycaster->rayX == 0.0 ? DBL_MAX : ft_abs((double) 1 / raycaster->rayX);
+		raycaster->deltadistY = raycaster->rayY == 0.0 ? DBL_MAX : ft_abs((double) 1 / raycaster->rayY);
 		set_ray_step(cub3d);
+	// printf("inside\n");
 		perform_dda(cub3d);
+	// printf("before draw\n");
 		if (!raycaster->side)
 			raycaster->perpwallDist = raycaster->sideDistX - raycaster->deltadistX;
 		else

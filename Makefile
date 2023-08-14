@@ -2,7 +2,7 @@ SRC_FILES = ${wildcard ./src/**/*.c} ${wildcard ./src/*.c} ${wildcard ./src/**/*
 
 INCLUDES = -I./includes -I./libft/includes
 
-CC = cc
+CC = clang
 
 OBJ_FILES = ${SRC_FILES:%.c=%.o}
 

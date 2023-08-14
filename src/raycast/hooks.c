@@ -6,7 +6,7 @@
 /*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 16:59:39 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/07/11 07:52:28 by bamrouch         ###   ########.fr       */
+/*   Updated: 2023/08/14 16:47:30 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,37 @@ int    close_window(void)
 	return (0);
 }
 
+void	print_map(t_cub3d *cub3d)
+{
+	int x;
+	int y;
+
+	printf("player at x = %lf, y = %lf\n", cub3d->raycaster.player_x, cub3d->raycaster.player_y);
+
+	y = 0;
+	while(cub3d->mini_map[y])
+	{
+		x = 0;
+		while (cub3d->mini_map[y][x])
+		{
+			printf("%c, ", cub3d->mini_map[y][x]);
+			x++;
+		}
+		// printf("\n");
+		y++;
+	}
+}
+
 int	keyboard_hooks(int keycode,t_cub3d *cub3d)
 {
+	printf("keycode = %d\n", keycode);
+	printf("dist to wall %lf\n", cub3d->raycaster.perpwallDist);
 	if (keycode == ESC_KEY)
 		close_window();
 	else if (keycode == S_KEY)
 		move_backwards(cub3d);
+	else if (keycode == SLASH_KEY)
+		print_map(cub3d);
 	else if (keycode == W_KEY)
 		move_forwards(cub3d);
 	else if (keycode == A_KEY)

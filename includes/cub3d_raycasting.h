@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_raycasting.h                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elasce <elasce@student.42.fr>              +#+  +:+       +#+        */
+/*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 19:39:12 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/07/25 21:22:58 by elasce           ###   ########.fr       */
+/*   Updated: 2023/08/14 16:49:06 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 #  define S_KEY 115
 #  define P_KEY 112
 #  define C_KEY 99
+#  define SLASH_KEY 47
 #  define RIGHT_KEY 65363
 #  define LEFT_KEY 65361
 #  define UP_KEY 65362
@@ -41,6 +42,7 @@
 #  define S_KEY 1
 #  define P_KEY 35
 #  define C_KEY 8
+#  define SLASH_KEY 47
 #  define RIGHT_KEY 124
 #  define LEFT_KEY 123
 #  define UP_KEY 126

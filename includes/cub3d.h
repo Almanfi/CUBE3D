@@ -6,7 +6,7 @@
 /*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 16:37:34 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/07/11 09:52:30 by bamrouch         ###   ########.fr       */
+/*   Updated: 2023/08/14 15:01:13 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@
 #include <mlx.h>
 #include <math.h>
 
-#define WINDOW_HEIGHT   1080
-#define WINDOW_WIDTH    1920
+#define WINDOW_HEIGHT   720
+#define WINDOW_WIDTH    1366
 
 #define TEX_DIMENSIONS 64
 
 
-#define MOVE_SPEED 0.5
+#define MOVE_SPEED 0.1
 #define ROT_SPEED 10
 
 typedef struct s_rgb
