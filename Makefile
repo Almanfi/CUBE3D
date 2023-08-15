@@ -2,7 +2,11 @@ SRC_FILES = ${wildcard ./src/**/*.c} ${wildcard ./src/*.c} ${wildcard ./src/**/*
 
 INCLUDES = -I./includes -I./libft/includes -I./minilibx-linux
 
-CC = cc
+ifeq ($(where clang), 0)
+  CC = clang
+else ifeq ($(where gcc), 0)
+  CC = gcc
+endif
 
 OBJ_FILES = ${SRC_FILES:%.c=%.o}
 
@@ -39,7 +43,8 @@ lin : linflag all
 
 linflag : 
 	$(eval MLX_FLAG := -lm -lmlx -lXext -lX11 -L./minilibx-linux)
-	$(eval FLAGS = -Wall -Werror -Wextra $(INCLUDES) -fsanitize=address -DLINUX)
+	$(eval FLAGS = -Wall -Werror -Wextra $(INCLUDES) -DLINUX)
+# $(eval FLAGS = -Wall -Werror -Wextra $(INCLUDES) -fsanitize=address -DLINUX)
 
 clean :
 	@echo "$(RED_TEXT)Cleaning $(NAME) Object Files"

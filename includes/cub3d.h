@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 16:37:34 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/08/14 21:54:04 by bamrouch         ###   ########.fr       */
+/*   Updated: 2023/08/15 17:03:36 by maboulkh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,11 @@
 
 #define MOVE_SPEED 0.1
 #define ROT_SPEED 10
+
+#define CAMERA_DIR_X 1
+#define CAMERA_DIR_Y 0
+#define CAMERA_FOV_X 0
+#define CAMERA_FOV_Y 0.66
 
 typedef struct s_rgb
 {
@@ -63,7 +68,6 @@ typedef struct  s_player_move
 typedef struct  s_raycaster_data
 {
     size_t  rows_count;
-    size_t  columns_count;
     double	player_x;
 	double	player_y;
 	double	direction_x;
@@ -97,6 +101,7 @@ typedef struct s_cub3d
     char        **map_content;
     size_t      *content_len;         
     char        **mini_map;
+    size_t      *mini_map_line_len;
     t_boolean   player_set;
     t_textures  texture;
     void        *mlx;

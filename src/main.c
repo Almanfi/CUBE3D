@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 16:55:41 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/08/14 15:30:04 by bamrouch         ###   ########.fr       */
+/*   Updated: 2023/08/15 16:56:49 by maboulkh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,10 @@
 
 void    set_starting_position(t_cub3d *cub3d)
 {
-    size_t	i;
-	size_t	j;
-	char	**map;
-
-	i = 0;
-	j = 0;
-	map = cub3d->mini_map;
-	while (map[i])
-	{
-		j = 0;
-		while(map[i][j] && !is_start_pos(map[i][j]))
-			j++;
-		if (is_start_pos(map[i][j]))
-			break;
-		i++;
-	}
-	cub3d->raycaster.player_x = j + 0.5;
-	cub3d->raycaster.player_y = i + 0.5;
-	cub3d->raycaster.direction_x = 1;
-	cub3d->raycaster.direction_y = 0;
-	cub3d->raycaster.camera_x = 0;
-	cub3d->raycaster.camera_y = 0.66;
+	cub3d->raycaster.direction_x = CAMERA_DIR_X;
+	cub3d->raycaster.direction_y = CAMERA_DIR_Y;
+	cub3d->raycaster.camera_x = CAMERA_FOV_X;
+	cub3d->raycaster.camera_y = CAMERA_FOV_Y;
 }
 
 static void	generate_random_texture(t_cub3d *cub3d)
@@ -85,7 +67,6 @@ int main(int argc, char *argv[])
     cub3d_parser(argc, argv, &cub3d);
     cub3d_mlx_init(&cub3d);
 	printf("the row count is : %zu\n", cub3d.raycaster.rows_count);
-	printf("the columns count is : %zu\n", cub3d.raycaster.columns_count);
     set_starting_position(&cub3d);
 	generate_random_texture(&cub3d);
     draw_cub3d(&cub3d);

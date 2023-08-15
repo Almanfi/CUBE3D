@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main_raycasting.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 19:31:04 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/08/14 22:53:28 by bamrouch         ###   ########.fr       */
+/*   Updated: 2023/08/15 16:31:42 by maboulkh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,26 +47,22 @@ static	void	perform_dda(t_cub3d *cub3d)
 	raycaster = &cub3d->raycaster;
 	while (!raycaster->hit)
 	{
-		if ( raycaster->mapX >= 0 && raycaster->mapY >= 0 && 
-			cub3d->mini_map[raycaster->mapY][raycaster->mapX] != '1'
-			&& cub3d->mini_map[raycaster->mapY][raycaster->mapX] != '\n')
+		if (raycaster->sideDistX < raycaster->sideDistY)
 		{
-			if (raycaster->sideDistX < raycaster->sideDistY)
-			{
-
-				raycaster->sideDistX += raycaster->deltadistX;
-				raycaster->mapX += raycaster->step_x;
-				raycaster->side = FALSE;
-			}
-			else
-			{
-				raycaster->sideDistY += raycaster->deltadistY;
-				raycaster->mapY += raycaster->step_y;
-				raycaster->side = TRUE;
-			}
+			raycaster->sideDistX += raycaster->deltadistX;
+			raycaster->mapX += raycaster->step_x;
+			raycaster->side = FALSE;
 		}
-		if (raycaster->mapX <= 0 || raycaster->mapY <= 0 || cub3d->mini_map[raycaster->mapY][raycaster->mapX] == '1' 
-			|| cub3d->mini_map[raycaster->mapY][raycaster->mapX] == '\n')
+		else
+		{
+			raycaster->sideDistY += raycaster->deltadistY;
+			raycaster->mapY += raycaster->step_y;
+			raycaster->side = TRUE;
+		}
+		if (raycaster->mapX <= 0 || raycaster->mapY <= 0 || 
+			raycaster->mapY > (int) cub3d->raycaster.rows_count || 
+			raycaster->mapX > (int) cub3d->mini_map_line_len[raycaster->mapY]
+			||cub3d->mini_map[raycaster->mapY][raycaster->mapX] == '1')
 			raycaster->hit = TRUE;
 	}
 }
