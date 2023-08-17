@@ -6,7 +6,7 @@
 /*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 16:37:34 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/08/15 17:03:36 by maboulkh         ###   ########.fr       */
+/*   Updated: 2023/08/17 03:48:45 by maboulkh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,14 @@
 #include "mlx.h"
 #include <math.h>
 
-#define WINDOW_HEIGHT   720
-#define WINDOW_WIDTH    1366
+#define WINDOW_HEIGHT   1080
+#define WINDOW_WIDTH    1920
 
 #define TEX_DIMENSIONS 64
+#define HB_RADIUS 0.5
 
 #define MOVE_SPEED 0.1
-#define ROT_SPEED 10
+#define ROT_SPEED 5
 
 #define CAMERA_DIR_X 1
 #define CAMERA_DIR_Y 0

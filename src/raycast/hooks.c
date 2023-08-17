@@ -6,7 +6,7 @@
 /*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 16:59:39 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/08/15 16:17:31 by maboulkh         ###   ########.fr       */
+/*   Updated: 2023/08/17 02:36:09 by maboulkh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ void	print_map(t_cub3d *cub3d)
 
 int	keyboard_hooks(int keycode,t_cub3d *cub3d)
 {
-	printf("keycode = %d\n", keycode);
 	printf("dist to wall %lf\n", cub3d->raycaster.perpwallDist);
 	if (keycode == ESC_KEY)
 		close_window();

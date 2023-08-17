@@ -6,7 +6,7 @@
 /*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 07:36:11 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/08/15 16:35:17 by maboulkh         ###   ########.fr       */
+/*   Updated: 2023/08/17 03:52:22 by maboulkh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,30 +20,30 @@ void    move_backwards(t_cub3d *cub3d)
     t_raycaster_data *raycaster;
 
     raycaster = &cub3d->raycaster;
-    x = raycaster->player_x - raycaster->direction_x * MOVE_SPEED ;
-    y = raycaster->player_y;
+    y = raycaster->player_x - raycaster->direction_x * (MOVE_SPEED + 0.001);
+    x = raycaster->player_y;
     if (cub3d->mini_map[x][y] == '0')
         raycaster->player_x -= raycaster->direction_x * MOVE_SPEED;
-    x = raycaster->player_x;
-    y = raycaster->player_y - raycaster->direction_y * MOVE_SPEED;
+    y = raycaster->player_x;
+    x = raycaster->player_y - raycaster->direction_y * (MOVE_SPEED + 0.001);
     if (cub3d->mini_map[x][y] == '0')
         raycaster->player_y -= raycaster->direction_y * MOVE_SPEED;
 }
 
 void    move_forwards(t_cub3d *cub3d)
 {
-    // int x;
-    // int y;
+    int x;
+    int y;
     t_raycaster_data *raycaster;
 
     raycaster = &cub3d->raycaster;
-    // x = raycaster->player_x + raycaster->direction_x * (MOVE_SPEED);
-    // y = raycaster->player_y;
-    // if (cub3d->mini_map[x][y] == '0')
+    y = raycaster->player_x + raycaster->direction_x * (MOVE_SPEED + 0.01);
+    x = raycaster->player_y;
+    if (cub3d->mini_map[x][y] == '0')
         raycaster->player_x += raycaster->direction_x * MOVE_SPEED;
-    // x = raycaster->player_x;
-    // y = raycaster->player_y + raycaster->direction_y * (MOVE_SPEED);
-    // if (cub3d->mini_map[x][y] == '0')
+    y = raycaster->player_x;
+    x = raycaster->player_y + raycaster->direction_y * (MOVE_SPEED + 0.01);
+    if (cub3d->mini_map[x][y] == '0')
         raycaster->player_y += raycaster->direction_y * MOVE_SPEED;
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_raycasting.h                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 19:39:12 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/08/14 16:49:06 by bamrouch         ###   ########.fr       */
+/*   Updated: 2023/08/15 20:02:00 by maboulkh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ void	cub3d_hooks(t_cub3d *cub3d);
 
 // main_raycasting.c
 void	draw_cub3d(t_cub3d *cub3d);
+t_boolean	cast_rays_for_collision(t_cub3d *cub3d, double x, double y);
 
 // walls.c
 void    draw_wall(t_cub3d *cub3d, size_t x);
