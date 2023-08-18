@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 16:37:34 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/08/17 03:48:45 by maboulkh         ###   ########.fr       */
+/*   Updated: 2023/08/18 01:33:27 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@
 #define MOVE_SPEED 0.1
 #define ROT_SPEED 5
 
-#define CAMERA_DIR_X 1
-#define CAMERA_DIR_Y 0
-#define CAMERA_FOV_X 0
+#define CAMERA_DIR_X 1.0
+#define CAMERA_DIR_Y 0.0
+#define CAMERA_FOV_X 0.0
 #define CAMERA_FOV_Y 0.66
 
 typedef struct s_rgb
@@ -66,15 +66,21 @@ typedef struct  s_player_move
     double y;
 }   t_player_move;
 
+#define X 0
+#define Y 1
+
 typedef struct  s_raycaster_data
 {
     size_t  rows_count;
+    // player pos;
     double	player_x;
 	double	player_y;
+    // camera plane and direction
 	double	direction_x;
 	double	direction_y;
 	double	camera_x;
 	double	camera_y;
+    // ray casting wall data;
     double  rayX;
     double  rayY;
     int     mapX;
@@ -88,6 +94,7 @@ typedef struct  s_raycaster_data
     int     step_y;
     t_boolean     hit;
     t_boolean     side;
+    // drawing wall data
     int           draw_start;
     int           draw_end;
     double	wallX;
@@ -95,6 +102,14 @@ typedef struct  s_raycaster_data
 	double	tex_pos;
 	int		texX;
 	int		texY;
+    // raycasting floor data
+    double  leftest_ray[2];
+    double  rightest_ray[2];
+    int     current_y;
+    double  vertical_pos;
+    double  row_distance;
+    double  floor_step[2];
+    double  floor_cords[2];
 }   t_raycaster_data;
 
 typedef struct s_cub3d
