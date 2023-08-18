@@ -6,7 +6,7 @@
 /*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 19:39:12 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/08/18 20:39:51 by maboulkh         ###   ########.fr       */
+/*   Updated: 2023/08/18 23:26:57 by maboulkh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,8 @@ t_boolean	cast_rays_for_collision(t_cub3d *cub3d, double x, double y);
 void    draw_wall(t_cub3d *cub3d, size_t x);
 
 //movement.c
+void	move_player(t_cub3d *cub3d);
+void	rotate_player(t_cub3d *cub3d);
 void    move_backwards(t_cub3d *cub3d);
 void    move_forwards(t_cub3d *cub3d);
 void    move_left(t_cub3d *cub3d);

@@ -100,35 +100,8 @@ int	refresh(t_cub3d *cub3d)
 {
 	draw_cub3d(cub3d);
 	mlx_put_image_to_window(cub3d->mlx, cub3d->window, cub3d->img, 0, 0);
-
-		int x;
-		int y;
-		t_raycaster_data *raycaster;
-
-		raycaster = &cub3d->raycaster;
-		y = raycaster->player_x + cub3d->move_vertical * raycaster->direction_x * (MOVE_SPEED + HB_RADIUS)
-			+ 0.7 * cub3d->move_horizontal * raycaster->camera_x * (MOVE_SPEED + HB_RADIUS);
-		x = raycaster->player_y;
-		if (cub3d->mini_map[x][y] == '0')
-			raycaster->player_x += cub3d->move_vertical * raycaster->direction_x * MOVE_SPEED
-				+ 0.7 * cub3d->move_horizontal * raycaster->camera_x * (MOVE_SPEED + HB_RADIUS);
-		y = raycaster->player_x;
-		x = raycaster->player_y + cub3d->move_vertical * raycaster->direction_y * (MOVE_SPEED + HB_RADIUS)
-			+ 0.7 * cub3d->move_horizontal * raycaster->camera_y * (MOVE_SPEED + HB_RADIUS);
-		if (cub3d->mini_map[x][y] == '0')
-			raycaster->player_y += cub3d->move_vertical * raycaster->direction_y * MOVE_SPEED
-			+ 0.7 * cub3d->move_horizontal * raycaster->camera_y * (MOVE_SPEED + HB_RADIUS);
-		double	old_directionX;
-		double	old_cameraX;
-		double			rot_speed;
-
-		rot_speed = cub3d->rotation_dir * degree_to_rad(ROT_SPEED);
-		old_directionX = raycaster->direction_x;
-		old_cameraX = raycaster->camera_x;
-		raycaster->direction_x = old_directionX * cos(rot_speed) - raycaster->direction_y * sin(rot_speed);
-		raycaster->direction_y = old_directionX * sin(rot_speed) + raycaster->direction_y * cos(rot_speed);
-		raycaster->camera_x = old_cameraX * cos(rot_speed) - raycaster->camera_y * sin(rot_speed);
-		raycaster->camera_y = old_cameraX * sin(rot_speed) + raycaster->camera_y * cos(rot_speed);
+	move_player(cub3d);
+	rotate_player(cub3d);
 	return (0);
 }
 
