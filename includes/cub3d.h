@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 18:47:21 by maboulkh          #+#    #+#             */
-/*   Updated: 2023/08/18 18:47:26 by maboulkh         ###   ########.fr       */
+/*   Updated: 2023/08/18 19:32:01 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,8 @@ typedef struct s_textures
     // t_boolean   west;
     t_rgb       floor;
     t_boolean   floor_is_set;
+    t_rgb       ceiling;
+    t_boolean   ceiling_is_set;   
     void        *tx_img[TX_NBR];
     int         tx[TX_NBR][TEX_DIMENSIONS * TEX_DIMENSIONS];
     int         tx_set[TX_NBR];
@@ -115,14 +117,6 @@ typedef struct  s_raycaster_data
 	double	tex_pos;
 	int		texX;
 	int		texY;
-    // raycasting floor data
-    double  leftest_ray[2];
-    double  rightest_ray[2];
-    int     current_y;
-    double  vertical_pos;
-    double  row_distance;
-    double  floor_step[2];
-    double  floor_cords[2];
 }   t_raycaster_data;
 
 typedef struct s_cub3d

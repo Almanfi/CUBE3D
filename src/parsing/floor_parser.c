@@ -6,7 +6,7 @@
 /*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 20:14:53 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/07/02 20:13:40 by bamrouch         ###   ########.fr       */
+/*   Updated: 2023/08/18 20:44:58 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,18 +53,28 @@ static	void	get_color(char **line, int *color)
 
 void	floor_parser(char *line, t_cub3d *cub3d)
 {
-	if (!ft_strncmp(line, "F", 1) && ft_is_space(*(line + 1)))
+	if (!ft_strncmp(line, "F", 1) && !cub3d->texture.floor_is_set
+		&& ft_is_space(*(line + 1)))
 	{
 		line = line + 1;
 		get_color(&line, &cub3d->texture.floor.r);
 		get_color(&line, &cub3d->texture.floor.g);
 		get_color(&line, &cub3d->texture.floor.b);
-		line = skip_space(line);
-		if (*line)
-			exit_cub3d(-1, "extra content after floor color");
         cub3d->texture.floor_is_set = TRUE;
 	}
-    else
-        exit_cub3d(-1, "wrong line content");
+	else if (!ft_strncmp(line, "C", 1) && !cub3d->texture.ceiling_is_set
+		&& ft_is_space(*(line + 1)))
+	{
+		line = line + 1;
+		get_color(&line, &cub3d->texture.ceiling.r);
+		get_color(&line, &cub3d->texture.ceiling.g);
+		get_color(&line, &cub3d->texture.ceiling.b);
+        cub3d->texture.ceiling_is_set = TRUE;
+	}
+    else{
+        exit_cub3d(-1, "wrong textures content");}
+	line = skip_space(line);
+	if (*line)
+		exit_cub3d(-1, "extra content after floor color");
 }
 
