@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/11 09:44:11 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/08/18 13:10:45 by maboulkh         ###   ########.fr       */
+/*   Created: 2023/08/18 18:46:53 by maboulkh          #+#    #+#             */
+/*   Updated: 2023/08/18 18:47:01 by maboulkh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void draw_wall(t_cub3d *cub3d, size_t x)
 	t_raycaster_data *raycaster;
 
 	raycaster = &cub3d->raycaster;
-	line_height = WINDOW_HEIGHT * 1000;
+	line_height = WINDOW_HEIGHT;
 	if (raycaster->perpwallDist > 0.01)
 		line_height = (int) (WINDOW_HEIGHT / raycaster->perpwallDist);
 	raycaster->draw_start = -line_height / 2 + WINDOW_HEIGHT / 2;

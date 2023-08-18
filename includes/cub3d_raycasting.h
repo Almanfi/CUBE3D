@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_raycasting.h                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 19:39:12 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/08/15 20:02:00 by maboulkh         ###   ########.fr       */
+/*   Updated: 2023/08/18 04:06:07 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,10 @@
 # define BUTTONRELEASE 5
 # define MOTIONNOTIFY 6
 # define DESTROYNOTIFY 17
+
+
+// floor.c
+void    cast_floor(t_cub3d *cub3d);
 
 // hooks.c
 void	cub3d_hooks(t_cub3d *cub3d);

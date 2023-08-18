@@ -5,10 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/06 19:31:04 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/08/17 17:48:47 by maboulkh         ###   ########.fr       */
+/*   Created: 2023/08/18 18:46:29 by maboulkh          #+#    #+#             */
+/*   Updated: 2023/08/18 18:46:34 by maboulkh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+
 
 #include "cub3d.h"
 #include <float.h>
@@ -206,6 +208,7 @@ void	draw_cub3d(t_cub3d *cub3d)
 {
 	cub3d_window_init(cub3d);
 	cub3d_frame_init(cub3d);
+	cast_floor(cub3d);
 	cast_rays(cub3d);
 	mlx_put_image_to_window(cub3d->mlx, cub3d->window, cub3d->frame.img, 0, 0);
 }
