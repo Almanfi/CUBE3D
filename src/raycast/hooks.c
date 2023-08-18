@@ -6,7 +6,7 @@
 /*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 16:59:39 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/08/17 02:36:09 by maboulkh         ###   ########.fr       */
+/*   Updated: 2023/08/17 17:11:32:48oulkh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,30 @@ int	keyboard_hooks(int keycode,t_cub3d *cub3d)
 	return (0);
 }
 
+void draw_texture(t_cub3d *cub3d)
+{
+	int	x;
+	int	y;
+	
+	y = 0;
+	printf("cub3d->img_height = %d\n", cub3d->img_height);
+	while (y < cub3d->img_height * 5)
+	{
+		x = 0;
+		while (x < cub3d->img_width * 5)
+		{
+			cub3d_pixel_put(cub3d, y, x, ((int *) cub3d->img)[x + (y * cub3d->img_height)]);
+			x++;
+		}
+		y++;
+	}
+}
+
 int	refresh(t_cub3d *cub3d)
 {
 	draw_cub3d(cub3d);
+	mlx_put_image_to_window(cub3d->mlx, cub3d->window, cub3d->img, 0, 0);
+	// draw_texture(cub3d);
 	return (0);
 }
 

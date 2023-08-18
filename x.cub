@@ -1,10 +1,10 @@
-NO ./Makefile
+NO ./eagle.xpm
 
-SO ./Makefile
+SO ./redbrick.xpm
 
-EA ./Makefile
+EA ./colorstone.xpm
 
-WE ./Makefile
+WE ./FIREBLU2.xpm
 
 F 111,222,123
 

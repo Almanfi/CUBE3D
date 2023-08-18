@@ -43,8 +43,8 @@ lin : linflag all
 
 linflag : 
 	$(eval MLX_FLAG := -lm -lmlx -lXext -lX11 -L./minilibx-linux)
-	$(eval FLAGS = -Wall -Werror -Wextra $(INCLUDES) -DLINUX)
-# $(eval FLAGS = -Wall -Werror -Wextra $(INCLUDES) -fsanitize=address -DLINUX)
+	$(eval FLAGS = -Wall -Werror -Wextra $(INCLUDES) -fsanitize=address -DLINUX)
+#	$(eval FLAGS = -Wall -Werror -Wextra $(INCLUDES) -DLINUX)
 
 clean :
 	@echo "$(RED_TEXT)Cleaning $(NAME) Object Files"

@@ -6,7 +6,7 @@
 /*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 16:37:34 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/08/17 03:48:45 by maboulkh         ###   ########.fr       */
+/*   Updated: 2023/08/17 23:41:58 by maboulkh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 #define WINDOW_HEIGHT   1080
 #define WINDOW_WIDTH    1920
 
+#define TX_NBR   8
 #define TEX_DIMENSIONS 64
 #define HB_RADIUS 0.5
 
@@ -40,17 +41,6 @@ typedef struct s_rgb
 }   t_rgb;
 
 
-typedef struct s_textures
-{
-    int         north;
-    int         east;
-    int         south;
-    int         west;
-    t_rgb       floor;
-    t_boolean   floor_is_set;
-    int         r_textures[8][TEX_DIMENSIONS * TEX_DIMENSIONS];
-}   t_textures;
-
 typedef struct s_frame_data
 {
 	void			*img;
@@ -59,6 +49,29 @@ typedef struct s_frame_data
 	int				line_length;
 	int				endian;
 }					t_frame_data;
+
+typedef enum e_tx_type
+{
+    NORTH,
+    SOUTH,
+    EAST,
+    WEST,
+    FLOOR,
+    NOT_DEFINED
+}   t_tx_type;
+
+typedef struct s_textures
+{
+    // t_boolean   north;
+    // t_boolean   east;
+    // t_boolean   south;
+    // t_boolean   west;
+    t_rgb       floor;
+    t_boolean   floor_is_set;
+    void        *tx_img[TX_NBR];
+    int         tx[TX_NBR][TEX_DIMENSIONS * TEX_DIMENSIONS];
+    int         tx_set[TX_NBR];
+}   t_textures;
 
 typedef struct  s_player_move
 {
@@ -107,6 +120,9 @@ typedef struct s_cub3d
     t_textures  texture;
     void        *mlx;
     void        *window;
+    void        *img;
+    int		img_width;
+	int		img_height;
     t_frame_data    frame;
     t_player_move   p_move;
     t_raycaster_data    raycaster;

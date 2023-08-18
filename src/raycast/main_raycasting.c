@@ -6,7 +6,7 @@
 /*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 19:31:04 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/08/17 03:31:59 by maboulkh         ###   ########.fr       */
+/*   Updated: 2023/08/17 17:48:47 by maboulkh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -200,6 +200,7 @@ void	cast_rays(t_cub3d *cub3d)
 		i++;
 	}
 }
+
 
 void	draw_cub3d(t_cub3d *cub3d)
 {

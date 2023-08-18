@@ -6,7 +6,7 @@
 /*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 09:44:11 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/08/17 03:41:58 by maboulkh         ###   ########.fr       */
+/*   Updated: 2023/08/18 13:10:45 by maboulkh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,28 @@
 
 static	void draw_textured_wall(t_cub3d *cub3d, size_t x, int line_height)
 {
-	t_raycaster_data *raycaster;
-	int				 y;
+	t_raycaster_data 	*raycaster;
+	int				 	y;
+	int					direction;
+	// double				angle;
 
 	raycaster = &cub3d->raycaster;
+	// angle = atan(raycaster->rayY / raycaster->rayX);
+	if (!raycaster->side)
+	{
+		// printf("angle = %lf\n", angle);
+		if (raycaster->rayX > 0)
+			direction = EAST;
+		else
+			direction = WEST;
+	}
+	else
+	{
+		if (raycaster->rayY > 0)
+			direction = NORTH;
+		else
+			direction = SOUTH;
+	}
 	raycaster->wallX = raycaster->player_x + raycaster->perpwallDist * raycaster->rayX;
 	if (!raycaster->side)
 		raycaster->wallX = raycaster->player_y + raycaster->perpwallDist * raycaster->rayY;
@@ -34,7 +52,7 @@ static	void draw_textured_wall(t_cub3d *cub3d, size_t x, int line_height)
 	{
 		raycaster->texY = (int) raycaster->tex_pos & (TEX_DIMENSIONS - 1);
 		raycaster->tex_pos +=  raycaster->tex_step;
-		cub3d_pixel_put(cub3d, x, y, cub3d->texture.r_textures[0][TEX_DIMENSIONS * raycaster->texY + raycaster->texX]);
+		cub3d_pixel_put(cub3d, x, y, cub3d->texture.tx[direction][TEX_DIMENSIONS * raycaster->texY + raycaster->texX]);
 		y++;
 	}
 }
