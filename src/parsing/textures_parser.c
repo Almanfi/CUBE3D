@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   textures_parser.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 16:31:38 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/08/17 23:39:42 by maboulkh         ###   ########.fr       */
+/*   Updated: 2023/08/18 20:46:15 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,7 +118,7 @@ static t_boolean	filled_everything(t_cub3d *cub3d)
 {
 	if (cub3d->texture.tx_set[NORTH] && cub3d->texture.tx_set[SOUTH]
 		&& cub3d->texture.tx_set[EAST] && cub3d->texture.tx_set[WEST]
-		&& cub3d->texture.floor_is_set)
+		&& cub3d->texture.floor_is_set && cub3d->texture.ceiling_is_set)
 		return TRUE;
 	return FALSE;
 }
