@@ -6,7 +6,7 @@
 /*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 18:47:21 by maboulkh          #+#    #+#             */
-/*   Updated: 2023/08/18 18:47:26 by maboulkh         ###   ########.fr       */
+/*   Updated: 2023/08/18 22:29:46 by maboulkh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
 #define MOVE_SPEED 0.1
 #define ROT_SPEED 5
 
-#define CAMERA_DIR_X 1.0
+#define CAMERA_DIR_X 1
 #define CAMERA_DIR_Y 0.0
 #define CAMERA_FOV_X 0.0
 #define CAMERA_FOV_Y 0.66
@@ -141,6 +141,9 @@ typedef struct s_cub3d
     t_frame_data    frame;
     t_player_move   p_move;
     t_raycaster_data    raycaster;
+    int move_horizontal;
+    int move_vertical;
+    int rotation_dir;
 }   t_cub3d;
 
 // mlx

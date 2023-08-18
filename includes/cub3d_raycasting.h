@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_raycasting.h                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 19:39:12 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/08/18 04:06:07 by bamrouch         ###   ########.fr       */
+/*   Updated: 2023/08/18 20:39:51 by maboulkh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_RAYCASTING_H
 #define CUB3D_RAYCASTING_H
 #include "cub3d.h"
+#include <X11/X.h>
 
 # ifdef LINUX
 
@@ -57,6 +58,7 @@
 // X11 Event Masks
 # define NOEVENTMASK 0L
 # define KEYPRESSMASK 1L
+# define KEYRELEASEMASK 2L
 # define BUTTONPRESSMASK 4L
 # define BUTTONRELEASEMASK 8L
 # define POINTERMOTIONMASK 64L
@@ -64,6 +66,7 @@
 // X11 Event Names
 
 # define KEYPRESS 2
+# define KEYRELEASE 3
 # define BUTTONPRESS 4
 # define BUTTONRELEASE 5
 # define MOTIONNOTIFY 6
@@ -86,6 +89,8 @@ void    draw_wall(t_cub3d *cub3d, size_t x);
 //movement.c
 void    move_backwards(t_cub3d *cub3d);
 void    move_forwards(t_cub3d *cub3d);
+void    move_left(t_cub3d *cub3d);
+void    move_right(t_cub3d *cub3d);
 void    rotate_clockwise(t_cub3d *cub3d);
 void    rotate_reverse_clockwise(t_cub3d *cub3d);
 

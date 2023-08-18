@@ -6,7 +6,7 @@
 /*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 18:46:53 by maboulkh          #+#    #+#             */
-/*   Updated: 2023/08/18 18:47:01 by maboulkh         ###   ########.fr       */
+/*   Updated: 2023/08/18 21:48:05 by maboulkh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,10 @@ static	void draw_textured_wall(t_cub3d *cub3d, size_t x, int line_height)
 	t_raycaster_data 	*raycaster;
 	int				 	y;
 	int					direction;
-	// double				angle;
 
 	raycaster = &cub3d->raycaster;
-	// angle = atan(raycaster->rayY / raycaster->rayX);
 	if (!raycaster->side)
 	{
-		// printf("angle = %lf\n", angle);
 		if (raycaster->rayX > 0)
 			direction = EAST;
 		else

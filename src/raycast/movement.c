@@ -6,7 +6,7 @@
 /*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 07:36:11 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/08/17 03:52:22 by maboulkh         ###   ########.fr       */
+/*   Updated: 2023/08/18 20:11:40 by maboulkh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,40 @@ void    move_forwards(t_cub3d *cub3d)
     x = raycaster->player_y + raycaster->direction_y * (MOVE_SPEED + 0.01);
     if (cub3d->mini_map[x][y] == '0')
         raycaster->player_y += raycaster->direction_y * MOVE_SPEED;
+}
+
+void    move_right(t_cub3d *cub3d)
+{
+    int x;
+    int y;
+    t_raycaster_data *raycaster;
+
+    raycaster = &cub3d->raycaster;
+    y = raycaster->player_x + raycaster->camera_x * (MOVE_SPEED + 0.01);
+    x = raycaster->player_y;
+    if (cub3d->mini_map[x][y] == '0')
+        raycaster->player_x += raycaster->camera_x * MOVE_SPEED;
+    y = raycaster->player_x;
+    x = raycaster->player_y + raycaster->camera_y * (MOVE_SPEED + 0.01);
+    if (cub3d->mini_map[x][y] == '0')
+        raycaster->player_y += raycaster->camera_y * MOVE_SPEED;
+}
+
+void    move_left(t_cub3d *cub3d)
+{
+    int x;
+    int y;
+    t_raycaster_data *raycaster;
+
+    raycaster = &cub3d->raycaster;
+    y = raycaster->player_x - raycaster->camera_x * (MOVE_SPEED + 0.01);
+    x = raycaster->player_y;
+    if (cub3d->mini_map[x][y] == '0')
+        raycaster->player_x -= raycaster->camera_x * MOVE_SPEED;
+    y = raycaster->player_x;
+    x = raycaster->player_y - raycaster->camera_y * (MOVE_SPEED + 0.01);
+    if (cub3d->mini_map[x][y] == '0')
+        raycaster->player_y -= raycaster->camera_y* MOVE_SPEED;
 }
 
 void    rotate_clockwise(t_cub3d *cub3d)
