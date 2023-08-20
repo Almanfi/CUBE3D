@@ -6,7 +6,7 @@
 /*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 18:47:21 by maboulkh          #+#    #+#             */
-/*   Updated: 2023/08/18 23:29:36 by maboulkh         ###   ########.fr       */
+/*   Updated: 2023/08/20 03:21:14 by maboulkh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 #include "mlx.h"
 #include <math.h>
 
-#define WINDOW_HEIGHT   1080
-#define WINDOW_WIDTH    1920
+#define WINDOW_HEIGHT   (1080 / 2)
+#define WINDOW_WIDTH    (1920 / 2)
 
 #define TX_NBR   8
 #define TEX_DIMENSIONS 64

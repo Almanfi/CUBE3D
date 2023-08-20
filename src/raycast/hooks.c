@@ -96,12 +96,59 @@ void draw_texture(t_cub3d *cub3d)
 	}
 }
 
+static t_boolean	check_map(int x, int y, t_cub3d *cub3d, int minimap_size)
+{
+	int	xm;
+	int	ym;
+	int ratio;
+
+	ratio = 10;
+	xm = x - WINDOW_WIDTH / minimap_size  + (cub3d->raycaster.player_x * ratio);
+	ym = y - WINDOW_HEIGHT / minimap_size + (cub3d->raycaster.player_y * ratio);
+	if (ym >= 0 && ym / ratio < (int) cub3d->raycaster.rows_count
+		&& xm >= 0 && xm / ratio <= (int) cub3d->mini_map_line_len[y / ratio]
+		&& cub3d->mini_map[ym / ratio][xm / ratio] == '0'
+		)
+		return (TRUE);
+	else
+		return (FALSE);
+}
+
+void	draw_minimap(t_cub3d *cub3d)
+{
+	int	x;
+	int	y;
+	int ratio;
+	int minimap_size;
+
+	minimap_size = 20;
+	ratio = 10;
+	y =  0;
+	while (y <  2 * WINDOW_HEIGHT / minimap_size)
+	{
+		x =  0;
+		while (x <= 2 * WINDOW_WIDTH / minimap_size)
+		{
+			if (y > WINDOW_HEIGHT / minimap_size - ratio / 2 && y < WINDOW_HEIGHT / minimap_size + ratio / 2
+				&& x > WINDOW_WIDTH / minimap_size - ratio / 2 && x < WINDOW_WIDTH / minimap_size + ratio / 2)
+				cub3d_pixel_put(cub3d, x, y, 0xff0000);
+			else if (check_map(x, y, cub3d, minimap_size))
+				cub3d_pixel_put(cub3d, x, y, 0xffffff);
+			else
+				cub3d_pixel_put(cub3d, x, y, 0x000000);
+			x++;
+		}
+		y++;
+	}
+}
+
 int	refresh(t_cub3d *cub3d)
 {
-	draw_cub3d(cub3d);
-	mlx_put_image_to_window(cub3d->mlx, cub3d->window, cub3d->img, 0, 0);
 	move_player(cub3d);
 	rotate_player(cub3d);
+	draw_cub3d(cub3d);
+	draw_minimap(cub3d);
+	// mlx_put_image_to_window(cub3d->mlx, cub3d->window, cub3d->img, 0, 0);
 	return (0);
 }
 
