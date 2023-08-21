@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 18:47:21 by maboulkh          #+#    #+#             */
-/*   Updated: 2023/08/20 03:21:14 by maboulkh         ###   ########.fr       */
+/*   Updated: 2023/08/21 18:40:26 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,8 @@ typedef enum e_tx_type
     EAST,
     WEST,
     FLOOR,
+    DOOR,
+    SPRITE,
     NOT_DEFINED
 }   t_tx_type;
 
@@ -109,7 +111,7 @@ typedef struct  s_raycaster_data
     int     step_y;
     t_boolean     hit;
     t_boolean     side;
-    // drawing wall data
+    // drawing data
     int           draw_start;
     int           draw_end;
     double	wallX;
@@ -117,7 +119,29 @@ typedef struct  s_raycaster_data
 	double	tex_pos;
 	int		texX;
 	int		texY;
+    // drawing sprites
+    double  sprite_x;
+    double  sprite_y;
+    double  inv_Det;
+    double  transform_X;
+    double  transform_Y;
+    int     sprite_screenX;
+    int     sprite_height;
+    int     draw_startX;
+    int     draw_startY;
+    int     draw_endX;
+    int     draw_endY;
+    int     sprite_width;
+
 }   t_raycaster_data;
+
+typedef struct s_sprite
+{
+    double  x;
+    double  y;
+    size_t  sprite_id;
+    double  distance;
+}   t_sprite;
 
 typedef struct s_cub3d
 {
@@ -138,6 +162,9 @@ typedef struct s_cub3d
     int move_horizontal;
     int move_vertical;
     int rotation_dir;
+    t_sprite           **sprites;
+    size_t             sprite_count;
+    double             Zbuffer[WINDOW_WIDTH];
 }   t_cub3d;
 
 // mlx

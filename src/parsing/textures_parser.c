@@ -6,7 +6,7 @@
 /*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 16:31:38 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/08/18 20:46:15 by bamrouch         ###   ########.fr       */
+/*   Updated: 2023/08/21 15:26:51 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	generate_random_texture(t_cub3d *cub3d)
 	}
 }
 
-static void store_texture(t_cub3d *cub3d, t_tx_type tx_side)
+void store_texture(t_cub3d *cub3d, t_tx_type tx_side)
 {
 	int	x;
 	int	y;

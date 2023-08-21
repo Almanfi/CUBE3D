@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_parser.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 17:13:43 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/08/15 17:05:07 by maboulkh         ###   ########.fr       */
+/*   Updated: 2023/08/21 18:18:25 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,9 @@ static void set_mini_map(t_cub3d *cub3d, size_t last_line)
 
 void    map_parser(t_cub3d *cub3d)
 {
-    char    **map;
-    char    *line;
+    char        **map;
+    char        *line;
+    t_sprite    *new_sprite;
     size_t  i;
     size_t  j;
 
@@ -91,8 +92,26 @@ void    map_parser(t_cub3d *cub3d)
         {
             if (map[i][j] == '1' || ft_is_space(map[i][j]))
                 ;
-            else if ((map[i][j] == '0' ||  is_start_pos(map[i][j])) && (j == 0 || open_wall(map, i, j)))
+            else if ((map[i][j] == '0' || map[i][j] == 'D' || map[i][j] == 'S' ||
+                is_start_pos(map[i][j])) && (j == 0 || open_wall(map, i, j)))
                 exit_cub3d(-1, "unvalid map due to unclosed walls");
+            else if (map[i][j] == 'D' || map[i][j] == 'S')
+            {
+                void    *temp_p;
+                new_sprite = ft_malloc(sizeof(t_sprite), m_info(NULL, 1, NULL, 0));
+                if (!new_sprite)
+                    exit_cub3d(-1, "couldn't malloc a new sprite pointer");
+                new_sprite->x = j + 0.5;
+                new_sprite->y = i - 0.5;
+                new_sprite->sprite_id = SPRITE;
+                if (map[i][j] == 'D')
+                    new_sprite->sprite_id = DOOR;
+                temp_p = cub3d->sprites;
+                cub3d->sprites = add_element_to_array(temp_p, &new_sprite, sizeof(t_sprite *));
+                ft_free_node(1, temp_p);
+                map[i][j] = '0';
+                cub3d->sprite_count++;
+            }
             else if (is_start_pos(map[i][j]))
             {
                 if (cub3d->player_set)
