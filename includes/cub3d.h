@@ -6,7 +6,7 @@
 /*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 18:47:21 by maboulkh          #+#    #+#             */
-/*   Updated: 2023/08/20 17:53:14 by maboulkh         ###   ########.fr       */
+/*   Updated: 2023/08/22 15:49:44 by maboulkh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 #define HB_RADIUS 0.1
 
 #define MOVE_SPEED 0.1
-#define ROT_SPEED 5
+#define ROT_SPEED 1
 
 #define CAMERA_DIR_X 1
 #define CAMERA_DIR_Y 0.0
@@ -64,15 +64,13 @@ typedef enum e_tx_type
     EAST,
     WEST,
     FLOOR,
+    DOOR,
+    SPRITE,
     NOT_DEFINED
 }   t_tx_type;
 
 typedef struct s_textures
 {
-    // t_boolean   north;
-    // t_boolean   east;
-    // t_boolean   south;
-    // t_boolean   west;
     t_rgb       floor;
     t_boolean   floor_is_set;
     t_rgb       ceiling;
@@ -87,9 +85,6 @@ typedef struct  s_player_move
     double x;
     double y;
 }   t_player_move;
-
-#define X 0
-#define Y 1
 
 typedef struct  s_raycaster_data
 {
@@ -116,7 +111,7 @@ typedef struct  s_raycaster_data
     int     step_y;
     t_boolean     hit;
     t_boolean     side;
-    // drawing wall data
+    // drawing data
     int           draw_start;
     int           draw_end;
     double	wallX;
@@ -124,7 +119,30 @@ typedef struct  s_raycaster_data
 	double	tex_pos;
 	int		texX;
 	int		texY;
+    // drawing sprites
+    double  sprite_x;
+    double  sprite_y;
+    double  inv_Det;
+    double  transform_X;
+    double  transform_Y;
+    int     sprite_screenX;
+    int     sprite_height;
+    int     draw_startX;
+    int     draw_startY;
+    int     draw_endX;
+    int     draw_endY;
+    int     sprite_width;
+
 }   t_raycaster_data;
+
+typedef struct s_sprite
+{
+    double  x;
+    double  y;
+    size_t  sprite_id;
+    double  distance;
+}   t_sprite;
+
 
 typedef struct s_cub3d
 {
@@ -136,17 +154,22 @@ typedef struct s_cub3d
     t_textures  texture;
     void        *mlx;
     void        *window;
-    void        *img;
-    int		img_width;
-	int		img_height;
+    void        **imgs;
+    int         img_width;
+	int         img_height;
     t_frame_data    frame;
     t_player_move   p_move;
     t_raycaster_data    raycaster;
     int move_horizontal;
     int move_vertical;
     int rotation_dir;
+    t_sprite           **sprites;
+    size_t             sprite_count;
+    double             Zbuffer[WINDOW_WIDTH];
 }   t_cub3d;
 
+//  main.c
+    t_cub3d *get_cub3d(t_cub3d *cub3d);
 // mlx
 // init_mlx.c
 void    cub3d_window_init(t_cub3d *cub3d);

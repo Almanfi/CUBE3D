@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main_raycasting.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 18:46:29 by maboulkh          #+#    #+#             */
-/*   Updated: 2023/08/20 03:25:54 by maboulkh         ###   ########.fr       */
+/*   Updated: 2023/08/21 18:36:13 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -211,9 +211,11 @@ void	cast_rays(t_cub3d *cub3d)
 			raycaster->perpwallDist = raycaster->sideDistX - raycaster->deltadistX;
 		else
 			raycaster->perpwallDist = raycaster->sideDistY - raycaster->deltadistY;
+		cub3d->Zbuffer[i] = raycaster->perpwallDist;
 		draw_wall(cub3d, i);
 		i++;
 	}
+	draw_sprites(cub3d);
 }
 
 

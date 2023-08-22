@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_raycasting.h                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 19:39:12 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/08/18 23:26:57 by maboulkh         ###   ########.fr       */
+/*   Updated: 2023/08/21 18:35:27 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,8 @@
 # define MOTIONNOTIFY 6
 # define DESTROYNOTIFY 17
 
+// sprites.c
+void    draw_sprites(t_cub3d *cub3d);
 
 // floor.c
 void    cast_floor(t_cub3d *cub3d);
@@ -80,7 +82,7 @@ void    cast_floor(t_cub3d *cub3d);
 void	cub3d_hooks(t_cub3d *cub3d);
 
 // main_raycasting.c
-void	draw_cub3d(t_cub3d *cub3d);
+void	    draw_cub3d(t_cub3d *cub3d);
 t_boolean	cast_rays_for_collision(t_cub3d *cub3d, double x, double y);
 
 // walls.c
