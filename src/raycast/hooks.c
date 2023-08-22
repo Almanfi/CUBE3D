@@ -140,6 +140,22 @@ void	draw_minimap(t_cub3d *cub3d)
 		}
 		y++;
 	}
+// 	t_projected_point start;
+// 	t_projected_point end;
+// 	t_raycaster_data *raycaster;
+// 	int	xm;
+// 	int	ym;
+
+//     raycaster = &cub3d->raycaster;
+// 	x = xm + WINDOW_WIDTH / minimap_size  - (cub3d->raycaster.player_x * ratio);
+// 	ym = y - WINDOW_HEIGHT / minimap_size + (cub3d->raycaster.player_y * ratio);
+// 	start.x = WINDOW_WIDTH / minimap_size;
+// 	start.y = WINDOW_HEIGHT / minimap_size;
+//     end.x = raycaster->player_y + cub3d->move_vertical * raycaster->direction_y * (MOVE_SPEED + HB_RADIUS)
+//         + 0.7 * cub3d->move_horizontal * raycaster->camera_y * (MOVE_SPEED + HB_RADIUS);
+// 	end.y = raycaster->player_x + cub3d->move_vertical * raycaster->direction_x * (MOVE_SPEED + HB_RADIUS)
+//         + 0.7 * cub3d->move_horizontal * raycaster->camera_x * (MOVE_SPEED + HB_RADIUS);
+// 	cub3d_draw_line(cub3d, start, end);
 }
 
 int	refresh(t_cub3d *cub3d)
