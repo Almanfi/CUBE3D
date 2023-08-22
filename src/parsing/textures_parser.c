@@ -6,7 +6,7 @@
 /*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 16:31:38 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/08/21 15:26:51 by bamrouch         ###   ########.fr       */
+/*   Updated: 2023/08/22 09:54:31 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,46 +33,46 @@ static t_tx_type	texture_side(char **line, t_cub3d *cub3d)
 	return (texture);
 }
 
-void	generate_random_texture(t_cub3d *cub3d)
+// void	generate_random_texture(t_cub3d *cub3d)
+// {
+// 	int	x;
+// 	int	y;
+// 	int	xor_color;
+// 	int	y_color;
+// 	int	xy_color;
+// 	t_frame_data texture_data;
+
+// 	texture_data.addr = mlx_get_data_addr(cub3d->img, &texture_data.bits_per_pixel, &texture_data.line_length, &texture_data.endian);
+// 	x = 0;
+// 	while (x < TEX_DIMENSIONS)
+// 	{
+// 		y = 0;
+// 		while (y < TEX_DIMENSIONS)
+// 		{
+// 			xor_color = (x * 256 / TEX_DIMENSIONS) ^ (y * 256 / TEX_DIMENSIONS);
+// 			y_color = y * 256 / TEX_DIMENSIONS;
+//    			xy_color = y * 128 / TEX_DIMENSIONS + x * 128 / TEX_DIMENSIONS;
+// 			cub3d->texture.tx[0][TEX_DIMENSIONS * y + x] = 65536 * 254 * (x != y && x != TEX_DIMENSIONS - y);
+// 			cub3d->texture.tx[1][TEX_DIMENSIONS * y + x] = ((int *)texture_data.addr)[(texture_data.line_length / 4) * y + x];
+// 			cub3d->texture.tx[2][TEX_DIMENSIONS * y + x] = 256 * xy_color + 65536 * xy_color;
+// 			cub3d->texture.tx[3][TEX_DIMENSIONS * y + x] = xor_color + 256 * xor_color + 65536 * xor_color;
+// 			cub3d->texture.tx[4][TEX_DIMENSIONS * y + x] = 256 * xor_color;
+// 			cub3d->texture.tx[5][TEX_DIMENSIONS * y + x] = 65536 * 192 * (x % 16 && y % 16);
+// 			cub3d->texture.tx[6][TEX_DIMENSIONS * y + x] = 65536 * y_color;
+// 			cub3d->texture.tx[7][TEX_DIMENSIONS * y + x] = 128 + 256 * 128 + 65536 * 128;
+// 			y++;
+// 		}
+// 		x++;
+// 	}
+// }
+
+void store_texture(t_cub3d *cub3d, t_tx_type tx_side, void *img)
 {
 	int	x;
 	int	y;
-	int	xor_color;
-	int	y_color;
-	int	xy_color;
 	t_frame_data texture_data;
 
-	texture_data.addr = mlx_get_data_addr(cub3d->img, &texture_data.bits_per_pixel, &texture_data.line_length, &texture_data.endian);
-	x = 0;
-	while (x < TEX_DIMENSIONS)
-	{
-		y = 0;
-		while (y < TEX_DIMENSIONS)
-		{
-			xor_color = (x * 256 / TEX_DIMENSIONS) ^ (y * 256 / TEX_DIMENSIONS);
-			y_color = y * 256 / TEX_DIMENSIONS;
-   			xy_color = y * 128 / TEX_DIMENSIONS + x * 128 / TEX_DIMENSIONS;
-			cub3d->texture.tx[0][TEX_DIMENSIONS * y + x] = 65536 * 254 * (x != y && x != TEX_DIMENSIONS - y);
-			cub3d->texture.tx[1][TEX_DIMENSIONS * y + x] = ((int *)texture_data.addr)[(texture_data.line_length / 4) * y + x];
-			cub3d->texture.tx[2][TEX_DIMENSIONS * y + x] = 256 * xy_color + 65536 * xy_color;
-			cub3d->texture.tx[3][TEX_DIMENSIONS * y + x] = xor_color + 256 * xor_color + 65536 * xor_color;
-			cub3d->texture.tx[4][TEX_DIMENSIONS * y + x] = 256 * xor_color;
-			cub3d->texture.tx[5][TEX_DIMENSIONS * y + x] = 65536 * 192 * (x % 16 && y % 16);
-			cub3d->texture.tx[6][TEX_DIMENSIONS * y + x] = 65536 * y_color;
-			cub3d->texture.tx[7][TEX_DIMENSIONS * y + x] = 128 + 256 * 128 + 65536 * 128;
-			y++;
-		}
-		x++;
-	}
-}
-
-void store_texture(t_cub3d *cub3d, t_tx_type tx_side)
-{
-	int	x;
-	int	y;
-	t_frame_data texture_data;
-
-	texture_data.addr = mlx_get_data_addr(cub3d->img, &texture_data.bits_per_pixel, &texture_data.line_length, &texture_data.endian);
+	texture_data.addr = mlx_get_data_addr(img, &texture_data.bits_per_pixel, &texture_data.line_length, &texture_data.endian);
 	x = 0;
 	while (x < TEX_DIMENSIONS)
 	{
@@ -84,13 +84,14 @@ void store_texture(t_cub3d *cub3d, t_tx_type tx_side)
 		}
 		x++;
 	}
-
 }
 
 static	void	open_texture_file(char **line, t_cub3d *cub3d, t_tx_type side)
 {
 	size_t	i;
 	size_t	j;
+	void	*img;
+	void	**temp;
 
 	*line = skip_space(*line);
 	if (!*line)
@@ -98,7 +99,6 @@ static	void	open_texture_file(char **line, t_cub3d *cub3d, t_tx_type side)
 	i = 0;
 	while ((*line)[i] && !ft_is_space((*line)[i]))
 		i++;
-	
 	if ((*line)[i])
 	{
 		(*line)[i] = 0;
@@ -108,10 +108,15 @@ static	void	open_texture_file(char **line, t_cub3d *cub3d, t_tx_type side)
 		if ((*line)[j])
 			exit_cub3d(-1, "unrespected texture format");
 	}
-	cub3d->img = mlx_xpm_file_to_image(cub3d->mlx, *line, &(cub3d->img_width), &(cub3d->img_height));
-	if (!cub3d->img)
+	img = mlx_xpm_file_to_image(cub3d->mlx, *line, &(cub3d->img_width), &(cub3d->img_height));
+	if (!img)
 		exit_cub3d(-1, "couldn't open a texture file");
-	store_texture(cub3d, side);
+	temp = cub3d->imgs;
+	cub3d->imgs = add_element_to_array(temp, &img, sizeof(void *));
+	if (!cub3d->imgs)
+		exit_cub3d(ENOMEM, "couldn't save texture pointers");
+	ft_free_node(1, temp);
+	store_texture(cub3d, side, img);
 }
 
 static t_boolean	filled_everything(t_cub3d *cub3d)

@@ -15,6 +15,15 @@
 
 int    close_window(void)
 {
+	t_cub3d *cub3d;
+
+	cub3d = get_cub3d(NULL);
+	while (*(cub3d->imgs))
+	{
+		mlx_destroy_image(cub3d->mlx, *(cub3d->imgs));
+		cub3d->imgs++;
+	}
+	mlx_destroy_window(cub3d->mlx, cub3d->window);
 	ft_free(0, TRUE);
 	exit(0);
 	return (0);
@@ -77,24 +86,24 @@ static int	keyboard_release_hooks(int keycode,t_cub3d *cub3d)
 	return (0);
 }
 
-void draw_texture(t_cub3d *cub3d)
-{
-	int	x;
-	int	y;
+// void draw_texture(t_cub3d *cub3d)
+// {
+// 	int	x;
+// 	int	y;
 	
-	y = 0;
-	printf("cub3d->img_height = %d\n", cub3d->img_height);
-	while (y < cub3d->img_height * 5)
-	{
-		x = 0;
-		while (x < cub3d->img_width * 5)
-		{
-			cub3d_pixel_put(cub3d, y, x, ((int *) cub3d->img)[x + (y * cub3d->img_height)]);
-			x++;
-		}
-		y++;
-	}
-}
+// 	y = 0;
+// 	printf("cub3d->img_height = %d\n", cub3d->img_height);
+// 	while (y < cub3d->img_height * 5)
+// 	{
+// 		x = 0;
+// 		while (x < cub3d->img_width * 5)
+// 		{
+// 			cub3d_pixel_put(cub3d, y, x, ((int *) cub3d->img)[x + (y * cub3d->img_height)]);
+// 			x++;
+// 		}
+// 		y++;
+// 	}
+// }
 
 static t_boolean	check_map(int x, int y, t_cub3d *cub3d, int minimap_size)
 {

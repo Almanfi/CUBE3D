@@ -6,7 +6,7 @@
 /*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 18:47:21 by maboulkh          #+#    #+#             */
-/*   Updated: 2023/08/22 08:38:13 by bamrouch         ###   ########.fr       */
+/*   Updated: 2023/08/22 10:14:54 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,7 +137,6 @@ typedef struct s_sprite
 }   t_sprite;
 
 
-
 typedef struct s_cub3d
 {
     char        **map_content;
@@ -148,9 +147,9 @@ typedef struct s_cub3d
     t_textures  texture;
     void        *mlx;
     void        *window;
-    void        *img;
-    int		img_width;
-	int		img_height;
+    void        **imgs;
+    int         img_width;
+	int         img_height;
     t_frame_data    frame;
     t_player_move   p_move;
     t_raycaster_data    raycaster;
@@ -162,6 +161,8 @@ typedef struct s_cub3d
     double             Zbuffer[WINDOW_WIDTH];
 }   t_cub3d;
 
+//  main.c
+    t_cub3d *get_cub3d(t_cub3d *cub3d);
 // mlx
 // init_mlx.c
 void    cub3d_window_init(t_cub3d *cub3d);
