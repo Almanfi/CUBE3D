@@ -6,7 +6,7 @@
 /*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 18:47:21 by maboulkh          #+#    #+#             */
-/*   Updated: 2023/08/21 18:40:26 by bamrouch         ###   ########.fr       */
+/*   Updated: 2023/08/22 08:38:13 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 #define HB_RADIUS 0.1
 
 #define MOVE_SPEED 0.1
-#define ROT_SPEED 5
+#define ROT_SPEED 1
 
 #define CAMERA_DIR_X 1
 #define CAMERA_DIR_Y 0.0
@@ -64,10 +64,6 @@ typedef enum e_tx_type
 
 typedef struct s_textures
 {
-    // t_boolean   north;
-    // t_boolean   east;
-    // t_boolean   south;
-    // t_boolean   west;
     t_rgb       floor;
     t_boolean   floor_is_set;
     t_rgb       ceiling;
@@ -82,9 +78,6 @@ typedef struct  s_player_move
     double x;
     double y;
 }   t_player_move;
-
-#define X 0
-#define Y 1
 
 typedef struct  s_raycaster_data
 {
@@ -142,6 +135,8 @@ typedef struct s_sprite
     size_t  sprite_id;
     double  distance;
 }   t_sprite;
+
+
 
 typedef struct s_cub3d
 {

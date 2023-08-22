@@ -6,7 +6,7 @@
 /*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 16:55:41 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/08/21 16:22:21 by bamrouch         ###   ########.fr       */
+/*   Updated: 2023/08/22 08:45:44 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ int main(int argc, char *argv[])
     ft_bzero(&cub3d, sizeof(t_cub3d));
     cub3d_mlx_init(&cub3d);
     cub3d_parser(argc, argv, &cub3d);
-    set_starting_position(&cub3d);
     read_sprites(&cub3d);
     draw_cub3d(&cub3d);
     mlx_loop(cub3d.mlx);

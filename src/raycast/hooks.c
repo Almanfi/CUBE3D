@@ -26,8 +26,8 @@ void	print_map(t_cub3d *cub3d)
 	int y;
 
 	printf("player at x = %lf, y = %lf\n", cub3d->raycaster.player_x, cub3d->raycaster.player_y);
-	printf("camera at x = %lf, y = %lf\n", cub3d->raycaster.direction_x, cub3d->raycaster.direction_y);
-
+	printf("direction at  at x = %lf, y = %lf\n", cub3d->raycaster.direction_x, cub3d->raycaster.direction_y);
+	printf("FOV at x = %lf , y = %lf\n", cub3d->raycaster.camera_x, cub3d->raycaster.camera_y);
 	y = 0;
 	while(cub3d->mini_map[y])
 	{
