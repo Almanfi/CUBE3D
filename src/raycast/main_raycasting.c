@@ -6,7 +6,7 @@
 /*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 18:46:29 by maboulkh          #+#    #+#             */
-/*   Updated: 2023/08/21 18:36:13 by bamrouch         ###   ########.fr       */
+/*   Updated: 2023/08/22 17:49:17 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -192,7 +192,9 @@ void	cast_rays(t_cub3d *cub3d)
 	size_t	i;
 	double	projected_ray;
 	t_raycaster_data	*raycaster;
+	static double mindist;
 
+	mindist = 10000000;
 	raycaster = &cub3d->raycaster;
 	i = 0;
 	while (i < WINDOW_WIDTH)
@@ -212,6 +214,11 @@ void	cast_rays(t_cub3d *cub3d)
 		else
 			raycaster->perpwallDist = raycaster->sideDistY - raycaster->deltadistY;
 		cub3d->Zbuffer[i] = raycaster->perpwallDist;
+		if (raycaster->perpwallDist < mindist)
+		{
+			mindist = raycaster->perpwallDist;
+			printf("the closest %lf\n", raycaster->perpwallDist);
+		}
 		draw_wall(cub3d, i);
 		i++;
 	}
