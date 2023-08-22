@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_parser.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 17:13:43 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/08/22 08:47:29 by bamrouch         ###   ########.fr       */
+/*   Updated: 2023/08/22 16:08:43 by maboulkh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,11 +79,11 @@ static void set_dir_and_fov(t_cub3d *cub3d, double dir[2], double fov[2])
 void    set_camera_cord(t_cub3d *cub3d, char c)
 {
     if (c == 'W')
-        set_dir_and_fov(cub3d,(double[2]) {1.0, 0.0}, (double[2]){0.0, 0.66});
+        set_dir_and_fov(cub3d,(double[2]) {-1.0, 0.0}, (double[2]){0.0, -0.66});
     else if (c == 'S')
         set_dir_and_fov(cub3d,(double[2]) {0.0, 1.0}, (double[2]){-0.66, 0});
     else if (c == 'E')
-        set_dir_and_fov(cub3d,(double[2]) {-1.0, 0.0}, (double[2]){0.0, -0.66});
+        set_dir_and_fov(cub3d,(double[2]) {1.0, 0.0}, (double[2]){0.0, 0.66});
     else if (c == 'N')
         set_dir_and_fov(cub3d,(double[2]) {0.0, -1.0}, (double[2]){0.66, 0.0});        
 }   

@@ -6,7 +6,7 @@
 /*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 17:38:26 by maboulkh          #+#    #+#             */
-/*   Updated: 2023/08/20 17:51:54 by maboulkh         ###   ########.fr       */
+/*   Updated: 2023/08/22 17:00:52 by maboulkh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,25 +30,17 @@ void	double_swap(double *a, double *b)
 	*b = tmp;
 }
 
-static double	floating_point(double x)
-{
-	if (x > 0)
-		return (x - (int)x);
-	else
-		return (x - (int)x - 1);
-}
-
 static t_boolean	cub3d_draw_steep_line(t_cub3d *cub3d, double y, double x, int color)
 {
-	cub3d_pixel_put(cub3d, y - 1, x, fade_color(color, floating_point(y)));
-	cub3d_pixel_put(cub3d, y, x, fade_color(color, 1 - floating_point(y)));
+	cub3d_pixel_put(cub3d, y - 1, x, color);
+	cub3d_pixel_put(cub3d, y, x, color);
 	return (TRUE);
 }
 
 static t_boolean	cub3d_draw_normal_line(t_cub3d *cub3d, double x, double y, int color)
 {
-	cub3d_pixel_put(cub3d, x, y - 1, fade_color(color, floating_point(y)));
-	cub3d_pixel_put(cub3d, x, y, fade_color(color, 1 - floating_point(y)));
+	cub3d_pixel_put(cub3d, x, y - 1, color);
+	cub3d_pixel_put(cub3d, x, y, color);
 	return (TRUE);
 }
 
@@ -65,7 +57,7 @@ static void	cub3d_draw_line_pixels(t_cub3d *cub3d,
 	dx = 0;
 	while (p1.x + dx < p2.x)
 	{
-		color = 0xffffff;
+		color = 0x00ff;
 		if (steep)
 			cub3d_draw_steep_line(cub3d, p1.y, p1.x + dx, color);
 		else
