@@ -6,7 +6,7 @@
 /*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 18:47:21 by maboulkh          #+#    #+#             */
-/*   Updated: 2023/08/22 14:33:21 by bamrouch         ###   ########.fr       */
+/*   Updated: 2023/08/22 17:54:50 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,13 @@
 #define CAMERA_DIR_Y 0.0
 #define CAMERA_FOV_X 0.0
 #define CAMERA_FOV_Y 0.66
+
+typedef struct s_cub3d_projected_point
+{
+	double	x;
+	double	y;
+	int		clr;
+}	t_projected_point;
 
 typedef struct s_rgb
 {
@@ -173,6 +180,8 @@ void    cub3d_frame_init(t_cub3d *cub3d);
 void    cub3d_mlx_init(t_cub3d *cub3d);
 //  pixel_put.c
 void    cub3d_pixel_put(t_cub3d *cub3d, int x, int y, unsigned int color);
+void	cub3d_draw_line(t_cub3d *cub3d, t_projected_point point1,
+		t_projected_point point2);
 
 // exit_cub3d.c
 void    exit_cub3d(int  err_code, char *message);
