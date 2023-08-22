@@ -6,7 +6,7 @@
 /*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 07:36:11 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/08/22 18:02:30 by maboulkh         ###   ########.fr       */
+/*   Updated: 2023/08/22 23:09:38 by maboulkh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,18 +43,18 @@ void    move_player(t_cub3d *cub3d)
 
     move_speed = ((double) MOVE_SPEED * WINDOW_HEIGHT) / 500;
     raycaster = &cub3d->raycaster;
-    y = raycaster->player_x + cub3d->move_vertical * raycaster->direction_x * (move_speed + HB_RADIUS)
-        + 0.7 * cub3d->move_horizontal * raycaster->camera_x * (move_speed + HB_RADIUS);
+    y = raycaster->player_x + cub3d->move_vertical * raycaster->direction_x * move_speed
+        + 0.7 * cub3d->move_horizontal * raycaster->camera_x * move_speed;
     x = raycaster->player_y;
     if (cub3d->mini_map[x][y] == '0')
-        raycaster->player_x += cub3d->move_vertical * raycaster->direction_x *move_speed 
-            + 0.7 * cub3d->move_horizontal * raycaster->camera_x * (move_speed + HB_RADIUS);
+        raycaster->player_x += cub3d->move_vertical * raycaster->direction_x * move_speed
+            + 0.7 * cub3d->move_horizontal * raycaster->camera_x * move_speed;
     y = raycaster->player_x;
-    x = raycaster->player_y + cub3d->move_vertical * raycaster->direction_y * (move_speed + HB_RADIUS)
-        + 0.7 * cub3d->move_horizontal * raycaster->camera_y * (move_speed + HB_RADIUS);
+    x = raycaster->player_y + cub3d->move_vertical * raycaster->direction_y * move_speed
+        + 0.7 * cub3d->move_horizontal * raycaster->camera_y * move_speed;
     if (cub3d->mini_map[x][y] == '0')
-        raycaster->player_y += cub3d->move_vertical * raycaster->direction_y *move_speed 
-        + 0.7 * cub3d->move_horizontal * raycaster->camera_y * (move_speed + HB_RADIUS);
+        raycaster->player_y += cub3d->move_vertical * raycaster->direction_y * move_speed
+        + 0.7 * cub3d->move_horizontal * raycaster->camera_y * move_speed;
 }
 
 void    rotate_player(t_cub3d *cub3d)

@@ -6,7 +6,7 @@
 /*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 18:47:21 by maboulkh          #+#    #+#             */
-/*   Updated: 2023/08/22 18:04:07 by maboulkh         ###   ########.fr       */
+/*   Updated: 2023/08/22 22:44:18 by maboulkh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,12 @@
 #define WINDOW_HEIGHT   1080
 #define WINDOW_WIDTH    1920
 
-#define TX_NBR   8
+#define TX_NBR   16
 #define TEX_DIMENSIONS 64
-#define HB_RADIUS 0.1
+#define HB_RADIUS 1
 
 #define MOVE_SPEED 0.1
 #define ROT_SPEED 1
-
-#define CAMERA_DIR_X 1
-#define CAMERA_DIR_Y 0.0
-#define CAMERA_FOV_X 0.0
-#define CAMERA_FOV_Y 0.66
 
 typedef struct s_cub3d_projected_point
 {
@@ -66,6 +61,11 @@ typedef enum e_tx_type
     FLOOR,
     DOOR,
     SPRITE,
+    FIREHEAD1,
+    FIREHEAD2,
+    FIREHEAD3,
+    FIREHEAD4,
+    FIREHEAD5,
     NOT_DEFINED
 }   t_tx_type;
 
@@ -169,6 +169,7 @@ typedef struct s_cub3d
     int                mouse_x;
     int                mouse_y;
     double             rot_multiplicator;
+    int                texturen;
 }   t_cub3d;
 
 //  main.c

@@ -70,6 +70,7 @@ static int	keyboard_press_hooks(int keycode,t_cub3d *cub3d)
 		cub3d->rotation_dir = 1; 
 	else if (keycode == SLASH_KEY) //clean this
 		print_map(cub3d);
+	
 	return (0);
 }
 
@@ -154,13 +155,16 @@ int	refresh(t_cub3d *cub3d)
 {
 	static int fps;
 
-	if (fps > 1000)
+	if (fps > 10000)
 	{
 		move_player(cub3d);
 		rotate_player(cub3d);
 		draw_cub3d(cub3d);
 		draw_minimap(cub3d);
 		fps = 0;
+		cub3d->texturen++;
+		if (cub3d->texturen > 4)
+			cub3d->texturen = 0;
 	}
 	fps++;
 	return (0);

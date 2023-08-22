@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sprites.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 03:28:35 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/08/21 18:30:52 by bamrouch         ###   ########.fr       */
+/*   Updated: 2023/08/22 23:09:07 by maboulkh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,9 +119,12 @@ void    draw_sprites(t_cub3d *cub3d)
                 {
                     tex_d = row * 256 - WINDOW_HEIGHT * 128 + raycaster->sprite_height * 128;
                     raycaster->texY = ((tex_d * TEX_DIMENSIONS) / raycaster-> sprite_height) / 256;
-                    if ((cub3d->texture.tx[sprites[i]->sprite_id][TEX_DIMENSIONS * raycaster->texY + raycaster->texX] & 0x00FFFFFF) != 0)
+                    if ((cub3d->texture.tx[FIREHEAD1 + cub3d->texturen][TEX_DIMENSIONS * raycaster->texY + raycaster->texX] & 0x00FFFFFF) != 0)
                         cub3d_pixel_put(cub3d, stripe, row,
-                        cub3d->texture.tx[sprites[i]->sprite_id][TEX_DIMENSIONS * raycaster->texY + raycaster->texX]);
+                        cub3d->texture.tx[FIREHEAD1 + cub3d->texturen][TEX_DIMENSIONS * raycaster->texY + raycaster->texX]);
+                    // if ((cub3d->texture.tx[sprites[i]->sprite_id][TEX_DIMENSIONS * raycaster->texY + raycaster->texX] & 0x00FFFFFF) != 0)
+                    //     cub3d_pixel_put(cub3d, stripe, row,
+                    //     cub3d->texture.tx[sprites[i]->sprite_id][TEX_DIMENSIONS * raycaster->texY + raycaster->texX]);
                     row++;
                 }
                 

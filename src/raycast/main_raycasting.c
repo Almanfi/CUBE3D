@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main_raycasting.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 18:46:29 by maboulkh          #+#    #+#             */
-/*   Updated: 2023/08/22 17:49:17 by bamrouch         ###   ########.fr       */
+/*   Updated: 2023/08/22 18:17:42 by maboulkh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -213,6 +213,8 @@ void	cast_rays(t_cub3d *cub3d)
 			raycaster->perpwallDist = raycaster->sideDistX - raycaster->deltadistX;
 		else
 			raycaster->perpwallDist = raycaster->sideDistY - raycaster->deltadistY;
+		if (raycaster->perpwallDist < 0.1)
+			raycaster->perpwallDist = 0.1;
 		cub3d->Zbuffer[i] = raycaster->perpwallDist;
 		if (raycaster->perpwallDist < mindist)
 		{
