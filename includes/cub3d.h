@@ -6,7 +6,7 @@
 /*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 18:47:21 by maboulkh          #+#    #+#             */
-/*   Updated: 2023/08/22 10:14:54 by bamrouch         ###   ########.fr       */
+/*   Updated: 2023/08/22 14:33:21 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -159,6 +159,9 @@ typedef struct s_cub3d
     t_sprite           **sprites;
     size_t             sprite_count;
     double             Zbuffer[WINDOW_WIDTH];
+    int                mouse_x;
+    int                mouse_y;
+    double             rot_multiplicator;
 }   t_cub3d;
 
 //  main.c

@@ -153,16 +153,34 @@ void	draw_minimap(t_cub3d *cub3d)
 
 int	refresh(t_cub3d *cub3d)
 {
-	move_player(cub3d);
-	rotate_player(cub3d);
-	draw_cub3d(cub3d);
-	draw_minimap(cub3d);
-	// mlx_put_image_to_window(cub3d->mlx, cub3d->window, cub3d->img, 0, 0);
+	static int fps;
+
+	if (fps > 1000)
+	{
+		move_player(cub3d);
+		rotate_player(cub3d);
+		draw_cub3d(cub3d);
+		draw_minimap(cub3d);
+		fps = 0;
+	}
+	fps++;
 	return (0);
 }
 
+// int	mouse_rotation(int x, int y, t_cub3d *cub3d)
+// {
+// 	if (x - cub3d->mouse_x > 0)
+// 	{
+		
+// 		cub3d->rotation_dir = 1;
+// 	}
+// 	return (0);
+// }	
+
 void	cub3d_hooks(t_cub3d *cub3d)
 {
+	cub3d->mouse_x = WINDOW_HEIGHT / 2;
+	cub3d->mouse_y = WINDOW_WIDTH / 2;
 	// mlx_hook(cub3d->window, MOTIONNOTIFY, POINTERMOTIONMASK, rotate_hook,
 	// 	fdf);
 	mlx_hook(cub3d->window, DESTROYNOTIFY, NOEVENTMASK, close_window,(void *) NULL);
