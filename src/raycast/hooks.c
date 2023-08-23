@@ -87,44 +87,53 @@ static int	keyboard_release_hooks(int keycode,t_cub3d *cub3d)
 	return (0);
 }
 
-static t_boolean	check_map(int x, int y, t_cub3d *cub3d, int minimap_size)
+static t_boolean	check_map(int x, int y, t_cub3d *cub3d)
 {
-	int	xm;
-	int	ym;
+	float	xm;
+	float	ym;
 	int ratio;
 
-	ratio = 10;
-	xm = x - WINDOW_WIDTH / minimap_size  + (cub3d->raycaster.player_x * ratio);
-	ym = y - WINDOW_HEIGHT / minimap_size + (cub3d->raycaster.player_y * ratio);
-	if (ym >= 0 && ym / ratio < (int) cub3d->raycaster.rows_count
-		&& xm >= 0 && xm / ratio < (int) cub3d->mini_map_line_len[ym / ratio]
-		&& cub3d->mini_map[ym / ratio][xm / ratio] == '0'
+	ratio = cub3d->minimap.unit;
+	xm = (float) (x - (cub3d->minimap.width) / 2) / ratio  + cub3d->raycaster.player_x;
+	ym = (float) (y - (cub3d->minimap.height) / 2) / ratio + cub3d->raycaster.player_y;
+	if (ym >= 0 && ym < (int) cub3d->raycaster.rows_count
+		&& xm >= 0 && xm < (int) cub3d->mini_map_line_len[(int) ym]
+		&& cub3d->mini_map[(int) ym][(int) xm] == '0'
 		)
 		return (TRUE);
 	else
 		return (FALSE);
 }
+	// xm = (x - cub3d->minimap.width / 2) / cub3d->minimap.unit  + cub3d->raycaster.player_x;
+	// ym = (y - cub3d->minimap.height / 2) / cub3d->minimap.unit + cub3d->raycaster.player_y;
+	// if (ym >= 0 && ym < (int) cub3d->raycaster.rows_count
+	// 	&& xm >= 0 && xm < (int) cub3d->mini_map_line_len[ym]
+	// 	&& cub3d->mini_map[ym][xm] == '0'
+	// 	)
 
 void	draw_minimap(t_cub3d *cub3d)
 {
 	int	x;
 	int	y;
-	int ratio;
-	int minimap_size;
 
-	minimap_size = 20;
-	ratio = 10;
+	cub3d->minimap.size = 10;
+	cub3d->minimap.unit = 10;
+	cub3d->minimap.height = WINDOW_HEIGHT / cub3d->minimap.size;
+	cub3d->minimap.width = WINDOW_WIDTH / cub3d->minimap.size;
 	y =  0;
-	while (y <  2 * WINDOW_HEIGHT / minimap_size)
+	while (y < cub3d->minimap.height)
 	{
 		x =  0;
-		while (x < 2 * WINDOW_WIDTH / minimap_size)
+		while (x < cub3d->minimap.width)
 		{
-			if (y > WINDOW_HEIGHT / minimap_size - ratio / 2 && y < WINDOW_HEIGHT / minimap_size + ratio / 2
-				&& x > WINDOW_WIDTH / minimap_size - ratio / 2 && x < WINDOW_WIDTH / minimap_size + ratio / 2)
+			if (y > (cub3d->minimap.height - cub3d->minimap.unit) / 2 && y < (cub3d->minimap.height + cub3d->minimap.unit) / 2
+				&& x > (cub3d->minimap.width - cub3d->minimap.unit) / 2 && x < (cub3d->minimap.width + cub3d->minimap.unit) / 2)
 				cub3d_pixel_put(cub3d, x, y, 0xff0000);
-			else if (check_map(x, y, cub3d, minimap_size))
+			else if (check_map(x, y, cub3d))
 				cub3d_pixel_put(cub3d, x, y, 0xffffff);
+			else if (x < 2 || x > cub3d->minimap.width - 3
+					|| y < 2 || y > cub3d->minimap.height - 3)
+				cub3d_pixel_put(cub3d, x, y, 0xaaaaaa);
 			else
 				cub3d_pixel_put(cub3d, x, y, 0x000000);
 			x++;
@@ -137,17 +146,17 @@ void	draw_minimap(t_cub3d *cub3d)
 
 	int length = 500;
     raycaster = &cub3d->raycaster;
-	start.x = WINDOW_WIDTH / minimap_size;
-	start.y = WINDOW_HEIGHT / minimap_size;
-	end.x = start.x + length * (raycaster->direction_x * (MOVE_SPEED + HB_RADIUS)
-        + raycaster->camera_x * (MOVE_SPEED + HB_RADIUS));
-    end.y = start.y + length * (raycaster->direction_y * (MOVE_SPEED + HB_RADIUS)
-        + raycaster->camera_y * (MOVE_SPEED + HB_RADIUS));
+	start.x = cub3d->minimap.width / 2;
+	start.y = cub3d->minimap.height / 2;
+	end.x = start.x + length * (raycaster->direction_x * 100
+        + raycaster->camera_x * 102);
+    end.y = start.y + length * (raycaster->direction_y * 100
+        + raycaster->camera_y * 102);
 	cub3d_draw_line(cub3d, start, end);
-	end.x = start.x + length * (raycaster->direction_x * (MOVE_SPEED + HB_RADIUS)
-        - raycaster->camera_x * (MOVE_SPEED + HB_RADIUS));
-    end.y = start.y + length * (raycaster->direction_y * (MOVE_SPEED + HB_RADIUS)
-        - raycaster->camera_y * (MOVE_SPEED + HB_RADIUS));
+	end.x = start.x + length * (raycaster->direction_x * 100
+        - raycaster->camera_x * 102);
+    end.y = start.y + length * (raycaster->direction_y * 100
+        - raycaster->camera_y * 102);
 	cub3d_draw_line(cub3d, start, end);
 }
 

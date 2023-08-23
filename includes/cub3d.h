@@ -6,7 +6,7 @@
 /*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 18:47:21 by maboulkh          #+#    #+#             */
-/*   Updated: 2023/08/22 22:44:18 by maboulkh         ###   ########.fr       */
+/*   Updated: 2023/08/23 13:50:44 by maboulkh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 #include "mlx.h"
 #include <math.h>
 
-#define WINDOW_HEIGHT   1080
-#define WINDOW_WIDTH    1920
+#define WINDOW_HEIGHT   (1080 / 2)
+#define WINDOW_WIDTH    (1920 / 2)
 
 #define TX_NBR   16
 #define TEX_DIMENSIONS 64
@@ -143,6 +143,13 @@ typedef struct s_sprite
     double  distance;
 }   t_sprite;
 
+typedef struct s_minimap
+{
+    int width;
+    int height;
+    int unit;
+    int size;
+}   t_minimap;
 
 typedef struct s_cub3d
 {
@@ -170,6 +177,7 @@ typedef struct s_cub3d
     int                mouse_y;
     double             rot_multiplicator;
     int                texturen;
+    t_minimap          minimap;
 }   t_cub3d;
 
 //  main.c
