@@ -6,7 +6,7 @@
 /*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 18:46:29 by maboulkh          #+#    #+#             */
-/*   Updated: 2023/08/22 18:17:42 by maboulkh         ###   ########.fr       */
+/*   Updated: 2023/08/23 23:00:27 by maboulkh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,10 +70,15 @@ static void	set_ray_step(t_cub3d *cub3d)
 static	void	perform_dda(t_cub3d *cub3d)
 {
 	t_raycaster_data *raycaster;
+	// double mapx;
+	// double mapy;
 
 	raycaster = &cub3d->raycaster;
 	while (!raycaster->hit)
 	{
+		raycaster->door = FALSE;
+		if (cub3d->mini_map[raycaster->mapY][raycaster->mapX] == 'D')
+			raycaster->door = TRUE;
 		if (raycaster->sideDistX < raycaster->sideDistY)
 		{
 			raycaster->sideDistX += raycaster->deltadistX;
@@ -89,8 +94,23 @@ static	void	perform_dda(t_cub3d *cub3d)
 		if (raycaster->mapX <= 0 || raycaster->mapY <= 0 || 
 			raycaster->mapY > (int) cub3d->raycaster.rows_count || 
 			raycaster->mapX > (int) cub3d->mini_map_line_len[raycaster->mapY]
-			||cub3d->mini_map[raycaster->mapY][raycaster->mapX] == '1')
+			|| cub3d->mini_map[raycaster->mapY][raycaster->mapX] == '1')
+			// || cub3d->mini_map[raycaster->mapY][raycaster->mapX] == 'D')
+		{
+			// if (cub3d->mini_map[raycaster->mapY][raycaster->mapX] == 'D')
+			// 	raycaster->door = TRUE;
 			raycaster->hit = TRUE;
+		}
+		// mapx = raycaster->mapX - (raycaster->player_x - (int) raycaster->player_x) + 0.5 * raycaster->step_x;
+		// mapy = raycaster->mapY - (raycaster->player_y - (int) raycaster->player_y) + 0.5 * raycaster->step_y;
+		// if (mapx <= 0 || mapy <= 0 || 
+		// 	mapy > (int) cub3d->raycaster.rows_count || 
+		// 	mapx > (int) cub3d->mini_map_line_len[(int) mapy]
+		// 	|| cub3d->mini_map[(int) mapy][(int) mapx] == 'D')
+		// {
+		// 	raycaster->door = TRUE;
+		// 	raycaster->hit = TRUE;
+		// }
 	}
 }
 
@@ -192,13 +212,14 @@ void	cast_rays(t_cub3d *cub3d)
 	size_t	i;
 	double	projected_ray;
 	t_raycaster_data	*raycaster;
-	static double mindist;
+	// static double mindist;
 
-	mindist = 10000000;
+	// mindist = 10000000;
 	raycaster = &cub3d->raycaster;
 	i = 0;
 	while (i < WINDOW_WIDTH)
 	{
+		raycaster->door = FALSE;
 		raycaster->hit = FALSE;
 		projected_ray = ((2 * i) / (double) WINDOW_WIDTH) - 1;
 		raycaster->rayX = raycaster->direction_x + raycaster->camera_x * projected_ray;
@@ -216,11 +237,11 @@ void	cast_rays(t_cub3d *cub3d)
 		if (raycaster->perpwallDist < 0.1)
 			raycaster->perpwallDist = 0.1;
 		cub3d->Zbuffer[i] = raycaster->perpwallDist;
-		if (raycaster->perpwallDist < mindist)
-		{
-			mindist = raycaster->perpwallDist;
-			printf("the closest %lf\n", raycaster->perpwallDist);
-		}
+		// if (raycaster->perpwallDist < mindist)
+		// {
+		// 	mindist = raycaster->perpwallDist;
+		// 	printf("the closest %lf\n", raycaster->perpwallDist);
+		// }
 		draw_wall(cub3d, i);
 		i++;
 	}

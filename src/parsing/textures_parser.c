@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   textures_parser.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 16:31:38 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/08/22 09:54:31 by bamrouch         ###   ########.fr       */
+/*   Updated: 2023/08/23 22:29:02 by maboulkh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ static t_tx_type	texture_side(char **line, t_cub3d *cub3d)
 			texture = SOUTH;
 		else if (!ft_strncmp(*line, "WE", 2) && !cub3d->texture.tx_set[WEST] && ++(cub3d->texture.tx_set[WEST]))
 			texture = WEST;
+		else if (!ft_strncmp(*line, "DO", 2) && !cub3d->texture.tx_set[DOOR] && ++(cub3d->texture.tx_set[DOOR]))
+			texture = DOOR;
 		if (texture != NOT_DEFINED)
 			*line = *line + 2;
 	}
@@ -123,6 +125,7 @@ static t_boolean	filled_everything(t_cub3d *cub3d)
 {
 	if (cub3d->texture.tx_set[NORTH] && cub3d->texture.tx_set[SOUTH]
 		&& cub3d->texture.tx_set[EAST] && cub3d->texture.tx_set[WEST]
+		&& cub3d->texture.tx_set[DOOR]
 		&& cub3d->texture.floor_is_set && cub3d->texture.ceiling_is_set)
 		return TRUE;
 	return FALSE;

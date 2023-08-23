@@ -6,7 +6,7 @@
 /*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 18:47:21 by maboulkh          #+#    #+#             */
-/*   Updated: 2023/08/23 13:50:44 by maboulkh         ###   ########.fr       */
+/*   Updated: 2023/08/23 22:37:44 by maboulkh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@
 #define TEX_DIMENSIONS 64
 #define HB_RADIUS 1
 
-#define MOVE_SPEED 0.1
-#define ROT_SPEED 1
+#define MOVE_SPEED 0.4
+#define ROT_SPEED 4
 
 typedef struct s_cub3d_projected_point
 {
@@ -74,7 +74,7 @@ typedef struct s_textures
     t_rgb       floor;
     t_boolean   floor_is_set;
     t_rgb       ceiling;
-    t_boolean   ceiling_is_set;   
+    t_boolean   ceiling_is_set;
     void        *tx_img[TX_NBR];
     int         tx[TX_NBR][TEX_DIMENSIONS * TEX_DIMENSIONS];
     int         tx_set[TX_NBR];
@@ -111,6 +111,7 @@ typedef struct  s_raycaster_data
     int     step_y;
     t_boolean     hit;
     t_boolean     side;
+    t_boolean     door;
     // drawing data
     int           draw_start;
     int           draw_end;
