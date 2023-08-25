@@ -6,7 +6,7 @@
 /*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 18:47:21 by maboulkh          #+#    #+#             */
-/*   Updated: 2023/08/23 22:37:44 by maboulkh         ###   ########.fr       */
+/*   Updated: 2023/08/24 23:18:28 by maboulkh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include <errno.h>
 #include "mlx.h"
 #include <math.h>
+#include <float.h>
 
 #define WINDOW_HEIGHT   (1080 / 2)
 #define WINDOW_WIDTH    (1920 / 2)

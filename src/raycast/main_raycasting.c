@@ -6,14 +6,13 @@
 /*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 18:46:29 by maboulkh          #+#    #+#             */
-/*   Updated: 2023/08/23 23:00:27 by maboulkh         ###   ########.fr       */
+/*   Updated: 2023/08/25 01:41:09 by maboulkh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 
 #include "cub3d.h"
-#include <float.h>
 
 static void	set_ray_step_for_collision(t_cub3d *cub3d, t_raycaster_data *raycaster)
 {
@@ -70,36 +69,69 @@ static void	set_ray_step(t_cub3d *cub3d)
 static	void	perform_dda(t_cub3d *cub3d)
 {
 	t_raycaster_data *raycaster;
+	int	halfX;
+	int halfY;
+	t_boolean is_front_door;
 	// double mapx;
 	// double mapy;
 
+	halfX = 0;
+	halfY = 0;
+	is_front_door = FALSE;
 	raycaster = &cub3d->raycaster;
 	while (!raycaster->hit)
 	{
 		raycaster->door = FALSE;
 		if (cub3d->mini_map[raycaster->mapY][raycaster->mapX] == 'D')
 			raycaster->door = TRUE;
-		if (raycaster->sideDistX < raycaster->sideDistY)
+		if ((raycaster->sideDistX < raycaster->sideDistY || halfX) && !halfY)
 		{
-			raycaster->sideDistX += raycaster->deltadistX;
-			raycaster->mapX += raycaster->step_x;
+			raycaster->sideDistX += 0.5 * raycaster->deltadistX;
+			if (halfX)
+			{
+				raycaster->mapX += raycaster->step_x;
+				halfX = 0;
+			}
+			else
+				halfX = 1;
 			raycaster->side = FALSE;
 		}
 		else
 		{
-			raycaster->sideDistY += raycaster->deltadistY;
-			raycaster->mapY += raycaster->step_y;
+			raycaster->sideDistY += 0.5 * raycaster->deltadistY;
+			if (halfY)
+			{
+				raycaster->mapY += raycaster->step_y;
+				halfY = 0;
+			}
+			else
+				halfY = 1;
 			raycaster->side = TRUE;
 		}
-		if (raycaster->mapX <= 0 || raycaster->mapY <= 0 || 
+		if ((!halfX && !halfY)
+			&& (raycaster->mapX <= 0 || raycaster->mapY <= 0 || 
 			raycaster->mapY > (int) cub3d->raycaster.rows_count || 
 			raycaster->mapX > (int) cub3d->mini_map_line_len[raycaster->mapY]
 			|| cub3d->mini_map[raycaster->mapY][raycaster->mapX] == '1')
 			// || cub3d->mini_map[raycaster->mapY][raycaster->mapX] == 'D')
+			)
 		{
 			// if (cub3d->mini_map[raycaster->mapY][raycaster->mapX] == 'D')
 			// 	raycaster->door = TRUE;
 			raycaster->hit = TRUE;
+		}
+		if ((halfX ^ halfY)  // XOR?
+			&& (raycaster->mapX <= 0 || raycaster->mapY <= 0 || 
+			raycaster->mapY > (int) cub3d->raycaster.rows_count || 
+			raycaster->mapX > (int) cub3d->mini_map_line_len[raycaster->mapY]
+			|| cub3d->mini_map[raycaster->mapY][raycaster->mapX] == 'D')
+			// || cub3d->mini_map[raycaster->mapY][raycaster->mapX] == 'D')
+			)
+		{
+			// if (cub3d->mini_map[raycaster->mapY][raycaster->mapX] == 'D')
+				raycaster->door = TRUE;
+			raycaster->hit = TRUE;
+			is_front_door = TRUE;
 		}
 		// mapx = raycaster->mapX - (raycaster->player_x - (int) raycaster->player_x) + 0.5 * raycaster->step_x;
 		// mapy = raycaster->mapY - (raycaster->player_y - (int) raycaster->player_y) + 0.5 * raycaster->step_y;
@@ -112,6 +144,11 @@ static	void	perform_dda(t_cub3d *cub3d)
 		// 	raycaster->hit = TRUE;
 		// }
 	}
+	(void) is_front_door;
+	if (halfX)
+		raycaster->sideDistX += 0.5 * raycaster->deltadistX;
+	if (halfY)
+		raycaster->sideDistY += 0.5 * raycaster->deltadistY;
 }
 
 static	t_boolean	perform_dda_for_collision(t_cub3d *cub3d, t_raycaster_data *raycaster)
@@ -212,9 +249,7 @@ void	cast_rays(t_cub3d *cub3d)
 	size_t	i;
 	double	projected_ray;
 	t_raycaster_data	*raycaster;
-	// static double mindist;
 
-	// mindist = 10000000;
 	raycaster = &cub3d->raycaster;
 	i = 0;
 	while (i < WINDOW_WIDTH)
@@ -237,11 +272,6 @@ void	cast_rays(t_cub3d *cub3d)
 		if (raycaster->perpwallDist < 0.1)
 			raycaster->perpwallDist = 0.1;
 		cub3d->Zbuffer[i] = raycaster->perpwallDist;
-		// if (raycaster->perpwallDist < mindist)
-		// {
-		// 	mindist = raycaster->perpwallDist;
-		// 	printf("the closest %lf\n", raycaster->perpwallDist);
-		// }
 		draw_wall(cub3d, i);
 		i++;
 	}
