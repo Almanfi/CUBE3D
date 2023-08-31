@@ -6,7 +6,7 @@
 /*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 16:55:41 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/08/22 22:58:45 by maboulkh         ###   ########.fr       */
+/*   Updated: 2023/08/30 23:49:51 by maboulkh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ int main(int argc, char *argv[])
     cub3d_parser(argc, argv, &cub3d);
     read_sprites(&cub3d);
     read_animated_sprites(&cub3d);
+    cub3d.door_step = 0.1;
     draw_cub3d(&cub3d);
     mlx_loop(cub3d.mlx);
 }

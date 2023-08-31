@@ -6,7 +6,7 @@
 /*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 18:47:21 by maboulkh          #+#    #+#             */
-/*   Updated: 2023/08/24 23:18:28 by maboulkh         ###   ########.fr       */
+/*   Updated: 2023/08/30 23:48:27 by maboulkh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -180,6 +180,8 @@ typedef struct s_cub3d
     double             rot_multiplicator;
     int                texturen;
     t_minimap          minimap;
+    float               door_open;
+    float               door_step;
 }   t_cub3d;
 
 //  main.c

@@ -6,7 +6,7 @@
 /*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 03:28:35 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/08/25 00:40:32 by maboulkh         ###   ########.fr       */
+/*   Updated: 2023/08/31 01:05:42 by maboulkh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -201,7 +201,7 @@ void    draw_other_sprite(t_cub3d *cub3d, int id)
         + raycaster->camera_x * raycaster->sprite_y);
     // drawing the sprite
     raycaster->sprite_screenX = (int) ((WINDOW_WIDTH / 2) * (1 + raycaster->transform_X / raycaster->transform_Y));
-
+ 
     raycaster->sprite_height = ft_abs((int) WINDOW_HEIGHT / raycaster->transform_Y);
     raycaster->draw_startY  = -raycaster->sprite_height / 2 + WINDOW_HEIGHT / 2;
     if (raycaster->draw_startY < 0)
@@ -246,9 +246,6 @@ void    draw_sprites(t_cub3d *cub3d)
     t_sprite **sprites;
     t_raycaster_data *raycaster;
     size_t            i;
-    // int               stripe;
-    // int               row;
-    // int               tex_d;
 
     sprites = cub3d->sprites;
     raycaster = &cub3d->raycaster;
@@ -267,62 +264,6 @@ void    draw_sprites(t_cub3d *cub3d)
             draw_door_sprite(cub3d, i);
         else
             draw_other_sprite(cub3d, i);
-        
-        // if (cub3d->sprites[i]->sprite_id == DOOR)
-        // {
-        //     i++;
-        //     continue;
-        // }
-        // raycaster->sprite_x = cub3d->sprites[i]->x - raycaster->player_x;
-        // raycaster->sprite_y = cub3d->sprites[i]->y - raycaster->player_y;
-        // raycaster->inv_Det = 1.0 / (raycaster->camera_x * raycaster->direction_y
-        //     - raycaster->direction_x * raycaster->camera_y);
-        // raycaster->transform_X = raycaster->inv_Det * (raycaster->direction_y * raycaster->sprite_x 
-        //     - raycaster->direction_x * raycaster->sprite_y);
-        // raycaster->transform_Y = raycaster->inv_Det * ((-raycaster->camera_y) * raycaster->sprite_x
-        //     + raycaster->camera_x * raycaster->sprite_y);
-        // // drawing the sprite
-        // raycaster->sprite_screenX = (int) ((WINDOW_WIDTH / 2) * (1 + raycaster->transform_X / raycaster->transform_Y));
-
-        // raycaster->sprite_height = ft_abs((int) WINDOW_HEIGHT / raycaster->transform_Y);
-        // raycaster->draw_startY  = -raycaster->sprite_height / 2 + WINDOW_HEIGHT / 2;
-        // if (raycaster->draw_startY < 0)
-        //     raycaster->draw_startY = 0;
-        // raycaster->draw_endY = raycaster->sprite_height / 2 + WINDOW_HEIGHT / 2;
-        // if (raycaster->draw_startY >= WINDOW_HEIGHT)
-        //     raycaster->draw_endY = WINDOW_HEIGHT - 1;
-
-        // raycaster->sprite_width = ft_abs((int) WINDOW_HEIGHT / raycaster->transform_Y);
-        // raycaster->draw_startX = -raycaster->sprite_width / 2 + raycaster->sprite_screenX;
-        // if (raycaster->draw_startX < 0)
-        //     raycaster->draw_startX = 0;
-        // raycaster->draw_endX = raycaster->sprite_width /2 + raycaster->sprite_screenX;
-        // if (raycaster->draw_endX >= WINDOW_WIDTH)
-        //     raycaster->draw_endX = WINDOW_WIDTH - 1;
-        // stripe = raycaster->draw_startX;
-        // while(stripe < raycaster->draw_endX)
-        // {
-        //     raycaster->texX = ((int) (256 * (stripe - (-raycaster->sprite_width / 2 + raycaster->sprite_screenX))
-        //         * TEX_DIMENSIONS / raycaster->sprite_width)) / 256;
-        //     if (raycaster->transform_Y > 0 && stripe > 0 && stripe < WINDOW_WIDTH && raycaster->transform_Y < cub3d->Zbuffer[stripe])
-        //     {
-        //         row = raycaster->draw_startY;
-        //         while (row < raycaster->draw_endY)
-        //         {
-        //             tex_d = row * 256 - WINDOW_HEIGHT * 128 + raycaster->sprite_height * 128;
-        //             raycaster->texY = ((tex_d * TEX_DIMENSIONS) / raycaster-> sprite_height) / 256;
-        //             if ((cub3d->texture.tx[FIREHEAD1 + cub3d->texturen][TEX_DIMENSIONS * raycaster->texY + raycaster->texX] & 0x00FFFFFF) != 0 && cub3d->sprites[i]->sprite_id != DOOR)
-        //                 cub3d_pixel_put(cub3d, stripe, row,
-        //                 cub3d->texture.tx[FIREHEAD1 + cub3d->texturen][TEX_DIMENSIONS * raycaster->texY + raycaster->texX]);
-        //             // if ((cub3d->texture.tx[sprites[i]->sprite_id][TEX_DIMENSIONS * raycaster->texY + raycaster->texX] & 0x00FFFFFF) != 0)
-        //             //     cub3d_pixel_put(cub3d, stripe, row,
-        //             //     cub3d->texture.tx[sprites[i]->sprite_id][TEX_DIMENSIONS * raycaster->texY + raycaster->texX]);
-        //             row++;
-        //         }
-                
-        //     }
-        //     stripe++;
-        // }
         i++;
     }
 }

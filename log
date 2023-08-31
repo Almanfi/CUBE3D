@@ -1,373 +1,2630 @@
-dist to wall 6.500000
-dist to wall 6.924235
-dist to wall 6.683320
-dist to wall 6.140682
-dist to wall 4.679840
-dist to wall 4.411080
-dist to wall 4.660969
-dist to wall 4.938699
-dist to wall 4.791566
-dist to wall 4.687589
-dist to wall 4.622461
-dist to wall 4.593599
-dist to wall 4.599887
-dist to wall 2.858420
-dist to wall 1.801601
-dist to wall 1.322654
-dist to wall 1.051198
-dist to wall 0.877735
-dist to wall 0.758366
-dist to wall 0.672080
-dist to wall 0.607575
-dist to wall 0.558244
-dist to wall 0.519982
-dist to wall 0.490120
-dist to wall 0.466862
-dist to wall 0.420175
-dist to wall 0.373489
-dist to wall 0.326803
-dist to wall 0.280117
-dist to wall 0.233431
-dist to wall 0.186745
-dist to wall 0.140058
-dist to wall 0.093372
-dist to wall 0.046686
-dist to wall 0.046686
-dist to wall 0.046686
-dist to wall 0.046686
-dist to wall 0.046686
-dist to wall 0.046686
-dist to wall 0.046686
-dist to wall 0.046686
-dist to wall 0.046686
-dist to wall 0.046686
-dist to wall 0.046686
-dist to wall 0.046686
-dist to wall 0.046686
-dist to wall 0.046686
-dist to wall 0.046686
-dist to wall 0.046686
-dist to wall 0.046686
-dist to wall 0.046686
-dist to wall 0.046686
-dist to wall 0.046686
-dist to wall 0.046686
-dist to wall 0.046686
-dist to wall 0.046686
-dist to wall 0.046686
-dist to wall 0.046686
-dist to wall 0.046686
-dist to wall 0.046686
-dist to wall 0.046686
-dist to wall 0.046686
-dist to wall 0.046686
-dist to wall 0.046686
-dist to wall 0.046686
-dist to wall 0.046686
-dist to wall 0.046686
-dist to wall 0.046686
-dist to wall 0.046686
-dist to wall 0.046686
-dist to wall 0.046686
-dist to wall 0.046686
-dist to wall 0.046686
-dist to wall 0.046686
-dist to wall 0.046686
-dist to wall 0.046686
-dist to wall 0.046686
-dist to wall 0.046686
-dist to wall 0.046686
-dist to wall 0.046686
-dist to wall 0.046686
-dist to wall 0.046686
-dist to wall 0.046686
-dist to wall 0.046686
-dist to wall 0.046686
-dist to wall 0.046686
-dist to wall 0.046686
-dist to wall 0.046686
-dist to wall 0.046686
-dist to wall 0.046686
-dist to wall 0.046686
-dist to wall 0.046686
-dist to wall 0.046686
-dist to wall 0.046686
-dist to wall 0.046686
-dist to wall 0.046686
-dist to wall 0.046686
-dist to wall 0.049012
-dist to wall 0.051998
-dist to wall 0.055376
-dist to wall 0.050602
-dist to wall 0.046914
-dist to wall 0.044040
-dist to wall 0.041797
-dist to wall 0.040062
-dist to wall 0.038748
-dist to wall 0.037796
-dist to wall 0.037166
-dist to wall 0.036833
-dist to wall 0.036782
-dist to wall 0.037013
-dist to wall 0.037535
-dist to wall 0.038367
-dist to wall 0.039545
-dist to wall 0.041121
-dist to wall 0.043170
-dist to wall 0.045800
-dist to wall 0.049170
-dist to wall 0.053515
-dist to wall 0.032414
-dist to wall 0.011313
-dist to wall 0.011313
-dist to wall 0.011313
-dist to wall 0.011313
-dist to wall 0.011313
-dist to wall 0.011313
-dist to wall 0.011313
-dist to wall 0.011313
-dist to wall 0.010395
-dist to wall 0.009682
-dist to wall 0.009126
-dist to wall 0.008693
-dist to wall 0.008360
-dist to wall 0.008111
-dist to wall 0.007935
-dist to wall 0.007825
-dist to wall 0.007776
-dist to wall 0.007787
-dist to wall 0.007857
-dist to wall 0.007990
-dist to wall 0.008192
-dist to wall 0.008469
-dist to wall 0.008836
-dist to wall 0.009310
-dist to wall 0.009918
-dist to wall 0.010698
-dist to wall 0.011707
-dist to wall 0.013036
-dist to wall 0.014833
-dist to wall 0.017358
-dist to wall 0.021113
-dist to wall 0.027204
-dist to wall 0.038648
-dist to wall 0.067601
-dist to wall 0.277926
-dist to wall 0.783091
-dist to wall 0.790186
-dist to wall 0.803583
-dist to wall 0.823819
-dist to wall 0.851751
-dist to wall 0.888644
-dist to wall 0.936327
-dist to wall 0.836327
-dist to wall 0.736327
-dist to wall 0.636327
-dist to wall 0.536327
-dist to wall 0.436327
-dist to wall 0.336327
-dist to wall 0.236327
-dist to wall 0.136327
-dist to wall 0.036327
-dist to wall 0.036327
-dist to wall 0.036327
-dist to wall 0.036327
-dist to wall 0.036327
-dist to wall 0.036327
-dist to wall 0.036327
-dist to wall 0.036327
-dist to wall 0.036327
-dist to wall 0.036327
-dist to wall 0.036327
-dist to wall 0.036327
-dist to wall 0.034477
-dist to wall 0.033046
-dist to wall 0.031962
-dist to wall 0.031177
-dist to wall 0.030657
-dist to wall 0.030382
-dist to wall 0.030340
-dist to wall 0.030531
-dist to wall 0.030961
-dist to wall 0.027204
-dist to wall 0.021113
-dist to wall 0.017358
-dist to wall 0.014833
-dist to wall 0.013036
-dist to wall 0.011707
-dist to wall 0.010698
-dist to wall 0.009918
-dist to wall 0.009310
-dist to wall 0.008836
-dist to wall 0.008469
-dist to wall 0.008192
-dist to wall 0.007990
-dist to wall 0.007857
-dist to wall 0.007787
-dist to wall 0.007776
-dist to wall 0.007825
-dist to wall 0.007935
-dist to wall 0.008111
-dist to wall 0.008360
-dist to wall 0.008693
-dist to wall 0.009126
-dist to wall 0.009682
-dist to wall 0.010395
-dist to wall 0.011313
-dist to wall 0.012515
-dist to wall 0.014121
-dist to wall 0.016344
-dist to wall 0.019574
-dist to wall 0.024629
-dist to wall 0.033547
-dist to wall 0.053226
-dist to wall 0.053226
-dist to wall 0.294830
-dist to wall 0.536434
-dist to wall 0.778038
-dist to wall 1.019642
-dist to wall 1.261246
-dist to wall 1.502850
-dist to wall 1.744454
-dist to wall 1.889224
-dist to wall 1.812739
-dist to wall 1.736253
-dist to wall 1.659768
-dist to wall 1.583283
-dist to wall 1.506798
-dist to wall 1.430313
-dist to wall 1.353827
-dist to wall 1.277342
-dist to wall 1.200857
-dist to wall 1.124372
-dist to wall 1.047887
-dist to wall 0.971401
-dist to wall 0.894916
-dist to wall 0.818431
-dist to wall 0.741946
-dist to wall 0.665461
-dist to wall 0.588975
-dist to wall 0.618092
-dist to wall 0.859696
-dist to wall 1.101300
-dist to wall 3.658718
-dist to wall 3.582233
-dist to wall 3.505747
-dist to wall 3.429262
-dist to wall 3.352777
-dist to wall 3.276292
-dist to wall 3.199807
-dist to wall 3.123321
-dist to wall 3.046836
-dist to wall 2.970351
-dist to wall 2.893866
-dist to wall 2.817381
-dist to wall 2.740895
-dist to wall 2.787364
-dist to wall 2.706717
-dist to wall 2.626070
-dist to wall 2.545423
-dist to wall 2.464776
-dist to wall 2.384129
-dist to wall 2.303482
-dist to wall 2.222835
-dist to wall 2.142187
-dist to wall 2.061540
-dist to wall 1.980893
-dist to wall 1.900246
-dist to wall 1.819599
-dist to wall 1.738952
-dist to wall 1.658305
-dist to wall 1.577658
-dist to wall 1.497011
-dist to wall 1.416363
-dist to wall 1.335716
-dist to wall 1.255069
-dist to wall 1.174422
-dist to wall 1.093775
-dist to wall 1.013128
-dist to wall 0.932481
-dist to wall 0.851834
-dist to wall 0.771187
-dist to wall 0.690540
-dist to wall 0.609892
-dist to wall 0.529245
-dist to wall 0.448598
-dist to wall 0.367951
-dist to wall 0.287304
-dist to wall 0.206657
-dist to wall 0.126010
-dist to wall 0.045363
-dist to wall 0.045363
-dist to wall 0.045363
-dist to wall 0.045363
-dist to wall 0.045363
-dist to wall 0.045363
-dist to wall 0.045363
-dist to wall 0.045363
-dist to wall 0.045363
-dist to wall 0.045363
-dist to wall 0.045363
-dist to wall 0.045363
-dist to wall 0.045363
-dist to wall 0.045363
-dist to wall 0.045363
-dist to wall 0.045363
-dist to wall 0.045363
-dist to wall 0.045363
-dist to wall 0.045363
-dist to wall 0.045363
-dist to wall 0.045363
-dist to wall 0.045363
-dist to wall 0.045363
-dist to wall 0.045363
-dist to wall 0.045363
-dist to wall 0.045363
-dist to wall 0.045363
-dist to wall 0.045363
-dist to wall 0.045363
-dist to wall 0.045363
-dist to wall 0.045363
-dist to wall 0.045363
-dist to wall 0.045363
-dist to wall 0.045363
-dist to wall 0.045363
-dist to wall 0.045363
-dist to wall 0.045363
-dist to wall 0.045363
-dist to wall 0.045363
-dist to wall 0.045363
-dist to wall 0.045363
-dist to wall 0.045363
-dist to wall 0.045363
-dist to wall 0.045363
-dist to wall 0.045363
-dist to wall 0.045363
-dist to wall 0.045363
-dist to wall 0.045363
-dist to wall 0.045363
-dist to wall 0.045363
-dist to wall 0.045363
-dist to wall 0.045363
-dist to wall 0.045363
-dist to wall 0.045363
-dist to wall 0.045363
-dist to wall 0.126010
-dist to wall 0.206657
-dist to wall 0.287304
-dist to wall 0.367951
-dist to wall 0.448598
-dist to wall 0.529245
-dist to wall 0.609892
-dist to wall 0.690540
-dist to wall 0.771187
-dist to wall 0.851834
-dist to wall 0.932481
-dist to wall 1.013128
-dist to wall 1.093775
-dist to wall 1.174422
-dist to wall 1.255069
-dist to wall 1.335716
-dist to wall 1.416363
-dist to wall 1.497011
-dist to 
+__________________________________
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+__________________________________
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+__________________________________
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+__________________________________
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+__________________________________
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+__________________________________
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+__________________________________
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+__________________________________
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+__________________________________
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+__________________________________
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+__________________________________
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+vec is -5.000000
+dist to wall 2.000000

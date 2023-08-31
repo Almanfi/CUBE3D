@@ -163,9 +163,13 @@ void	draw_minimap(t_cub3d *cub3d)
 int	refresh(t_cub3d *cub3d)
 {
 	static int fps;
-
+	
+	// cub3d->door_open = 0.1;
 	if (fps > 10000)
 	{
+		if (cub3d->door_open < -0.1 || cub3d->door_open > 1.1)
+			cub3d->door_step *= -1;
+		cub3d->door_open += cub3d->door_step;
 		move_player(cub3d);
 		rotate_player(cub3d);
 		draw_cub3d(cub3d);

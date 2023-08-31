@@ -6,7 +6,7 @@
 /*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 18:46:53 by maboulkh          #+#    #+#             */
-/*   Updated: 2023/08/23 23:01:23 by maboulkh         ###   ########.fr       */
+/*   Updated: 2023/08/30 19:39:40 by maboulkh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@ static	void draw_textured_wall(t_cub3d *cub3d, size_t x, int line_height)
 		else
 			direction = SOUTH;
 	}
-	raycaster->wallX = raycaster->player_x + raycaster->perpwallDist * raycaster->rayX;
+	raycaster->wallX = raycaster->player_x / 2 + raycaster->perpwallDist * raycaster->rayX;
 	if (!raycaster->side)
-		raycaster->wallX = raycaster->player_y + raycaster->perpwallDist * raycaster->rayY;
+		raycaster->wallX = raycaster->player_y / 2 + raycaster->perpwallDist * raycaster->rayY;
 	raycaster->wallX -= floor(raycaster->wallX);
 	raycaster->texX = (int)(raycaster->wallX * (double) TEX_DIMENSIONS);
 	if (!raycaster->side && raycaster->rayX > 0)
