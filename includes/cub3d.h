@@ -6,7 +6,7 @@
 /*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 18:47:21 by maboulkh          #+#    #+#             */
-/*   Updated: 2023/08/30 23:48:27 by maboulkh         ###   ########.fr       */
+/*   Updated: 2023/09/01 23:19:58 by maboulkh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 #include <math.h>
 #include <float.h>
 
-#define WINDOW_HEIGHT   (1080 / 2)
-#define WINDOW_WIDTH    (1920 / 2)
+#define WINDOW_HEIGHT   1080
+#define WINDOW_WIDTH    1920
 
 #define TX_NBR   16
 #define TEX_DIMENSIONS 64
@@ -113,6 +113,7 @@ typedef struct  s_raycaster_data
     t_boolean     hit;
     t_boolean     side;
     t_boolean     door;
+    t_boolean     door_side;
     // drawing data
     int           draw_start;
     int           draw_end;
@@ -153,6 +154,14 @@ typedef struct s_minimap
     int size;
 }   t_minimap;
 
+typedef struct s_door
+{
+	int			x;
+	int			y;
+	float		open;
+	t_boolean	opening;
+}	t_door;
+
 typedef struct s_cub3d
 {
     char        **map_content;
@@ -180,8 +189,10 @@ typedef struct s_cub3d
     double             rot_multiplicator;
     int                texturen;
     t_minimap          minimap;
+    t_door              **door;
     float               door_open;
     float               door_step;
+    int                 open_doors[10][4];
 }   t_cub3d;
 
 //  main.c
@@ -207,6 +218,7 @@ double  degree_to_rad(double degree);
 // map_utils.c
 void    skip_empty_lines(t_cub3d *cub3d);
 void    justify_lines(t_cub3d *cub3d);
+t_boolean   is_open_door(t_door **door, int x, int y, float *door_open_ratio);
 
 //skip_space.c
 t_boolean	ft_is_space(char c);
@@ -218,6 +230,7 @@ char	*pro_substr(char const *s, unsigned int start, size_t len);
 // array_utils.c
 void	*add_element_to_array(void *old_array, void *new_elem, size_t data_size);
 void	*add_arr_to_array(void *dest_arr, void *src_arr, size_t data_size);
+void	*rm_element_from_array(void *old_array, void *elem, size_t data_size);
 
 #include "cub3d_parsing.h"
 #include "cub3d_raycasting.h"

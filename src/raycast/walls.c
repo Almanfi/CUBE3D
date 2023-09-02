@@ -6,7 +6,7 @@
 /*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 18:46:53 by maboulkh          #+#    #+#             */
-/*   Updated: 2023/08/30 19:39:40 by maboulkh         ###   ########.fr       */
+/*   Updated: 2023/09/01 23:20:40 by maboulkh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ static	void draw_textured_wall(t_cub3d *cub3d, size_t x, int line_height)
 	t_raycaster_data 	*raycaster;
 	int				 	y;
 	int					direction;
+	float				door_open_ratio;
 
 	raycaster = &cub3d->raycaster;
 	if (!raycaster->side)
@@ -45,7 +46,13 @@ static	void draw_textured_wall(t_cub3d *cub3d, size_t x, int line_height)
 	raycaster->tex_step = 1.0 * TEX_DIMENSIONS / line_height;
 	raycaster->tex_pos = (raycaster->draw_start - WINDOW_HEIGHT / 2 + line_height / 2) * raycaster->tex_step;
 	y = raycaster->draw_start;
-	if (raycaster->door)
+	if (raycaster->door && is_open_door(cub3d->door, raycaster->mapX / 2, raycaster->mapY / 2, &door_open_ratio) == TRUE)
+	{
+		raycaster->texX += (int)(door_open_ratio * (double) TEX_DIMENSIONS)
+				* (raycaster->side * (1 - 2 * (raycaster->rayY > 0)) + !raycaster->side * (1 - 2 * (raycaster->rayX < 0)));
+		direction = DOOR;
+	}
+	if (raycaster->door_side)
 		direction = DOOR;
 		// printf("drawing door txtr\n");
 	while (y < raycaster->draw_end)
@@ -53,7 +60,7 @@ static	void draw_textured_wall(t_cub3d *cub3d, size_t x, int line_height)
 		// if (y > raycaster->draw_end / 2)
 		// 	dire
 		raycaster->texY = (int) raycaster->tex_pos & (TEX_DIMENSIONS - 1);
-		raycaster->tex_pos +=  raycaster->tex_step;
+		raycaster->tex_pos += raycaster->tex_step;
 		cub3d_pixel_put(cub3d, x, y, cub3d->texture.tx[direction][TEX_DIMENSIONS * raycaster->texY + raycaster->texX]);
 		y++;
 	}

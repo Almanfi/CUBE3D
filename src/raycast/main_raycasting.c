@@ -6,7 +6,7 @@
 /*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 18:46:29 by maboulkh          #+#    #+#             */
-/*   Updated: 2023/08/31 01:00:51 by maboulkh         ###   ########.fr       */
+/*   Updated: 2023/09/02 01:11:39 by maboulkh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,27 @@ static void	set_ray_step(t_cub3d *cub3d)
 	}
 }
 
+t_boolean	is_open_door(t_door **doors, int x, int y, float *door_open_ratio)
+{
+	int i;
+
+	i = 0;
+	if (!doors)
+		return (FALSE);
+	while (doors[i])
+	{
+		// printf("at i = %d : this is a door  at y = %d, x = %d\n", i, cub3d->open_doors[i][1], cub3d->open_doors[i][2]);
+		if (doors[i]->y == y && doors[i]->x == x)
+		{
+			if (door_open_ratio)
+				*door_open_ratio = doors[i]->open;
+			return (TRUE);
+		}
+		i++;
+	}
+	return (FALSE);
+}
+
 static	void	perform_dda(t_cub3d *cub3d)
 {
 	t_raycaster_data *raycaster;
@@ -51,6 +72,7 @@ static	void	perform_dda(t_cub3d *cub3d)
 	double vec;
 	double angle;
 	double delta;
+	float	door_open_ratio;
 
 	raycaster = &cub3d->raycaster;
 	backX = raycaster->mapX / 2;
@@ -61,8 +83,9 @@ static	void	perform_dda(t_cub3d *cub3d)
 	while (!raycaster->hit)
 	{
 		raycaster->door = FALSE;
+		raycaster->door_side = FALSE;
 		if (cub3d->mini_map[raycaster->mapY / 2][raycaster->mapX / 2] == 'D')
-			raycaster->door = TRUE;
+			raycaster->door_side = TRUE;
 		if (raycaster->sideDistX < raycaster->sideDistY)
 		{
 			raycaster->sideDistX += raycaster->deltadistX;
@@ -99,10 +122,14 @@ static	void	perform_dda(t_cub3d *cub3d)
 						delta = (double) (raycaster->mapX - raycaster->player_x + 1);
 					vec = (raycaster->player_y + (delta) * (tan(angle))) / 2;
 				}
-				printf("vec is %f\n", delta);
 				vec = vec - (int) vec;
-				if (vec > cub3d->door_open)
+				if (is_open_door(cub3d->door, raycaster->mapX / 2, raycaster->mapY / 2, &door_open_ratio) == FALSE)
 					raycaster->hit = TRUE;
+				else if (vec > door_open_ratio)
+					raycaster->hit = TRUE;
+
+				// if (vec > cub3d->door_open && is_open_door(cub3d, raycaster->mapX / 2, raycaster->mapY / 2) == FALSE)
+				// 	raycaster->hit = TRUE;
 				raycaster->door = TRUE;
 			}
 			if (cub3d->mini_map[backY][backX] == 'D' && backS != raycaster->side)
@@ -131,7 +158,7 @@ void	cast_rays(t_cub3d *cub3d)
 	raycaster->player_x = 2 * raycaster->player_x;
 	raycaster->player_y = 2 * raycaster->player_y;
 	i = 0;
-	printf("__________________________________\n");
+	// printf("__________________________________\n");
 	while (i < WINDOW_WIDTH)
 	{
 		raycaster->door = FALSE;

@@ -31,29 +31,62 @@ int    close_window(void)
 
 void	print_map(t_cub3d *cub3d)
 {
-	int x;
-	int y;
+	// int x;
+	// int y;
 
 	printf("player at x = %lf, y = %lf\n", cub3d->raycaster.player_x, cub3d->raycaster.player_y);
-	printf("direction at  at x = %lf, y = %lf\n", cub3d->raycaster.direction_x, cub3d->raycaster.direction_y);
-	printf("FOV at x = %lf , y = %lf\n", cub3d->raycaster.camera_x, cub3d->raycaster.camera_y);
-	y = 0;
-	while(cub3d->mini_map[y])
+	// printf("direction at  at x = %lf, y = %lf\n", cub3d->raycaster.direction_x, cub3d->raycaster.direction_y);
+	// printf("FOV at x = %lf , y = %lf\n", cub3d->raycaster.camera_x, cub3d->raycaster.camera_y);
+	// y = 0;
+	// while(cub3d->mini_map[y])
+	// {
+	// 	x = 0;
+	// 	while (cub3d->mini_map[y][x])
+	// 	{
+	// 		printf("%c, ", cub3d->mini_map[y][x]);
+	// 		x++;
+	// 	}
+	// 	printf("\n");
+	// 	y++;
+	// }
+}
+
+void	open_door(t_cub3d *cub3d)
+{
+    t_raycaster_data	*raycaster;
+	t_door 				**temp;
+	t_door				*door;
+	t_door				**open_doors;
+	int					x;
+	int					y;
+
+	raycaster = &cub3d->raycaster;
+	x = raycaster->player_x + 0.5 * raycaster->direction_x;
+	y = raycaster->player_y + 0.5 * raycaster->direction_y;
+	if (cub3d->mini_map[y][x] != 'D')
+		return ;
+	open_doors = cub3d->door;
+	while (open_doors && *open_doors)
 	{
-		x = 0;
-		while (cub3d->mini_map[y][x])
-		{
-			printf("%c, ", cub3d->mini_map[y][x]);
-			x++;
-		}
-		printf("\n");
-		y++;
+		if ((*open_doors)->x == x && (*open_doors)->y == y)
+			return ;
+		open_doors++;
 	}
+	door = ft_malloc(sizeof(t_door), m_info(NULL, 1, NULL, 0));
+	if (!door)
+		exit_cub3d(ENOMEM, "couldn't malloc for door");
+	door->x = x;
+	door->y = y;
+	door->open = 0.0;
+	door->opening = TRUE;
+	temp = cub3d->door;
+	cub3d->door = add_element_to_array(temp, &door, sizeof(t_door *));
+	ft_free_node(1, temp);
+	printf("door added x= %d, y= %d, open= %f\n", door->x, door->y, door->open);
 }
 
 static int	keyboard_press_hooks(int keycode,t_cub3d *cub3d)
 {
-	printf("dist to wall %lf\n", cub3d->raycaster.perpwallDist);
 	if (keycode == ESC_KEY)
 		close_window();
 	else if (keycode == W_KEY)
@@ -67,7 +100,9 @@ static int	keyboard_press_hooks(int keycode,t_cub3d *cub3d)
 	else if (keycode == LEFT_KEY)
 		cub3d->rotation_dir = -1;
 	else if (keycode == RIGHT_KEY)
-		cub3d->rotation_dir = 1; 
+		cub3d->rotation_dir = 1;
+	else if (keycode == C_KEY) //clean this
+		open_door(cub3d);
 	else if (keycode == SLASH_KEY) //clean this
 		print_map(cub3d);
 	
@@ -160,16 +195,56 @@ void	draw_minimap(t_cub3d *cub3d)
 	cub3d_draw_line(cub3d, start, end);
 }
 
+void	animate_doors(t_cub3d *cub3d, t_door **doors)
+{
+	int i;
+	float	step;
+	t_door **temp;
+
+	if (!doors)
+		return ;
+	i = 0;
+	step = 0.03;
+	while (doors[i])
+	{
+		if (doors[i]->open < -0.01)
+		{
+			temp = cub3d->door;
+			cub3d->door = rm_element_from_array(temp, doors + i, sizeof(t_door *));
+			ft_free_node(1, doors[i]);
+			ft_free_node(1, temp);
+			doors = cub3d->door;
+			continue ;
+		}
+		else if (doors[i]->open > 2)
+			doors[i]->opening = FALSE;
+		// printf("door y is %d, player , %d\n", doors[i]->y, (int) cub3d->raycaster.player_y);
+		if (cub3d->raycaster.player_y - step > (double) doors[i]->y && cub3d->raycaster.player_y + step < (double) doors[i]->y + 1
+			&& cub3d->raycaster.player_x - step > (double) doors[i]->x && cub3d->raycaster.player_x + step < (double) doors[i]->x + 1)
+		{
+			i++;
+			continue ;
+		}
+		if (doors[i]->opening)
+			doors[i]->open += step;
+		else
+			doors[i]->open -= step;
+		
+		// doors[i]->open += (step * (-1 + 2 * doors[i]->opening));
+		i++;
+	}
+}
+
 int	refresh(t_cub3d *cub3d)
 {
 	static int fps;
 	
-	// cub3d->door_open = 0.1;
-	if (fps > 10000)
+	if (fps > 500)
 	{
-		if (cub3d->door_open < -0.1 || cub3d->door_open > 1.1)
-			cub3d->door_step *= -1;
-		cub3d->door_open += cub3d->door_step;
+		// if (cub3d->door_open < 0 || cub3d->door_open > 2)
+		// 	cub3d->door_step *= -1;
+		// cub3d->door_open += cub3d->door_step;
+		animate_doors(cub3d, cub3d->door);
 		move_player(cub3d);
 		rotate_player(cub3d);
 		draw_cub3d(cub3d);
