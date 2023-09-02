@@ -82,7 +82,6 @@ void	open_door(t_cub3d *cub3d)
 	temp = cub3d->door;
 	cub3d->door = add_element_to_array(temp, &door, sizeof(t_door *));
 	ft_free_node(1, temp);
-	printf("door added x= %d, y= %d, open= %f\n", door->x, door->y, door->open);
 }
 
 static int	keyboard_press_hooks(int keycode,t_cub3d *cub3d)
@@ -199,12 +198,14 @@ void	animate_doors(t_cub3d *cub3d, t_door **doors)
 {
 	int i;
 	float	step;
+	float	door_radius;
 	t_door **temp;
 
 	if (!doors)
 		return ;
 	i = 0;
 	step = 0.03;
+	door_radius = 0.3;
 	while (doors[i])
 	{
 		if (doors[i]->open < -0.01)
@@ -219,8 +220,8 @@ void	animate_doors(t_cub3d *cub3d, t_door **doors)
 		else if (doors[i]->open > 2)
 			doors[i]->opening = FALSE;
 		// printf("door y is %d, player , %d\n", doors[i]->y, (int) cub3d->raycaster.player_y);
-		if (cub3d->raycaster.player_y - step > (double) doors[i]->y && cub3d->raycaster.player_y + step < (double) doors[i]->y + 1
-			&& cub3d->raycaster.player_x - step > (double) doors[i]->x && cub3d->raycaster.player_x + step < (double) doors[i]->x + 1)
+		if (cub3d->raycaster.player_y + door_radius > (double) doors[i]->y && cub3d->raycaster.player_y - door_radius < (double) doors[i]->y + 1
+			&& cub3d->raycaster.player_x + door_radius > (double) doors[i]->x && cub3d->raycaster.player_x - door_radius < (double) doors[i]->x + 1)
 		{
 			i++;
 			continue ;
@@ -245,8 +246,10 @@ int	refresh(t_cub3d *cub3d)
 		// 	cub3d->door_step *= -1;
 		// cub3d->door_open += cub3d->door_step;
 		animate_doors(cub3d, cub3d->door);
-		move_player(cub3d);
-		rotate_player(cub3d);
+		if (cub3d->move_vertical || cub3d->move_horizontal)
+			move_player(cub3d);
+		if (cub3d->rotation_dir)
+			rotate_player(cub3d);
 		draw_cub3d(cub3d);
 		draw_minimap(cub3d);
 		fps = 0;

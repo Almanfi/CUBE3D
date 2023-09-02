@@ -6,7 +6,7 @@
 /*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 17:13:43 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/08/23 23:45:22 by maboulkh         ###   ########.fr       */
+/*   Updated: 2023/09/02 06:23:41 by maboulkh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,8 +115,8 @@ void    map_parser(t_cub3d *cub3d)
             else if ((map[i][j] == '0' || map[i][j] == 'D' || map[i][j] == 'I' ||
                 is_start_pos(map[i][j])) && (j == 0 || open_wall(map, i, j)))
                 exit_cub3d(-1, "unvalid map due to unclosed walls");
-            else if (map[i][j] == 'D' || map[i][j] == 'I')
-            // else if (map[i][j] == 'I')
+            // else if (map[i][j] == 'D' || map[i][j] == 'I')
+            else if (map[i][j] == 'I')
             {
                 void    *temp_p;
                 new_sprite = ft_malloc(sizeof(t_sprite), m_info(NULL, 1, NULL, 0));

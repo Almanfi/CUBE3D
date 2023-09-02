@@ -6,7 +6,7 @@
 /*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 07:36:11 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/09/02 01:08:02 by maboulkh         ###   ########.fr       */
+/*   Updated: 2023/09/02 06:30:55 by maboulkh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ static  t_boolean check_sprite_collision(t_cub3d *cub3d, double x, double y)
 			return (TRUE);
 		i++;
 	}
-
 	return (FALSE);
 }
 
@@ -111,17 +110,17 @@ void    move_player(t_cub3d *cub3d)
 	move_speed = 0.2;
 	raycaster = &cub3d->raycaster;
 	y = raycaster->player_x + cub3d->move_vertical * raycaster->direction_x * move_speed
-		+ 0.7 * cub3d->move_horizontal * raycaster->camera_x * move_speed;
+		+ cub3d->move_horizontal * raycaster->camera_x * move_speed;
 	x = raycaster->player_y;
 	if (check_surounding(cub3d, x, y) && check_sprite_collision(cub3d, y, x) == FALSE)
 		raycaster->player_x += cub3d->move_vertical * raycaster->direction_x * move_speed
-			+ 0.7 * cub3d->move_horizontal * raycaster->camera_x * move_speed;
+		+ cub3d->move_horizontal * raycaster->camera_x * move_speed;
 	y = raycaster->player_x;
 	x = raycaster->player_y + cub3d->move_vertical * raycaster->direction_y * move_speed
 		+ 0.7 * cub3d->move_horizontal * raycaster->camera_y * move_speed;
 	if (check_surounding(cub3d, x, y) && check_sprite_collision(cub3d, y, x) == FALSE)
 		raycaster->player_y += cub3d->move_vertical * raycaster->direction_y * move_speed
-		+ 0.7 * cub3d->move_horizontal * raycaster->camera_y * move_speed;
+		+ cub3d->move_horizontal * raycaster->camera_y * move_speed;
 }
 
 // void    move_player(t_cub3d *cub3d)
