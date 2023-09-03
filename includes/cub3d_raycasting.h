@@ -6,7 +6,7 @@
 /*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 19:39:12 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/09/03 14:05:13 by maboulkh         ###   ########.fr       */
+/*   Updated: 2023/09/03 22:01:55 by maboulkh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,9 @@ void	cub3d_hooks(t_cub3d *cub3d);
 
 // main_raycasting.c
 void	draw_cub3d(t_cub3d *cub3d);
+
+// dda.c
+void	perform_dda(t_cub3d *cub3d);
 
 // walls.c
 void	draw_wall(t_cub3d *cub3d, size_t x);

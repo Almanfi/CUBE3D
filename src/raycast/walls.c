@@ -6,7 +6,7 @@
 /*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 18:46:53 by maboulkh          #+#    #+#             */
-/*   Updated: 2023/09/01 23:20:40 by maboulkh         ###   ########.fr       */
+/*   Updated: 2023/09/03 17:15:12 by maboulkh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,11 +54,8 @@ static	void draw_textured_wall(t_cub3d *cub3d, size_t x, int line_height)
 	}
 	if (raycaster->door_side)
 		direction = DOOR;
-		// printf("drawing door txtr\n");
 	while (y < raycaster->draw_end)
 	{
-		// if (y > raycaster->draw_end / 2)
-		// 	dire
 		raycaster->texY = (int) raycaster->tex_pos & (TEX_DIMENSIONS - 1);
 		raycaster->tex_pos += raycaster->tex_step;
 		cub3d_pixel_put(cub3d, x, y, cub3d->texture.tx[direction][TEX_DIMENSIONS * raycaster->texY + raycaster->texX]);
@@ -72,8 +69,6 @@ void draw_wall(t_cub3d *cub3d, size_t x)
 	t_raycaster_data *raycaster;
 
 	raycaster = &cub3d->raycaster;
-	// if (raycaster->door)
-	// 	raycaster->perpwallDist += 0.5;
 	line_height = WINDOW_HEIGHT;
 	if (raycaster->perpwallDist > 0.01)
 		line_height = (int) (WINDOW_HEIGHT / raycaster->perpwallDist);

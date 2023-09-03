@@ -6,11 +6,9 @@
 /*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 18:46:29 by maboulkh          #+#    #+#             */
-/*   Updated: 2023/09/03 12:42:01 by maboulkh         ###   ########.fr       */
+/*   Updated: 2023/09/03 21:59:48 by maboulkh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-
 
 #include "cub3d.h"
 
@@ -41,116 +39,25 @@ static void	set_ray_step(t_cub3d *cub3d)
 	}
 }
 
-t_boolean	is_open_door(t_door **doors, int x, int y, float *door_open_ratio)
+static void init_ray(t_raycaster_data *raycaster, size_t i)
 {
-	int i;
+	double	projected_ray;
 
-	i = 0;
-	if (!doors)
-		return (FALSE);
-	while (doors[i])
-	{
-		if (doors[i]->y == y && doors[i]->x == x)
-		{
-			if (door_open_ratio)
-				*door_open_ratio = doors[i]->open;
-			return (TRUE);
-		}
-		i++;
-	}
-	return (FALSE);
-}
-
-static	void	perform_dda(t_cub3d *cub3d)
-{
-	t_raycaster_data *raycaster;
-	int	backX;
-	int	backY;
-	t_boolean	backS;
-	t_boolean	help;;
-	double vec;
-	double angle;
-	double delta;
-	float	door_open_ratio;
-
-	raycaster = &cub3d->raycaster;
-	backX = raycaster->mapX / 2;
-	backY = raycaster->mapY / 2;
-	backS = raycaster->side;
-	help = FALSE;
-	angle = atan(raycaster->rayY / raycaster->rayX);
-	while (!raycaster->hit)
-	{
-		raycaster->door = FALSE;
-		raycaster->door_side = FALSE;
-		if (cub3d->mini_map[raycaster->mapY / 2][raycaster->mapX / 2] == 'D')
-			raycaster->door_side = TRUE;
-		if (raycaster->sideDistX < raycaster->sideDistY)
-		{
-			raycaster->sideDistX += raycaster->deltadistX;
-			raycaster->mapX += raycaster->step_x;
-			raycaster->side = FALSE;
-		}
-		else
-		{
-			raycaster->sideDistY += raycaster->deltadistY;
-			raycaster->mapY += raycaster->step_y;
-			raycaster->side = TRUE;
-		}
-		if ((raycaster->mapX <= 0 || raycaster->mapY <= 0
-			|| raycaster->mapY / 2 > (int) cub3d->raycaster.rows_count
-			|| raycaster->mapX / 2 > (int) cub3d->mini_map_line_len[raycaster->mapY / 2]
-			|| cub3d->mini_map[raycaster->mapY / 2][raycaster->mapX / 2] == 'D'))
-		{
-			if (cub3d->mini_map[backY][backX] == 'D' && (backS == raycaster->side || help))
-			{
-				vec = 1;
-				if (raycaster->side) // by x
-				{
-					if (raycaster->rayY > 0)
-						delta = (double) (raycaster->mapY - raycaster->player_y);
-					else
-						delta = (double) (raycaster->mapY - raycaster->player_y + 1);
-					vec = (raycaster->player_x + (delta) / (tan(angle))) / 2;
-				}
-				if (!raycaster->side) // by y
-				{
-					if (raycaster->rayX > 0)
-						delta = (double) (raycaster->mapX - raycaster->player_x);
-					else
-						delta = (double) (raycaster->mapX - raycaster->player_x + 1);
-					vec = (raycaster->player_y + (delta) * (tan(angle))) / 2;
-				}
-				vec = vec - (int) vec;
-				if (is_open_door(cub3d->door, raycaster->mapX / 2, raycaster->mapY / 2, &door_open_ratio) == FALSE)
-					raycaster->hit = TRUE;
-				else if (vec > door_open_ratio)
-					raycaster->hit = TRUE;
-				raycaster->door = TRUE;
-			}
-			if (cub3d->mini_map[backY][backX] == 'D' && backS != raycaster->side)
-				help = TRUE;
-			else
-				help = FALSE;
-		}
-		if (raycaster->mapX <= 0 || raycaster->mapY <= 0
-			|| raycaster->mapY / 2 > (int) cub3d->raycaster.rows_count
-			|| raycaster->mapX / 2 > (int) cub3d->mini_map_line_len[raycaster->mapY / 2]
-			|| cub3d->mini_map[raycaster->mapY / 2][raycaster->mapX / 2] == '1')
-		{
-			raycaster->hit = TRUE;
-		}
-		backX = raycaster->mapX / 2;
-		backY = raycaster->mapY / 2;
-		backS = raycaster->side;
-	}
+	raycaster->door = FALSE;
+	raycaster->hit = FALSE;
+	projected_ray = ((2 * i) / (double) WINDOW_WIDTH) - 1;
+	raycaster->rayX = raycaster->direction_x + raycaster->camera_x * projected_ray;
+	raycaster->rayY = raycaster->direction_y + raycaster->camera_y * projected_ray;
+	raycaster->mapX = raycaster->player_x;
+	raycaster->mapY = raycaster->player_y;
+	raycaster->deltadistX = raycaster->rayX == 0.0 ? DBL_MAX : ft_abs((double) 1 / raycaster->rayX);
+	raycaster->deltadistY = raycaster->rayY == 0.0 ? DBL_MAX : ft_abs((double) 1 / raycaster->rayY);
 }
 
 void	cast_rays(t_cub3d *cub3d)
 {
-	size_t	i;
-	double	projected_ray;
 	t_raycaster_data	*raycaster;
+	size_t				i;
 
 	raycaster = &cub3d->raycaster;
 	raycaster->player_x = 2 * raycaster->player_x;
@@ -158,15 +65,7 @@ void	cast_rays(t_cub3d *cub3d)
 	i = 0;
 	while (i < WINDOW_WIDTH)
 	{
-		raycaster->door = FALSE;
-		raycaster->hit = FALSE;
-		projected_ray = ((2 * i) / (double) WINDOW_WIDTH) - 1;
-		raycaster->rayX = raycaster->direction_x + raycaster->camera_x * projected_ray;
-		raycaster->rayY = raycaster->direction_y + raycaster->camera_y * projected_ray;
-		raycaster->mapX = raycaster->player_x;
-		raycaster->mapY = raycaster->player_y;
-		raycaster->deltadistX = raycaster->rayX == 0.0 ? DBL_MAX : ft_abs((double) 1 / raycaster->rayX);
-		raycaster->deltadistY = raycaster->rayY == 0.0 ? DBL_MAX : ft_abs((double) 1 / raycaster->rayY);
+		init_ray(raycaster, i);
 		set_ray_step(cub3d);
 		perform_dda(cub3d);
 		if (!raycaster->side)
@@ -174,8 +73,6 @@ void	cast_rays(t_cub3d *cub3d)
 		else
 			raycaster->perpwallDist = raycaster->sideDistY - raycaster->deltadistY;
 		raycaster->perpwallDist /= 2;
-		if (raycaster->perpwallDist < 0.1)
-			raycaster->perpwallDist = 0.1;
 		cub3d->Zbuffer[i] = raycaster->perpwallDist;
 		draw_wall(cub3d, i);
 		i++;
@@ -184,7 +81,6 @@ void	cast_rays(t_cub3d *cub3d)
 	raycaster->player_y = raycaster->player_y / 2;
 	draw_sprites(cub3d);
 }
-
 
 void	draw_cub3d(t_cub3d *cub3d)
 {

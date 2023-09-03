@@ -6,7 +6,7 @@
 /*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 18:47:21 by maboulkh          #+#    #+#             */
-/*   Updated: 2023/09/03 14:13:40 by maboulkh         ###   ########.fr       */
+/*   Updated: 2023/09/03 21:28:37 by maboulkh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,24 +99,30 @@ typedef struct  s_raycaster_data
 	double	camera_x;
 	double	camera_y;
     // ray casting wall data;
-    double  rayX;
-    double  rayY;
-    int     mapX;
-    int     mapY;
-    double  sideDistX;
-    double  sideDistY;
-    double  deltadistX;
-    double  deltadistY;
-    double  perpwallDist;
-    int     step_x;
-    int     step_y;
-    t_boolean     hit;
-    t_boolean     side;
-    t_boolean     door;
-    t_boolean     door_side;
+    double		rayX;
+    double		rayY;
+    int			mapX;
+    int			mapY;
+    double		sideDistX;
+    double		sideDistY;
+    double		deltadistX;
+    double		deltadistY;
+    double		perpwallDist;
+    int			step_x;
+    int			step_y;
+    t_boolean	hit;
+    t_boolean	side;
+    t_boolean	door;
+    t_boolean	door_side;
+	int			backX;
+	int			backY;
+	t_boolean	backS;
+	t_boolean	pass_door;
+	double		angle;
+	double		delta;
     // drawing data
-    int           draw_start;
-    int           draw_end;
+    int			draw_start;
+    int			draw_end;
     double	wallX;
 	double	tex_step;
 	double	tex_pos;
