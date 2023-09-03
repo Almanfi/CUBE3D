@@ -6,16 +6,16 @@
 /*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 13:59:15 by maboulkh          #+#    #+#             */
-/*   Updated: 2023/09/03 14:28:01 by maboulkh         ###   ########.fr       */
+/*   Updated: 2023/09/03 17:03:57 by maboulkh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-static void create_door_data(t_cub3d *cub3d, int x, int y)
+static	void	create_door_data(t_cub3d *cub3d, int x, int y)
 {
-    t_door  *door;
-    t_door 	**temp;
+	t_door	*door;
+	t_door	**temp;
 
 	door = ft_malloc(sizeof(t_door), m_info(NULL, 1, NULL, 0));
 	if (!door)
@@ -31,7 +31,7 @@ static void create_door_data(t_cub3d *cub3d, int x, int y)
 
 void	open_door(t_cub3d *cub3d, t_door **open_doors)
 {
-    t_raycaster_data	*raycaster;
+	t_raycaster_data	*raycaster;
 	int					x;
 	int					y;
 
@@ -53,14 +53,15 @@ void	open_door(t_cub3d *cub3d, t_door **open_doors)
 		}
 		open_doors++;
 	}
-    create_door_data(cub3d, x , y);
+	create_door_data(cub3d, x, y);
 }
 
-static t_boolean	delete_closed_door(t_cub3d *cub3d, t_door ***doors, int i)
+static	t_boolean	delete_closed_door(t_cub3d *cub3d, t_door ***doors, int i)
 {
 	if ((*doors)[i]->open < -0.01)
 	{
-		cub3d->door = rm_element_from_array(*doors, *doors + i, sizeof(t_door *));
+		cub3d->door = rm_element_from_array(*doors,
+				*doors + i, sizeof(t_door *));
 		ft_free_node(1, (*doors)[i]);
 		ft_free_node(1, *doors);
 		*doors = cub3d->door;
@@ -69,9 +70,19 @@ static t_boolean	delete_closed_door(t_cub3d *cub3d, t_door ***doors, int i)
 	return (FALSE);
 }
 
+static	t_boolean	is_inside_door(t_raycaster_data *raycaster, t_door *door)
+{
+	if (raycaster->player_y + HB_RADIUS > (double) door->y
+		&& raycaster->player_y - HB_RADIUS < (double) door->y + 1
+		&& raycaster->player_x + HB_RADIUS > (double) door->x
+		&& raycaster->player_x - HB_RADIUS < (double) door->x + 1)
+		return (TRUE);
+	return (FALSE);
+}
+
 void	animate_doors(t_cub3d *cub3d, t_door **doors)
 {
-	int     i;
+	int		i;
 	float	step;
 
 	if (!doors)
@@ -84,13 +95,12 @@ void	animate_doors(t_cub3d *cub3d, t_door **doors)
 			continue ;
 		else if (doors[i]->open > 2)
 			doors[i]->opening = FALSE;
-		if (!(cub3d->raycaster.player_y + HB_RADIUS > (double) doors[i]->y && cub3d->raycaster.player_y - HB_RADIUS < (double) doors[i]->y + 1
-			&& cub3d->raycaster.player_x + HB_RADIUS > (double) doors[i]->x && cub3d->raycaster.player_x - HB_RADIUS < (double) doors[i]->x + 1))
+		if (is_inside_door(&cub3d->raycaster, doors[i]) == FALSE)
 		{
-            if (doors[i]->opening)
-                doors[i]->open += step;
-            else
-                doors[i]->open -= step;
+			if (doors[i]->opening)
+				doors[i]->open += step;
+			else
+				doors[i]->open -= step;
 		}
 		i++;
 	}

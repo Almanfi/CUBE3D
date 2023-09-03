@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_raycasting.h                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 19:39:12 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/08/21 18:35:27 by bamrouch         ###   ########.fr       */
+/*   Updated: 2023/09/03 14:05:13 by maboulkh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,11 +82,17 @@ void    cast_floor(t_cub3d *cub3d);
 void	cub3d_hooks(t_cub3d *cub3d);
 
 // main_raycasting.c
-void	    draw_cub3d(t_cub3d *cub3d);
-t_boolean	cast_rays_for_collision(t_cub3d *cub3d, double x, double y);
+void	draw_cub3d(t_cub3d *cub3d);
 
 // walls.c
-void    draw_wall(t_cub3d *cub3d, size_t x);
+void	draw_wall(t_cub3d *cub3d, size_t x);
+
+// mini_map.c
+void	draw_minimap(t_cub3d *cub3d);
+
+// door.c
+void	open_door(t_cub3d *cub3d, t_door **open_doors);
+void	animate_doors(t_cub3d *cub3d, t_door **doors);
 
 //movement.c
 void	move_player(t_cub3d *cub3d);

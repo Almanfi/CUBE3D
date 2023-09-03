@@ -6,7 +6,7 @@
 /*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 18:47:21 by maboulkh          #+#    #+#             */
-/*   Updated: 2023/09/02 01:48:21 by maboulkh         ###   ########.fr       */
+/*   Updated: 2023/09/03 14:13:40 by maboulkh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 
 #define TX_NBR   16
 #define TEX_DIMENSIONS 64
-#define HB_RADIUS 1
+#define HB_RADIUS 0.3
 
 #define MOVE_SPEED 0.4
 #define ROT_SPEED 4
