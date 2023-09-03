@@ -69,7 +69,14 @@ void	open_door(t_cub3d *cub3d)
 	while (open_doors && *open_doors)
 	{
 		if ((*open_doors)->x == x && (*open_doors)->y == y)
+		{
+			if ((*open_doors)->open > 1)
+			{
+				(*open_doors)->opening = FALSE;
+				(*open_doors)->open = 1.01;
+			}
 			return ;
+		}
 		open_doors++;
 	}
 	door = ft_malloc(sizeof(t_door), m_info(NULL, 1, NULL, 0));
@@ -121,7 +128,7 @@ static int	keyboard_release_hooks(int keycode,t_cub3d *cub3d)
 	return (0);
 }
 
-static t_boolean	check_map(int x, int y, t_cub3d *cub3d)
+static t_boolean	check_map(int x, int y, t_cub3d *cub3d, int *color)
 {
 	float	xm;
 	float	ym;
@@ -132,28 +139,29 @@ static t_boolean	check_map(int x, int y, t_cub3d *cub3d)
 	ym = (float) (y - (cub3d->minimap.height) / 2) / ratio + cub3d->raycaster.player_y;
 	if (ym >= 0 && ym < (int) cub3d->raycaster.rows_count
 		&& xm >= 0 && xm < (int) cub3d->mini_map_line_len[(int) ym]
-		&& cub3d->mini_map[(int) ym][(int) xm] == '0'
-		)
+		&& ft_strchr("0D", cub3d->mini_map[(int) ym][(int) xm]))
+	{
+		if (cub3d->mini_map[(int) ym][(int) xm] == '0')
+			*color = 0xffffff;
+		else
+			*color = 0x00ff00;
 		return (TRUE);
+	}
 	else
 		return (FALSE);
 }
-	// xm = (x - cub3d->minimap.width / 2) / cub3d->minimap.unit  + cub3d->raycaster.player_x;
-	// ym = (y - cub3d->minimap.height / 2) / cub3d->minimap.unit + cub3d->raycaster.player_y;
-	// if (ym >= 0 && ym < (int) cub3d->raycaster.rows_count
-	// 	&& xm >= 0 && xm < (int) cub3d->mini_map_line_len[ym]
-	// 	&& cub3d->mini_map[ym][xm] == '0'
-	// 	)
 
 void	draw_minimap(t_cub3d *cub3d)
 {
 	int	x;
 	int	y;
+	int	color;
 
 	cub3d->minimap.size = 10;
 	cub3d->minimap.unit = 10;
 	cub3d->minimap.height = WINDOW_HEIGHT / cub3d->minimap.size;
 	cub3d->minimap.width = WINDOW_WIDTH / cub3d->minimap.size;
+	color = 0xffffff;
 	y =  0;
 	while (y < cub3d->minimap.height)
 	{
@@ -163,8 +171,8 @@ void	draw_minimap(t_cub3d *cub3d)
 			if (y > (cub3d->minimap.height - cub3d->minimap.unit) / 2 && y < (cub3d->minimap.height + cub3d->minimap.unit) / 2
 				&& x > (cub3d->minimap.width - cub3d->minimap.unit) / 2 && x < (cub3d->minimap.width + cub3d->minimap.unit) / 2)
 				cub3d_pixel_put(cub3d, x, y, 0xff0000);
-			else if (check_map(x, y, cub3d))
-				cub3d_pixel_put(cub3d, x, y, 0xffffff);
+			else if (check_map(x, y, cub3d, &color))
+				cub3d_pixel_put(cub3d, x, y, color);
 			else if (x < 2 || x > cub3d->minimap.width - 3
 					|| y < 2 || y > cub3d->minimap.height - 3)
 				cub3d_pixel_put(cub3d, x, y, 0xaaaaaa);
@@ -199,7 +207,6 @@ void	animate_doors(t_cub3d *cub3d, t_door **doors)
 	int i;
 	float	step;
 	float	door_radius;
-	t_door **temp;
 
 	if (!doors)
 		return ;
@@ -210,16 +217,14 @@ void	animate_doors(t_cub3d *cub3d, t_door **doors)
 	{
 		if (doors[i]->open < -0.01)
 		{
-			temp = cub3d->door;
-			cub3d->door = rm_element_from_array(temp, doors + i, sizeof(t_door *));
+			cub3d->door = rm_element_from_array(doors, doors + i, sizeof(t_door *));
 			ft_free_node(1, doors[i]);
-			ft_free_node(1, temp);
+			ft_free_node(1, doors);
 			doors = cub3d->door;
 			continue ;
 		}
 		else if (doors[i]->open > 2)
 			doors[i]->opening = FALSE;
-		// printf("door y is %d, player , %d\n", doors[i]->y, (int) cub3d->raycaster.player_y);
 		if (cub3d->raycaster.player_y + door_radius > (double) doors[i]->y && cub3d->raycaster.player_y - door_radius < (double) doors[i]->y + 1
 			&& cub3d->raycaster.player_x + door_radius > (double) doors[i]->x && cub3d->raycaster.player_x - door_radius < (double) doors[i]->x + 1)
 		{
@@ -230,8 +235,6 @@ void	animate_doors(t_cub3d *cub3d, t_door **doors)
 			doors[i]->open += step;
 		else
 			doors[i]->open -= step;
-		
-		// doors[i]->open += (step * (-1 + 2 * doors[i]->opening));
 		i++;
 	}
 }
@@ -242,9 +245,6 @@ int	refresh(t_cub3d *cub3d)
 	
 	if (fps > 500)
 	{
-		// if (cub3d->door_open < 0 || cub3d->door_open > 2)
-		// 	cub3d->door_step *= -1;
-		// cub3d->door_open += cub3d->door_step;
 		animate_doors(cub3d, cub3d->door);
 		if (cub3d->move_vertical || cub3d->move_horizontal)
 			move_player(cub3d);

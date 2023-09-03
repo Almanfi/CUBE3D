@@ -6,7 +6,7 @@
 /*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 18:46:29 by maboulkh          #+#    #+#             */
-/*   Updated: 2023/09/02 01:11:39 by maboulkh         ###   ########.fr       */
+/*   Updated: 2023/09/03 12:42:01 by maboulkh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ t_boolean	is_open_door(t_door **doors, int x, int y, float *door_open_ratio)
 		return (FALSE);
 	while (doors[i])
 	{
-		// printf("at i = %d : this is a door  at y = %d, x = %d\n", i, cub3d->open_doors[i][1], cub3d->open_doors[i][2]);
 		if (doors[i]->y == y && doors[i]->x == x)
 		{
 			if (door_open_ratio)
@@ -127,13 +126,12 @@ static	void	perform_dda(t_cub3d *cub3d)
 					raycaster->hit = TRUE;
 				else if (vec > door_open_ratio)
 					raycaster->hit = TRUE;
-
-				// if (vec > cub3d->door_open && is_open_door(cub3d, raycaster->mapX / 2, raycaster->mapY / 2) == FALSE)
-				// 	raycaster->hit = TRUE;
 				raycaster->door = TRUE;
 			}
 			if (cub3d->mini_map[backY][backX] == 'D' && backS != raycaster->side)
 				help = TRUE;
+			else
+				help = FALSE;
 		}
 		if (raycaster->mapX <= 0 || raycaster->mapY <= 0
 			|| raycaster->mapY / 2 > (int) cub3d->raycaster.rows_count
@@ -158,7 +156,6 @@ void	cast_rays(t_cub3d *cub3d)
 	raycaster->player_x = 2 * raycaster->player_x;
 	raycaster->player_y = 2 * raycaster->player_y;
 	i = 0;
-	// printf("__________________________________\n");
 	while (i < WINDOW_WIDTH)
 	{
 		raycaster->door = FALSE;
