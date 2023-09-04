@@ -6,79 +6,85 @@
 /*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 18:46:29 by maboulkh          #+#    #+#             */
-/*   Updated: 2023/09/03 21:59:48 by maboulkh         ###   ########.fr       */
+/*   Updated: 2023/09/04 13:19:29 by maboulkh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-static void	set_ray_step(t_cub3d *cub3d)
+static	void	set_ray_step(t_cub3d *cub3d)
 {
-	t_raycaster_data *raycaster;
+	t_raycaster_data	*r_c;
 
-	raycaster = &cub3d->raycaster;
-	if (raycaster->rayX < 0)
+	r_c = &cub3d->raycaster;
+	if (r_c->rayX < 0)
 	{
-		raycaster->step_x = -1;
-		raycaster->sideDistX = (raycaster->player_x - raycaster->mapX) * raycaster->deltadistX;
+		r_c->step_x = -1;
+		r_c->sideDistX = (r_c->player_x - r_c->mapX) * r_c->deltadistX;
 	}
 	else
 	{
-		raycaster->step_x = 1;
-		raycaster->sideDistX = (raycaster->mapX + 1.0 - raycaster->player_x) * raycaster->deltadistX;
+		r_c->step_x = 1;
+		r_c->sideDistX = (r_c->mapX + 1.0 - r_c->player_x) * r_c->deltadistX;
 	}
-	if (raycaster->rayY < 0)
+	if (r_c->rayY < 0)
 	{
-		raycaster->step_y = -1;
-		raycaster->sideDistY = (raycaster->player_y - raycaster->mapY) * raycaster->deltadistY;
+		r_c->step_y = -1;
+		r_c->sideDistY = (r_c->player_y - r_c->mapY) * r_c->deltadistY;
 	}
 	else
 	{
-		raycaster->step_y = 1;
-		raycaster->sideDistY = (raycaster->mapY + 1.0 - raycaster->player_y) * raycaster->deltadistY;
+		r_c->step_y = 1;
+		r_c->sideDistY = (r_c->mapY + 1.0 - r_c->player_y) * r_c->deltadistY;
 	}
 }
 
-static void init_ray(t_raycaster_data *raycaster, size_t i)
+static	void	init_ray(t_raycaster_data *r_c, size_t i)
 {
 	double	projected_ray;
 
-	raycaster->door = FALSE;
-	raycaster->hit = FALSE;
+	r_c->door = FALSE;
+	r_c->hit = FALSE;
 	projected_ray = ((2 * i) / (double) WINDOW_WIDTH) - 1;
-	raycaster->rayX = raycaster->direction_x + raycaster->camera_x * projected_ray;
-	raycaster->rayY = raycaster->direction_y + raycaster->camera_y * projected_ray;
-	raycaster->mapX = raycaster->player_x;
-	raycaster->mapY = raycaster->player_y;
-	raycaster->deltadistX = raycaster->rayX == 0.0 ? DBL_MAX : ft_abs((double) 1 / raycaster->rayX);
-	raycaster->deltadistY = raycaster->rayY == 0.0 ? DBL_MAX : ft_abs((double) 1 / raycaster->rayY);
+	r_c->rayX = r_c->direction_x + r_c->camera_x * projected_ray;
+	r_c->rayY = r_c->direction_y + r_c->camera_y * projected_ray;
+	r_c->mapX = r_c->player_x;
+	r_c->mapY = r_c->player_y;
+	if (r_c->rayX == 0.0)
+		r_c->deltadistX = DBL_MAX;
+	else
+		r_c->deltadistX = ft_abs((double) 1 / r_c->rayX);
+	if (r_c->rayY == 0.0)
+		r_c->deltadistY = DBL_MAX;
+	else
+		r_c->deltadistY = ft_abs((double) 1 / r_c->rayY);
 }
 
 void	cast_rays(t_cub3d *cub3d)
 {
-	t_raycaster_data	*raycaster;
+	t_raycaster_data	*r_c;
 	size_t				i;
 
-	raycaster = &cub3d->raycaster;
-	raycaster->player_x = 2 * raycaster->player_x;
-	raycaster->player_y = 2 * raycaster->player_y;
+	r_c = &cub3d->raycaster;
+	r_c->player_x = 2 * r_c->player_x;
+	r_c->player_y = 2 * r_c->player_y;
 	i = 0;
 	while (i < WINDOW_WIDTH)
 	{
-		init_ray(raycaster, i);
+		init_ray(r_c, i);
 		set_ray_step(cub3d);
 		perform_dda(cub3d);
-		if (!raycaster->side)
-			raycaster->perpwallDist = raycaster->sideDistX - raycaster->deltadistX;
+		if (!r_c->side)
+			r_c->perpwallDist = r_c->sideDistX - r_c->deltadistX;
 		else
-			raycaster->perpwallDist = raycaster->sideDistY - raycaster->deltadistY;
-		raycaster->perpwallDist /= 2;
-		cub3d->Zbuffer[i] = raycaster->perpwallDist;
+			r_c->perpwallDist = r_c->sideDistY - r_c->deltadistY;
+		r_c->perpwallDist /= 2;
+		cub3d->Zbuffer[i] = r_c->perpwallDist;
 		draw_wall(cub3d, i);
 		i++;
 	}
-	raycaster->player_x = raycaster->player_x / 2;
-	raycaster->player_y = raycaster->player_y / 2;
+	r_c->player_x = r_c->player_x / 2;
+	r_c->player_y = r_c->player_y / 2;
 	draw_sprites(cub3d);
 }
 
