@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   array_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 04:30:17 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/09/01 22:37:17 by maboulkh         ###   ########.fr       */
+/*   Updated: 2023/09/05 16:36:01 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,14 +107,14 @@ void	*rm_element_from_array(void *old_array, void *elem, size_t data_size)
 	if (!elem || !old_array)
 		return (old_array);
 	array_len = array_size(old_array, data_size);
-	new_array = ft_malloc((array_len) * data_size, m_info(NULL, 1, NULL,
-				0));
+	new_array = ft_malloc((array_len) * data_size, m_info(NULL, 1, NULL, 0));
 	if (!new_array)
 		exit_cub3d(ENOMEM, "couldn't add element to array");
 	cpy_mem_size = elem - old_array;
 	ft_memcpy(new_array, old_array, cpy_mem_size);
 	temp = skip_bytes(new_array, cpy_mem_size);
-	ft_memcpy(temp, (old_array + cpy_mem_size + data_size), data_size * (array_len - 1) - cpy_mem_size);
+	ft_memcpy(temp, (old_array + cpy_mem_size + data_size), data_size
+		* (array_len - 1) - cpy_mem_size);
 	temp = skip_bytes(temp, data_size * (array_len - 1) - cpy_mem_size);
 	ft_bzero(temp, data_size);
 	return (new_array);

@@ -6,7 +6,7 @@
 /*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 18:26:24 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/07/11 01:01:25 by bamrouch         ###   ########.fr       */
+/*   Updated: 2023/09/05 16:39:40 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 #define PI 3.141592653589793
 
-double ft_abs(double value)
+double	ft_abs(double value)
 {
 	if (value >= 0)
-		return value;
+		return (value);
 	return (-value);
 }
 
-double  degree_to_rad(double degree)
+double	degree_to_rad(double degree)
 {
-    return (degree * PI / 180.0);
+	return (degree * PI / 180.0);
 }

@@ -19,8 +19,8 @@ char	*pro_strdup(char *str)
 	size_t	i;
 
 	str_len = ft_strlen(str);
-	res = ft_malloc((str_len + 1) * sizeof(char),
-			(t_mem_param) {NULL, 1, NULL, 0});
+	res = ft_malloc((str_len + 1) * sizeof(char), (t_mem_param){NULL, 1, NULL,
+			0});
 	if (!res)
 		return (NULL);
 	i = 0;

@@ -25,8 +25,7 @@ char	*pro_substr(char const *s, unsigned int start, size_t len)
 		len = 0;
 	if (len >= s_len - start)
 		len = s_len - start;
-	res = ft_malloc((len + 1) * sizeof(char),
-				(t_mem_param){NULL, 1, NULL, 0});
+	res = ft_malloc((len + 1) * sizeof(char), (t_mem_param){NULL, 1, NULL, 0});
 	if (!res)
 		return (NULL);
 	i = 0;

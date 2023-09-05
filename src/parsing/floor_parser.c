@@ -12,10 +12,10 @@
 
 #include "cub3d.h"
 
-static	char	*substr_to_comma(char **str)
+static char	*substr_to_comma(char **str)
 {
 	size_t	i;
-	char 	*number;
+	char	*number;
 	char	*temp;
 
 	i = 0;
@@ -28,19 +28,19 @@ static	char	*substr_to_comma(char **str)
 	i = 0;
 	while (temp[i] && !ft_is_space(temp[i]))
 		i++;
-	number = pro_substr(temp, 0, i); 
+	number = pro_substr(temp, 0, i);
 	temp = skip_space(&(temp[i]));
 	if (*temp)
-		exit_cub3d(-1,"extra content after floor colors");
+		exit_cub3d(-1, "extra content after floor colors");
 	if (!number)
 		exit_cub3d(ENOMEM, "couldn't malloc a substr to coma");
 	ft_free_node(1, temp);
-	return number;
+	return (number);
 }
 
-static	void	get_color(char **line, int *color)
+static void	get_color(char **line, int *color)
 {
-	char *number;
+	char	*number;
 
 	*line = skip_space(*line);
 	number = substr_to_comma(line);
@@ -60,7 +60,7 @@ void	floor_parser(char *line, t_cub3d *cub3d)
 		get_color(&line, &cub3d->texture.floor.r);
 		get_color(&line, &cub3d->texture.floor.g);
 		get_color(&line, &cub3d->texture.floor.b);
-        cub3d->texture.floor_is_set = TRUE;
+		cub3d->texture.floor_is_set = TRUE;
 	}
 	else if (!ft_strncmp(line, "C", 1) && !cub3d->texture.ceiling_is_set
 		&& ft_is_space(*(line + 1)))
@@ -69,12 +69,13 @@ void	floor_parser(char *line, t_cub3d *cub3d)
 		get_color(&line, &cub3d->texture.ceiling.r);
 		get_color(&line, &cub3d->texture.ceiling.g);
 		get_color(&line, &cub3d->texture.ceiling.b);
-        cub3d->texture.ceiling_is_set = TRUE;
+		cub3d->texture.ceiling_is_set = TRUE;
 	}
-    else{
-        exit_cub3d(-1, "wrong textures content");}
+	else
+	{
+		exit_cub3d(-1, "wrong textures content");
+	}
 	line = skip_space(line);
 	if (*line)
 		exit_cub3d(-1, "extra content after floor color");
 }
-

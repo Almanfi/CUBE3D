@@ -6,7 +6,7 @@
 /*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 16:46:50 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/08/22 09:41:27 by bamrouch         ###   ########.fr       */
+/*   Updated: 2023/09/04 19:53:24 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void        floor_parser(char *line, t_cub3d *cub3d);
 // textures_parser.c
 void		parse_textures(t_cub3d *cub3d);
 void        store_texture(t_cub3d *cub3d, t_tx_type tx_side, void *img);
+void        read_texture_file(t_cub3d *cub3d, t_tx_type tx_side, char *line);
 
 // map_parser.c
 t_boolean   is_start_pos(char c);

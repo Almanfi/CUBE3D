@@ -12,13 +12,11 @@
 
 #include "cub3d.h"
 
-void    cub3d_pixel_put(t_cub3d *cub3d, int x, int y, unsigned int color)
+void	cub3d_pixel_put(t_cub3d *cub3d, int x, int y, unsigned int color)
 {
-  unsigned int    *addr;
+	unsigned int	*addr;
 
-  addr = (unsigned int *) cub3d->frame.addr;
-  if (x >= 0 && x < WINDOW_WIDTH && y >= 0
-    && y < WINDOW_HEIGHT)
+	addr = (unsigned int *)cub3d->frame.addr;
+	if (x >= 0 && x < WINDOW_WIDTH && y >= 0 && y < WINDOW_HEIGHT)
 		addr[x + (y * WINDOW_WIDTH)] = (unsigned int)color;
 }
-

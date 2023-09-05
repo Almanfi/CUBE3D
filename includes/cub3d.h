@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 18:47:21 by maboulkh          #+#    #+#             */
-/*   Updated: 2023/09/03 21:28:37 by maboulkh         ###   ########.fr       */
+/*   Updated: 2023/09/05 16:32:30 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -214,18 +214,23 @@ void	cub3d_draw_line(t_cub3d *cub3d, t_projected_point point1,
 void    exit_cub3d(int  err_code, char *message);
 
 // utils
+// camera_start.c
+void	set_camera_cord(t_cub3d *cub3d, char c);
 //math_utils.c
 double ft_abs(double value);
 double  degree_to_rad(double degree);
-
+// set_map.c
+void	set_mini_map(t_cub3d *cub3d, size_t last_line);
 // map_utils.c
 void    skip_empty_lines(t_cub3d *cub3d);
 void    justify_lines(t_cub3d *cub3d);
 t_boolean   is_open_door(t_door **door, int x, int y, float *door_open_ratio);
+t_boolean	open_wall(char **map, size_t i, size_t j);
 
 //skip_space.c
 t_boolean	ft_is_space(char c);
 char        *skip_space(char *str);
+size_t      clamp_trailing_space(char *line);
 // strdup.c
 char	*pro_strdup(char *str);
 //substr.c
