@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_line.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 17:38:26 by maboulkh          #+#    #+#             */
-/*   Updated: 2023/08/23 12:19:42 by maboulkh         ###   ########.fr       */
+/*   Updated: 2023/09/05 17:08:46 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,8 @@ static void	corner_x(t_cub3d *cub3d, t_projected_point *p, double a, double b)
 	}
 }
 
-void	get_new_points(t_cub3d *cub3d, t_projected_point *p1, t_projected_point *p2)
+void	get_new_points(t_cub3d *cub3d, t_projected_point *p1,
+		t_projected_point *p2)
 {
 	double	a;
 	double	b;
@@ -73,22 +74,24 @@ void	double_swap(double *a, double *b)
 	*b = tmp;
 }
 
-static t_boolean	cub3d_draw_steep_line(t_cub3d *cub3d, double y, double x, int color)
+static t_boolean	cub3d_draw_steep_line(t_cub3d *cub3d, double y, double x,
+		int color)
 {
 	cub3d_pixel_put(cub3d, y - 1, x, color);
 	cub3d_pixel_put(cub3d, y, x, color);
 	return (TRUE);
 }
 
-static t_boolean	cub3d_draw_normal_line(t_cub3d *cub3d, double x, double y, int color)
+static t_boolean	cub3d_draw_normal_line(t_cub3d *cub3d, double x, double y,
+		int color)
 {
 	cub3d_pixel_put(cub3d, x, y - 1, color);
 	cub3d_pixel_put(cub3d, x, y, color);
 	return (TRUE);
 }
 
-static void	cub3d_draw_line_pixels(t_cub3d *cub3d,
-				t_projected_point p1, t_projected_point p2, t_boolean steep)
+static void	cub3d_draw_line_pixels(t_cub3d *cub3d, t_projected_point p1,
+		t_projected_point p2, t_boolean steep)
 {
 	double	grad;
 	int		dx;
@@ -113,7 +116,7 @@ static void	cub3d_draw_line_pixels(t_cub3d *cub3d,
 void	cub3d_draw_line(t_cub3d *cub3d, t_projected_point point1,
 		t_projected_point point2)
 {
-	t_boolean				steep;
+	t_boolean			steep;
 	t_projected_point	*p1;
 	t_projected_point	*p2;
 

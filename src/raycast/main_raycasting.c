@@ -12,7 +12,7 @@
 
 #include "cub3d.h"
 
-static	void	set_ray_step(t_cub3d *cub3d)
+static void	set_ray_step(t_cub3d *cub3d)
 {
 	t_raycaster_data	*r_c;
 
@@ -39,13 +39,13 @@ static	void	set_ray_step(t_cub3d *cub3d)
 	}
 }
 
-static	void	init_ray(t_raycaster_data *r_c, size_t i)
+static void	init_ray(t_raycaster_data *r_c, size_t i)
 {
 	double	projected_ray;
 
 	r_c->door = FALSE;
 	r_c->hit = FALSE;
-	projected_ray = ((2 * i) / (double) WINDOW_WIDTH) - 1;
+	projected_ray = ((2 * i) / (double)WINDOW_WIDTH) - 1;
 	r_c->rayX = r_c->direction_x + r_c->camera_x * projected_ray;
 	r_c->rayY = r_c->direction_y + r_c->camera_y * projected_ray;
 	r_c->mapX = r_c->player_x;
@@ -53,11 +53,11 @@ static	void	init_ray(t_raycaster_data *r_c, size_t i)
 	if (r_c->rayX == 0.0)
 		r_c->deltadistX = DBL_MAX;
 	else
-		r_c->deltadistX = ft_abs((double) 1 / r_c->rayX);
+		r_c->deltadistX = ft_abs((double)1 / r_c->rayX);
 	if (r_c->rayY == 0.0)
 		r_c->deltadistY = DBL_MAX;
 	else
-		r_c->deltadistY = ft_abs((double) 1 / r_c->rayY);
+		r_c->deltadistY = ft_abs((double)1 / r_c->rayY);
 }
 
 void	cast_rays(t_cub3d *cub3d)
