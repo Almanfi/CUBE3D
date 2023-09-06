@@ -6,7 +6,7 @@
 /*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 19:39:12 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/09/03 22:01:55 by maboulkh         ###   ########.fr       */
+/*   Updated: 2023/09/06 18:00:26 by maboulkh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,12 +74,16 @@
 
 // sprites.c
 void    draw_sprites(t_cub3d *cub3d);
+// sprites_utils.c
+void	rev_sort_sprites(t_sprite	**sprites);
 
 // floor.c
 void    cast_floor(t_cub3d *cub3d);
 
 // hooks.c
 void	cub3d_hooks(t_cub3d *cub3d);
+// hooks_mouse.c
+int     mouse_rotation(int x, int y, t_cub3d *cub3d);
 
 // main_raycasting.c
 void	draw_cub3d(t_cub3d *cub3d);

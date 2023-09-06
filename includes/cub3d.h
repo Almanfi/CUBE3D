@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 18:47:21 by maboulkh          #+#    #+#             */
-/*   Updated: 2023/09/05 16:32:30 by bamrouch         ###   ########.fr       */
+/*   Updated: 2023/09/06 17:49:58 by maboulkh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -207,8 +207,13 @@ void    cub3d_frame_init(t_cub3d *cub3d);
 void    cub3d_mlx_init(t_cub3d *cub3d);
 //  pixel_put.c
 void    cub3d_pixel_put(t_cub3d *cub3d, int x, int y, unsigned int color);
+//  draw_line.c
 void	cub3d_draw_line(t_cub3d *cub3d, t_projected_point point1,
 		t_projected_point point2);
+void	get_new_points(t_cub3d *cub3d, t_projected_point *p1,
+		t_projected_point *p2);
+void	pointer_swap(void **a, void **b);
+void	double_swap(double *a, double *b);
 
 // exit_cub3d.c
 void    exit_cub3d(int  err_code, char *message);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 18:29:31 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/09/05 16:07:31 by bamrouch         ###   ########.fr       */
+/*   Updated: 2023/09/06 18:43:36 by maboulkh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,10 +93,8 @@ void	justify_lines(t_cub3d *cub3d)
 
 t_boolean	open_wall(char **map, size_t i, size_t j)
 {
-	if (ft_is_space(map[i - 1][j - 1]) || ft_is_space(map[i - 1][j])
-		|| ft_is_space(map[i - 1][j + 1]) || ft_is_space(map[i][j - 1])
-		|| ft_is_space(map[i][j + 1]) || ft_is_space(map[i + 1][j - 1])
-		|| ft_is_space(map[i + 1][j]) || ft_is_space(map[i + 1][j + 1]))
+	if (ft_is_space(map[i - 1][j]) || ft_is_space(map[i + 1][j])
+			|| ft_is_space(map[i][j - 1]) || ft_is_space(map[i][j + 1]))
 		return (TRUE);
 	return (FALSE);
 }
