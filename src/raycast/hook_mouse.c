@@ -1,33 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   door2.c                                            :+:      :+:    :+:   */
+/*   hook_mouse.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/03 20:58:59 by maboulkh          #+#    #+#             */
-/*   Updated: 2023/09/06 17:17:57 by maboulkh         ###   ########.fr       */
+/*   Created: 2023/09/06 17:59:16 by maboulkh          #+#    #+#             */
+/*   Updated: 2023/09/06 18:02:12 by maboulkh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-t_boolean	is_open_door(t_door **doors, int x, int y, float *door_open_ratio)
+int	mouse_rotation(int x, int y, t_cub3d *cub3d)
 {
-	int	i;
-
-	i = 0;
-	if (!doors)
-		return (FALSE);
-	while (doors[i])
-	{
-		if (doors[i]->y == y && doors[i]->x == x)
-		{
-			if (door_open_ratio)
-				*door_open_ratio = doors[i]->open;
-			return (TRUE);
-		}
-		i++;
-	}
-	return (FALSE);
+	printf("x = %d\n", x);
+	if (cub3d->mouse_x > x)
+		cub3d->rotation_dir = -1;
+	else if (cub3d->mouse_x < x)
+		cub3d->rotation_dir = 1;
+	if (x == 0 && cub3d->mouse_x == 0)
+		cub3d->rotation_dir = -1;
+	else if (x == WINDOW_WIDTH -1 && cub3d->mouse_x == WINDOW_WIDTH -1)
+		cub3d->rotation_dir = 1;
+	cub3d->mouse_x = x;
+	(void) y;
+	return (0);
 }

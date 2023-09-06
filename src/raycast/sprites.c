@@ -6,49 +6,14 @@
 /*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 03:28:35 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/09/04 16:27:38 by maboulkh         ###   ########.fr       */
+/*   Updated: 2023/09/06 17:34:31 by maboulkh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-static	void	ft_swap(void **p1, void **p2)
-{
-	void	*temp;
-
-	temp = *p1;
-	*p1 = *p2;
-	*p2 = temp;
-}
-
-static	void	rev_sort_sprites(t_sprite	**sprites)
-{
-	t_boolean	stop;
-	size_t		i;
-	size_t		j;
-
-	if (!sprites)
-		return ;
-	i = -1;
-	while (sprites[++i])
-	{
-		j = -1;
-		stop = FALSE;
-		while (sprites[++j])
-		{
-			if (sprites[j + 1]
-				&& (sprites[j])->distance < (sprites[j + 1])->distance)
-			{
-				ft_swap((void **)(sprites + j), (void **)(sprites + j + 1));
-				stop = TRUE;
-			}
-		}
-		if (!stop)
-			break ;
-	}
-}
-
-void	find_transform_vector(t_cub3d *cub3d, t_raycaster_data *rc, int id)
+static	void	find_transform_vector(t_cub3d *cub3d, 
+	t_raycaster_data *rc, int id)
 {
 	rc->sprite_x = cub3d->sprites[id]->x - rc->player_x;
 	rc->sprite_y = cub3d->sprites[id]->y - rc->player_y;
@@ -60,7 +25,7 @@ void	find_transform_vector(t_cub3d *cub3d, t_raycaster_data *rc, int id)
 			+ rc->camera_x * rc->sprite_y);
 }
 
-void	find_sprite_corners(t_raycaster_data *rc)
+static	void	find_sprite_corners(t_raycaster_data *rc)
 {
 	rc->sprite_screenX = (int )((WINDOW_WIDTH / 2) 
 			* (1 + rc->transform_X / rc->transform_Y));
@@ -80,7 +45,7 @@ void	find_sprite_corners(t_raycaster_data *rc)
 		rc->draw_endX = WINDOW_WIDTH - 1;
 }
 
-void	draw_stripe(t_cub3d *cub3d, t_raycaster_data *rc, int stripe)
+static	void	draw_stripe(t_cub3d *cub3d, t_raycaster_data *rc, int stripe)
 {
 	int		row;
 	int		tex_d;
@@ -106,10 +71,11 @@ void	draw_stripe(t_cub3d *cub3d, t_raycaster_data *rc, int stripe)
 	}
 }
 
-void	calculate_sprite_distance(t_sprite **sprites, t_raycaster_data *r_c)
+static	void	calculate_sprite_distance(t_sprite **sprites,
+	t_raycaster_data *r_c)
 {
-	double				dx;
-	double				dy;
+	double	dx;
+	double	dy;
 
 	while (sprites && *sprites)
 	{

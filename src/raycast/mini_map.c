@@ -6,7 +6,7 @@
 /*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 13:50:05 by maboulkh          #+#    #+#             */
-/*   Updated: 2023/09/03 17:09:27 by maboulkh         ###   ########.fr       */
+/*   Updated: 2023/09/06 17:53:19 by maboulkh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,10 +81,6 @@ void	draw_minimap(t_cub3d *cub3d)
 	int	x;
 	int	y;
 
-	cub3d->minimap.size = 10; // need to be inited
-	cub3d->minimap.unit = 10;
-	cub3d->minimap.height = WINDOW_HEIGHT / cub3d->minimap.size;
-	cub3d->minimap.width = WINDOW_WIDTH / cub3d->minimap.size;
 	y = 0;
 	while (y < cub3d->minimap.height)
 	{

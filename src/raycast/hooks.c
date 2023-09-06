@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/07 16:59:39 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/08/17 17:11:32:48oulkh         ###   ########.fr       */
+/*   Created: 2023/09/06 17:57:45 by maboulkh          #+#    #+#             */
+/*   Updated: 2023/09/06 17:59:27 by maboulkh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,28 +28,6 @@ int	close_window(void)
 	return (0);
 }
 
-void	print_map(t_cub3d *cub3d)
-{
-	// int x;
-	// int y;
-	
-	printf("player at x = %lf, y = %lf\n", cub3d->raycaster.player_x, cub3d->raycaster.player_y);
-	// printf("direction at  at x = %lf, y = %lf\n", cub3d->raycaster.direction_x, cub3d->raycaster.direction_y);
-		// printf("FOV at x = %lf , y = %lf\n", cub3d->raycaster.camera_x, cub3d->raycaster.camera_y);
-		// y = 0;
-		// while(cub3d->mini_map[y])
-		// {
-		// 	x = 0;
-		// 	while (cub3d->mini_map[y][x])
-		// 	{
-		// 		printf("%c, ", cub3d->mini_map[y][x]);
-		// 		x++;
-		// 	}
-		// 	printf("\n");
-		// 	y++;
-		// }
-}
-
 static int	keyboard_press_hooks(int keycode, t_cub3d *cub3d)
 {
 	if (keycode == ESC_KEY)
@@ -66,10 +44,8 @@ static int	keyboard_press_hooks(int keycode, t_cub3d *cub3d)
 		cub3d->rotation_dir = -1;
 	else if (keycode == RIGHT_KEY)
 		cub3d->rotation_dir = 1;
-	else if (keycode == C_KEY) // clean this
+	else if (keycode == C_KEY)
 		open_door(cub3d, cub3d->door);
-	else if (keycode == SLASH_KEY) // clean this
-		print_map(cub3d);
 	return (0);
 }
 
@@ -79,8 +55,6 @@ static int	keyboard_release_hooks(int keycode, t_cub3d *cub3d)
 		close_window();
 	else if (keycode == S_KEY || keycode == W_KEY)
 		cub3d->move_vertical = 0;
-	else if (keycode == LEFT_KEY || keycode == RIGHT_KEY)
-		cub3d->rotation_dir = 0;
 	else if (keycode == A_KEY || keycode == D_KEY)
 		cub3d->move_horizontal = 0;
 	return (0);
@@ -90,13 +64,14 @@ int	refresh(t_cub3d *cub3d)
 {
 	static int	fps;
 
-	if (fps > 500)
+	if (fps > 50)
 	{
 		animate_doors(cub3d, cub3d->door);
 		if (cub3d->move_vertical || cub3d->move_horizontal)
 			move_player(cub3d);
 		if (cub3d->rotation_dir)
 			rotate_player(cub3d);
+		cub3d->rotation_dir = 0;
 		draw_cub3d(cub3d);
 		draw_minimap(cub3d);
 		fps = 0;
@@ -108,24 +83,18 @@ int	refresh(t_cub3d *cub3d)
 	return (0);
 }
 
-// int	mouse_rotation(int x, int y, t_cub3d *cub3d)
-// {
-// 	if (x - cub3d->mouse_x > 0)
-// 	{
-
-// 		cub3d->rotation_dir = 1;
-// 	}
-// 	return (0);
-// }
-
 void	cub3d_hooks(t_cub3d *cub3d)
 {
 	cub3d->mouse_x = WINDOW_HEIGHT / 2;
 	cub3d->mouse_y = WINDOW_WIDTH / 2;
-	// mlx_hook(cub3d->window, MOTIONNOTIFY, POINTERMOTIONMASK, rotate_hook,
-	// 	fdf);
+	cub3d->minimap.size = 5;
+	cub3d->minimap.unit = 10;
+	cub3d->minimap.height = WINDOW_HEIGHT / cub3d->minimap.size;
+	cub3d->minimap.width = WINDOW_WIDTH / cub3d->minimap.size;
+	mlx_hook(cub3d->window, MOTIONNOTIFY, POINTERMOTIONMASK, mouse_rotation,
+		cub3d);
 	mlx_hook(cub3d->window, DESTROYNOTIFY, NOEVENTMASK, close_window,
-		(void *)NULL);
+		(void *) NULL);
 	mlx_hook(cub3d->window, KEYPRESS, KEYPRESSMASK, keyboard_press_hooks,
 		cub3d);
 	mlx_hook(cub3d->window, KEYRELEASE, KEYRELEASEMASK, keyboard_release_hooks,
