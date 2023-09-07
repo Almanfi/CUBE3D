@@ -6,7 +6,7 @@
 /*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 18:29:31 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/09/06 18:43:36 by maboulkh         ###   ########.fr       */
+/*   Updated: 2023/09/07 21:48:01 by maboulkh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,8 +91,14 @@ void	justify_lines(t_cub3d *cub3d)
 	fill_lines(cub3d, max_len);
 }
 
-t_boolean	open_wall(char **map, size_t i, size_t j)
+t_boolean	open_wall(t_cub3d *cub3d, char **map, size_t i, size_t j)
 {
+	if (i < 1 || (int) i > (int) (cub3d->map_len) - 2)
+		return (TRUE);
+	if (j < 1 || j + 2 > cub3d->map_row_len[i]
+		|| j + 2 > cub3d->map_row_len[i - 1]
+		|| j + 2 > cub3d->map_row_len[i + 1])
+		return (TRUE);
 	if (ft_is_space(map[i - 1][j]) || ft_is_space(map[i + 1][j])
 			|| ft_is_space(map[i][j - 1]) || ft_is_space(map[i][j + 1]))
 		return (TRUE);

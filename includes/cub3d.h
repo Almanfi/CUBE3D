@@ -6,7 +6,7 @@
 /*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 18:47:21 by maboulkh          #+#    #+#             */
-/*   Updated: 2023/09/06 17:49:58 by maboulkh         ###   ########.fr       */
+/*   Updated: 2023/09/07 22:08:20 by maboulkh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 #define WINDOW_WIDTH    1920
 
 #define TX_NBR   16
-#define TEX_DIMENSIONS 64
+#define TEX_DIMENSIONS 256
 #define HB_RADIUS 0.3
 
 #define MOVE_SPEED 0.4
@@ -171,7 +171,9 @@ typedef struct s_door
 typedef struct s_cub3d
 {
     char        **map_content;
-    size_t      *content_len;         
+    size_t      *content_len;
+	size_t		map_len;
+	size_t		*map_row_len;
     char        **mini_map;
     size_t      *mini_map_line_len;
     t_boolean   player_set;
@@ -230,7 +232,7 @@ void	set_mini_map(t_cub3d *cub3d, size_t last_line);
 void    skip_empty_lines(t_cub3d *cub3d);
 void    justify_lines(t_cub3d *cub3d);
 t_boolean   is_open_door(t_door **door, int x, int y, float *door_open_ratio);
-t_boolean	open_wall(char **map, size_t i, size_t j);
+t_boolean	open_wall(t_cub3d *cub3d, char **map, size_t i, size_t j);
 
 //skip_space.c
 t_boolean	ft_is_space(char c);

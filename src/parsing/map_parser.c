@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_parser.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 17:13:43 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/09/05 17:02:04 by bamrouch         ###   ########.fr       */
+/*   Updated: 2023/09/07 22:05:44 by maboulkh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	map_conditions(t_cub3d *cub3d, char **map, size_t i, size_t j)
 	if (map[i][j] == '1' || ft_is_space(map[i][j]))
 		;
 	else if ((map[i][j] == '0' || map[i][j] == 'D' || map[i][j] == 'I'
-			|| is_start_pos(map[i][j])) && (j == 0 || open_wall(map, i, j)))
+			|| is_start_pos(map[i][j])) && (j == 0 || open_wall(cub3d, map, i, j)))
 		exit_cub3d(-1, "unvalid map due to unclosed walls");
 	else if (map[i][j] == 'D' && (map[i - 1][j] != '1' || map[i + 1][j] != '1')
 		&& (map[i][j + 1] != '1' || map[i][j - 1] != '1'))
@@ -74,6 +74,24 @@ void	map_conditions(t_cub3d *cub3d, char **map, size_t i, size_t j)
 		exit_cub3d(-1, "wrong map caracter");
 }
 
+void calc_map_diamentions(t_cub3d *cub3d, char **map)
+{
+	size_t	i;
+
+	i = 0;
+	while (map[i])
+		i++;
+	cub3d->map_len = i;
+	cub3d->map_row_len = ft_malloc(i * sizeof(size_t),
+		m_info(NULL, 1, NULL, 0));
+	i = 0;
+	while (i < cub3d->map_len)
+	{
+		cub3d->map_row_len[i] = ft_strlen(map[i]);
+		i++;
+	}
+}
+
 void	map_parser(t_cub3d *cub3d)
 {
 	char	**map;
@@ -83,6 +101,7 @@ void	map_parser(t_cub3d *cub3d)
 
 	i = 1;
 	map = cub3d->map_content;
+	calc_map_diamentions(cub3d, map);
 	while (map[i])
 	{
 		j = 0;
