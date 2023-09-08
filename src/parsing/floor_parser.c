@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   floor_parser.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 20:14:53 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/09/08 16:42:42 by bamrouch         ###   ########.fr       */
+/*   Updated: 2023/09/08 18:07:13 by maboulkh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,31 +51,37 @@ static void	get_color(char **line, int *color)
 	ft_free_node(1, number);
 }
 
-void	floor_parser(char *line, t_cub3d *cub3d)
+void	floor_parser(char *line, t_cub3d *cub3d,
+	t_tx_type *texture, t_boolean ignore_err)
 {
-	if (!ft_strncmp(line, "F", 1) && !cub3d->texture.floor_is_set
-		&& ft_is_space(*(line + 1)))
+	if (!ft_strncmp(line, "F", 1) && ft_is_space(*(line + 1)))
 	{
+		if (cub3d->texture.floor_is_set)
+			exit_cub3d(-1, "floor color already set");
 		line = line + 1;
 		get_color(&line, &cub3d->texture.floor.r);
 		get_color(&line, &cub3d->texture.floor.g);
 		get_color(&line, &cub3d->texture.floor.b);
 		cub3d->texture.floor_is_set = TRUE;
+		*texture = FLOOR;
 	}
-	else if (!ft_strncmp(line, "C", 1) && !cub3d->texture.ceiling_is_set
-		&& ft_is_space(*(line + 1)))
+	else if (!ft_strncmp(line, "C", 1) && ft_is_space(*(line + 1)))
 	{
+		if (cub3d->texture.ceiling_is_set)
+			exit_cub3d(-1, "ceiling color already set");
 		line = line + 1;
 		get_color(&line, &cub3d->texture.ceiling.r);
 		get_color(&line, &cub3d->texture.ceiling.g);
 		get_color(&line, &cub3d->texture.ceiling.b);
 		cub3d->texture.ceiling_is_set = TRUE;
+		*texture = CEILING;
 	}
-	else
-	{
-		exit_cub3d(-1, "wrong textures content");
-	}
+	
+	// else if (ignore_err == FALSE)
+	// {
+	// 	exit_cub3d(-1, "wrong textures content");
+	// }
 	line = skip_space(line);
-	if (*line)
+	if (*line && ignore_err == FALSE)
 		exit_cub3d(-1, "extra content after floor/ceiling color");
 }

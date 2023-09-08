@@ -6,7 +6,7 @@
 /*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 16:55:41 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/09/06 18:42:17 by maboulkh         ###   ########.fr       */
+/*   Updated: 2023/09/08 18:44:27 by maboulkh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ void	read_sprites(t_cub3d *cub3d)
 	void	**temp;
 
 	img = mlx_xpm_file_to_image(cub3d->mlx, "./barrel.xpm",
-			&(cub3d->img_width), &(cub3d->img_height));
+	&(cub3d->img_width), &(cub3d->img_height));
 	if (!img)
-		exit_cub3d(-1, "couldn't open sprite file");
+	exit_cub3d(-1, "couldn't open sprite file");
 	temp = cub3d->imgs;
 	cub3d->imgs = add_element_to_array(temp, &img, sizeof(void *));
 	if (!cub3d->imgs)
-		exit_cub3d(ENOMEM, "couldn't save sprites pointers");
+	exit_cub3d(ENOMEM, "couldn't save sprites pointers");
 	ft_free_node(1, temp);
 	store_texture(cub3d, SPRITE, img);
 }

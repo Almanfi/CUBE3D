@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 13:16:26 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/09/08 13:16:57 by bamrouch         ###   ########.fr       */
+/*   Updated: 2023/09/08 17:39:35 by maboulkh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ typedef enum e_tx_type
 	EAST,
 	WEST,
 	FLOOR,
+	CEILING,
 	DOOR,
 	SPRITE,
 	FIREHEAD1,

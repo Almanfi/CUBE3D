@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_parsing.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 16:46:50 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/09/04 19:53:24 by bamrouch         ###   ########.fr       */
+/*   Updated: 2023/09/08 17:45:35 by maboulkh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,12 @@
 t_boolean	ft_str_is_integer(const char *str, int *res);
 
 // floor_parser.c
-void		floor_parser(char *line, t_cub3d *cub3d);
+void	floor_parser(char *line, t_cub3d *cub3d,
+				t_tx_type *texture, t_boolean ignore_err);
 
 // textures_parser.c
 void		parse_textures(t_cub3d *cub3d);
+void	    get_remainig_textures(t_cub3d *cub3d);
 void		store_texture(t_cub3d *cub3d, t_tx_type tx_side, void *img);
 void		read_texture_file(t_cub3d *cub3d, t_tx_type tx_side, char *line);
 

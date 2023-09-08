@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main_parser.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 19:16:25 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/09/08 13:12:46 by bamrouch         ###   ########.fr       */
+/*   Updated: 2023/09/08 18:09:47 by maboulkh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,15 @@ static void	read_map(int map_file, t_cub3d *cub3d)
 		exit_cub3d(-1, "empty map file");
 }
 
+static t_boolean	filled_everything(t_cub3d *cub3d)
+{
+	if (cub3d->texture.tx_set[NORTH] && cub3d->texture.tx_set[SOUTH]
+		&& cub3d->texture.tx_set[EAST] && cub3d->texture.tx_set[WEST]
+		&& cub3d->texture.floor_is_set && cub3d->texture.ceiling_is_set)
+		return (TRUE);
+	return (FALSE);
+}
+
 void	cub3d_parser(int argc, char *argv[], t_cub3d *cub3d)
 {
 	int	map_file;
@@ -68,7 +77,10 @@ void	cub3d_parser(int argc, char *argv[], t_cub3d *cub3d)
 	if (map_file == -1)
 		exit_cub3d(-1, "couldn't open the map file");
 	read_map(map_file, cub3d);
-	parse_textures(cub3d);
+	// parse_textures(cub3d);
+	get_remainig_textures(cub3d);
+	if (!filled_everything(cub3d))
+		exit_cub3d(-1, "not all textures are set");
 	skip_empty_lines(cub3d);
 	if (!*cub3d->map_content)
 		exit_cub3d(-1, "no map given");

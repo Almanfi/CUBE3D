@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_parser.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 17:13:43 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/09/08 16:25:30 by bamrouch         ###   ########.fr       */
+/*   Updated: 2023/09/08 18:12:33 by maboulkh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,8 @@ void	map_conditions(t_cub3d *cub3d, char **map, size_t i, size_t j)
 	else if ((map[i][j] == '0' || map[i][j] == 'D' || map[i][j] == 'I'
 			|| is_start_pos(map[i][j])) && (j == 0 || open_wall(map, i, j)))
 		exit_cub3d(-1, "unvalid map due to unclosed walls");
+	else if (map[i][j] == 'D' && !cub3d->texture.tx_set[DOOR])
+		exit_cub3d(-1, "door texture not provided");
 	else if (map[i][j] == 'D' && (map[i - 1][j] != '1' || map[i + 1][j] != '1')
 		&& (map[i][j + 1] != '1' || map[i][j - 1] != '1'))
 		exit_cub3d(-1, "door left out in the open");
