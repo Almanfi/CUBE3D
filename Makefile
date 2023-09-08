@@ -21,7 +21,7 @@ MLX_FLAG = -lmlx -framework OpenGL -framework AppKit
 %.o : %.c
 	@$(CC) $(FLAGS) -c $^ -o $@ $(OPTIMISATION)
 
-all : $(NAME)
+all : linflag $(NAME)
 
 WHITE_TEXT = \033[1;37m
 RED_TEXT = \033[0;31m

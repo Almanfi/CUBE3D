@@ -11,9 +11,9 @@
 /* ************************************************************************** */
 
 #ifndef CUB3D_RAYCASTING_H
-#define CUB3D_RAYCASTING_H
-#include "cub3d.h"
-#include <X11/X.h>
+# define CUB3D_RAYCASTING_H
+# include "cub3d.h"
+# include <X11/X.h>
 
 # ifdef LINUX
 
@@ -73,17 +73,17 @@
 # define DESTROYNOTIFY 17
 
 // sprites.c
-void    draw_sprites(t_cub3d *cub3d);
+void	draw_sprites(t_cub3d *cub3d);
 // sprites_utils.c
-void	rev_sort_sprites(t_sprite	**sprites);
+void	rev_sort_sprites(t_sprite **sprites);
 
 // floor.c
-void    cast_floor(t_cub3d *cub3d);
+void	cast_floor(t_cub3d *cub3d);
 
 // hooks.c
 void	cub3d_hooks(t_cub3d *cub3d);
 // hooks_mouse.c
-int     mouse_rotation(int x, int y, t_cub3d *cub3d);
+int		mouse_rotation(int x, int y, t_cub3d *cub3d);
 
 // main_raycasting.c
 void	draw_cub3d(t_cub3d *cub3d);
@@ -101,14 +101,14 @@ void	draw_minimap(t_cub3d *cub3d);
 void	open_door(t_cub3d *cub3d, t_door **open_doors);
 void	animate_doors(t_cub3d *cub3d, t_door **doors);
 
-//movement.c
+// movement.c
 void	move_player(t_cub3d *cub3d);
 void	rotate_player(t_cub3d *cub3d);
-void    move_backwards(t_cub3d *cub3d);
-void    move_forwards(t_cub3d *cub3d);
-void    move_left(t_cub3d *cub3d);
-void    move_right(t_cub3d *cub3d);
-void    rotate_clockwise(t_cub3d *cub3d);
-void    rotate_reverse_clockwise(t_cub3d *cub3d);
+void	move_backwards(t_cub3d *cub3d);
+void	move_forwards(t_cub3d *cub3d);
+void	move_left(t_cub3d *cub3d);
+void	move_right(t_cub3d *cub3d);
+void	rotate_clockwise(t_cub3d *cub3d);
+void	rotate_reverse_clockwise(t_cub3d *cub3d);
 
 #endif

@@ -1,4 +1,4 @@
-NO ./eagle.xpm
+NO ./eagle.xpm 
 
 SO ./redbrick.xpm
 
@@ -11,8 +11,6 @@ F 255,255,255
 C 0,0,0
 
 DO ./BIGDOOR.xpm
-
-111111
-1D0011
-10S011
-111111
+ 1
+1N1
+ 1

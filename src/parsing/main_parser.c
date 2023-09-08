@@ -6,7 +6,7 @@
 /*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 19:16:25 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/09/05 15:06:54 by bamrouch         ###   ########.fr       */
+/*   Updated: 2023/09/08 13:12:46 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,9 +69,12 @@ void	cub3d_parser(int argc, char *argv[], t_cub3d *cub3d)
 		exit_cub3d(-1, "couldn't open the map file");
 	read_map(map_file, cub3d);
 	parse_textures(cub3d);
-	map_parser(cub3d);
 	skip_empty_lines(cub3d);
 	if (!*cub3d->map_content)
 		exit_cub3d(-1, "no map given");
 	justify_lines(cub3d);
+	map_parser(cub3d);
+	skip_empty_lines(cub3d);
+	if (!*cub3d->map_content)
+		exit_cub3d(-1, "no map given");
 }

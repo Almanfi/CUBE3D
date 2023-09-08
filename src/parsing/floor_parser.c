@@ -6,7 +6,7 @@
 /*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 20:14:53 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/08/18 20:44:58 by bamrouch         ###   ########.fr       */
+/*   Updated: 2023/09/07 22:39:45 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,5 +77,5 @@ void	floor_parser(char *line, t_cub3d *cub3d)
 	}
 	line = skip_space(line);
 	if (*line)
-		exit_cub3d(-1, "extra content after floor color");
+		exit_cub3d(-1, "extra content after floor/ceiling color");
 }
