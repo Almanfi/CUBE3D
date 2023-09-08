@@ -6,13 +6,13 @@
 /*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 16:31:38 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/09/08 19:58:57 by maboulkh         ###   ########.fr       */
+/*   Updated: 2023/09/08 20:30:48 by maboulkh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-static t_tx_type set_tx_ifnot_set(t_tx_type side, t_cub3d *cub3d)
+static	t_tx_type	set_tx_ifnot_set(t_tx_type side, t_cub3d *cub3d)
 {
 	if (cub3d->texture.tx_set[side])
 		exit_cub3d(-1, "texture already set");
@@ -89,7 +89,7 @@ void	parse_textures(t_cub3d *cub3d)
 			texture_to_fill = NOT_DEFINED;
 			texture_to_fill = texture_side(&line, cub3d);
 			if (texture_to_fill == NOT_DEFINED)
-				floor_parser(line, cub3d, &texture_to_fill, TRUE);
+				floor_parser(line, cub3d, &texture_to_fill);
 			else
 				open_texture_file(&line, cub3d, texture_to_fill);
 			if (texture_to_fill == NOT_DEFINED)
@@ -98,4 +98,6 @@ void	parse_textures(t_cub3d *cub3d)
 		cub3d->map_content++;
 		cub3d->content_len++;
 	}
+	if (!filled_everything(cub3d))
+		exit_cub3d(-1, "not all textures are set");
 }

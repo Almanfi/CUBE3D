@@ -6,7 +6,7 @@
 /*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 16:18:02 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/09/08 20:03:28 by maboulkh         ###   ########.fr       */
+/*   Updated: 2023/09/08 20:29:32 by maboulkh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	set_mini_map(t_cub3d *cub3d, size_t last_line)
 		cub3d->mini_map_line_len = add_element_to_array(
 				cub3d->mini_map_line_len,
 				&line_len, sizeof(size_t));
-			ft_free_node(1 , temp);
+		ft_free_node(1, temp);
 		i++;
 	}
 	cub3d->mini_map[i] = NULL;
