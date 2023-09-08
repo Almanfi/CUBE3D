@@ -6,7 +6,7 @@
 /*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 16:46:50 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/09/08 20:30:58 by maboulkh         ###   ########.fr       */
+/*   Updated: 2023/09/08 20:37:55 by maboulkh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 t_boolean	ft_str_is_integer(const char *str, int *res);
 
 // floor_parser.c
-void	floor_parser(char *line, t_cub3d *cub3d,
+void		floor_parser(char *line, t_cub3d *cub3d,
 				t_tx_type *texture);
 
 // textures_parser.c

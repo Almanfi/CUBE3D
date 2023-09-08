@@ -6,7 +6,7 @@
 /*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 20:14:53 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/09/08 20:31:40 by maboulkh         ###   ########.fr       */
+/*   Updated: 2023/09/08 21:05:04 by maboulkh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static char	*substr_to_comma(char **str)
 	number = pro_substr(temp, 0, i);
 	temp = skip_space(&(temp[i]));
 	if (*temp)
-		exit_cub3d(-1, "extra content after floor colors");
+		exit_cub3d(-1, "extra content after floor/ceiling colors");
 	if (!number)
 		exit_cub3d(ENOMEM, "couldn't malloc a substr to coma");
 	ft_free_node(1, temp);
@@ -77,6 +77,6 @@ void	floor_parser(char *line, t_cub3d *cub3d,
 		*texture = CEILING;
 	}
 	line = skip_space(line);
-	if (*line)
+	if (*line && (*texture == CEILING || *texture == FLOOR))
 		exit_cub3d(-1, "extra content after floor/ceiling color");
 }

@@ -6,14 +6,13 @@
 /*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 19:39:12 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/09/06 18:00:26 by maboulkh         ###   ########.fr       */
+/*   Updated: 2023/09/08 20:40:21 by maboulkh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_RAYCASTING_H
 # define CUB3D_RAYCASTING_H
 # include "cub3d.h"
-# include <X11/X.h>
 
 # ifdef LINUX
 
