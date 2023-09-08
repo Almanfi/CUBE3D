@@ -6,7 +6,7 @@
 /*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 17:13:43 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/09/08 13:11:56 by bamrouch         ###   ########.fr       */
+/*   Updated: 2023/09/08 16:25:30 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ void	map_parser(t_cub3d *cub3d)
 	{
 		j = 0;
 		line = skip_space(map[i]);
-		if (!*line && i > 0)
+		if (!*line)
 			break ;
 		while (map[i][j])
 		{

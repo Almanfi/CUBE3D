@@ -1,4 +1,4 @@
-NO ./eagle.xpm 
+NO  ./eagle.xpm     
 
 SO ./redbrick.xpm
 
@@ -6,11 +6,12 @@ EA ./colorstone.xpm
 
 WE ./FIREBLU2.xpm
 
-F 255,255,255
+C       0,0,0
 
-C 0,0,0
+F       255,255,255
 
-DO ./BIGDOOR.xpm
+DO ./BIGDOOR2.xpm
+
  1
 1N1
  1

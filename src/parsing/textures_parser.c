@@ -6,7 +6,7 @@
 /*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 16:31:38 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/09/04 19:56:02 by bamrouch         ###   ########.fr       */
+/*   Updated: 2023/09/08 16:40:41 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static t_tx_type	texture_side(char **line, t_cub3d *cub3d)
 {
 	t_tx_type	texture;
 
-	texture = FLOOR;
+	texture = NOT_DEFINED;
 	if (ft_is_space(*(*line + 2)))
 	{
 		if (!ft_strncmp(*line, "NO", 2) && !cub3d->texture.tx_set[NORTH]
@@ -85,7 +85,7 @@ void	parse_textures(t_cub3d *cub3d)
 		{
 			texture_to_fill = NOT_DEFINED;
 			texture_to_fill = texture_side(&line, cub3d);
-			if (texture_to_fill == FLOOR)
+			if (texture_to_fill == NOT_DEFINED)
 				floor_parser(line, cub3d);
 			else
 				open_texture_file(&line, cub3d, texture_to_fill);

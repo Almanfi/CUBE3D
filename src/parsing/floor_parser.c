@@ -6,7 +6,7 @@
 /*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 20:14:53 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/09/07 22:39:45 by bamrouch         ###   ########.fr       */
+/*   Updated: 2023/09/08 16:42:42 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,9 @@ static void	get_color(char **line, int *color)
 	*line = skip_space(*line);
 	number = substr_to_comma(line);
 	if (!ft_str_is_integer(number, color))
-		exit_cub3d(-1, "floor color is not a valid number");
+		exit_cub3d(-1, "floor/ceiling color is not a valid number");
 	if (*color < 0 || *color > 255)
-		exit_cub3d(-1, "floor color overflows");
+		exit_cub3d(-1, "floor/ceiling color overflows");
 	ft_free_node(1, number);
 }
 
