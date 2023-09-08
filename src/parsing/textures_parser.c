@@ -6,7 +6,7 @@
 /*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 16:31:38 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/09/08 18:10:14 by maboulkh         ###   ########.fr       */
+/*   Updated: 2023/09/08 19:58:57 by maboulkh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,36 +81,8 @@ void	parse_textures(t_cub3d *cub3d)
 	char		*line;
 	t_tx_type	texture_to_fill;
 
-	while (*cub3d->map_content && !filled_everything(cub3d))
-	{
-		line = skip_space(*cub3d->map_content);
-		if (*line)
-		{
-			texture_to_fill = NOT_DEFINED;
-			texture_to_fill = texture_side(&line, cub3d);
-			if (texture_to_fill == NOT_DEFINED)
-				floor_parser(line, cub3d ,&texture_to_fill, FALSE);
-			else
-				open_texture_file(&line, cub3d, texture_to_fill);
-			if (texture_to_fill == NOT_DEFINED)
-				exit_cub3d(-1, "wrong textures content");
-		}
-		ft_free_node(GNL_SCOPE, *cub3d->map_content);
-		cub3d->map_content++;
-		cub3d->content_len++;
-	}
-	if (!filled_everything(cub3d))
-		exit_cub3d(-1, "not all textures are set");
-}
-
-void	get_remainig_textures(t_cub3d *cub3d)
-{
-	char		*line;
-	t_tx_type	texture_to_fill;
-
 	while (*cub3d->map_content)
 	{
-		// printf("line is |%s|\n", *cub3d->map_content);
 		line = skip_space(*cub3d->map_content);
 		if (*line)
 		{
@@ -123,7 +95,6 @@ void	get_remainig_textures(t_cub3d *cub3d)
 			if (texture_to_fill == NOT_DEFINED)
 				break ;
 		}
-		ft_free_node(GNL_SCOPE, *cub3d->map_content);
 		cub3d->map_content++;
 		cub3d->content_len++;
 	}

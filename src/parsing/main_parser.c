@@ -6,7 +6,7 @@
 /*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 19:16:25 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/09/08 18:09:47 by maboulkh         ###   ########.fr       */
+/*   Updated: 2023/09/08 20:07:09 by maboulkh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,8 +77,7 @@ void	cub3d_parser(int argc, char *argv[], t_cub3d *cub3d)
 	if (map_file == -1)
 		exit_cub3d(-1, "couldn't open the map file");
 	read_map(map_file, cub3d);
-	// parse_textures(cub3d);
-	get_remainig_textures(cub3d);
+	parse_textures(cub3d);
 	if (!filled_everything(cub3d))
 		exit_cub3d(-1, "not all textures are set");
 	skip_empty_lines(cub3d);

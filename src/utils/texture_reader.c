@@ -6,7 +6,7 @@
 /*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 19:47:32 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/09/06 21:35:42 by maboulkh         ###   ########.fr       */
+/*   Updated: 2023/09/08 19:54:37 by maboulkh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,17 @@ void	store_texture(t_cub3d *cub3d, t_tx_type tx_side, void *img)
 void	read_texture_file(t_cub3d *cub3d, t_tx_type tx_side, char *line)
 {
 	void	*img;
+	void	**temp;
 
+	printf("|%s|\n", line);
 	img = mlx_xpm_file_to_image(cub3d->mlx, line, &(cub3d->img_width),
 			&(cub3d->img_height));
 	if (!img)
 		exit_cub3d(-1, "couldn't open a texture file");
+	temp = cub3d->imgs;
 	cub3d->imgs = add_element_to_array(cub3d->imgs, &img, sizeof(void *));
 	if (!cub3d->imgs)
 		exit_cub3d(ENOMEM, "couldn't save texture pointers");
+	ft_free_node(1, temp);
 	store_texture(cub3d, tx_side, img);
 }

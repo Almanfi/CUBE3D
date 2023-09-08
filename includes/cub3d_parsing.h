@@ -6,7 +6,7 @@
 /*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 16:46:50 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/09/08 17:45:35 by maboulkh         ###   ########.fr       */
+/*   Updated: 2023/09/08 20:00:45 by maboulkh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ void	floor_parser(char *line, t_cub3d *cub3d,
 
 // textures_parser.c
 void		parse_textures(t_cub3d *cub3d);
-void	    get_remainig_textures(t_cub3d *cub3d);
 void		store_texture(t_cub3d *cub3d, t_tx_type tx_side, void *img);
 void		read_texture_file(t_cub3d *cub3d, t_tx_type tx_side, char *line);
 

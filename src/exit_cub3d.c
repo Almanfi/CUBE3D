@@ -6,7 +6,7 @@
 /*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 15:45:13 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/09/08 18:44:41 by maboulkh         ###   ########.fr       */
+/*   Updated: 2023/09/08 19:17:22 by maboulkh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,8 @@ void	exit_cub3d(int err_code, char *message)
 	if (message)
 		ft_putstr_fd(message, STDERR_FILENO);
 	ft_putendl_fd("", STDERR_FILENO);
-	if (cub3d->imgs)
-	while (*cub3d->imgs)
-	mlx_destroy_image(cub3d->mlx, *(cub3d->imgs++));
+	while (cub3d->imgs && *cub3d->imgs)
+		mlx_destroy_image(cub3d->mlx, *(cub3d->imgs++));
 	ft_free(0, TRUE);
 	exit(1);
 }

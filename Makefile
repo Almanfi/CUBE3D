@@ -10,7 +10,7 @@ endif
 
 OBJ_FILES = ${SRC_FILES:%.c=%.o}
 
-FLAGS = -Wall -Werror -Wextra $(INCLUDES) -fsanitize=address
+FLAGS = -Wall -Werror -Wextra $(INCLUDES)
 
 NAME = cub3D
 
@@ -43,8 +43,7 @@ lin : linflag all
 
 linflag : 
 	$(eval MLX_FLAG := -lm -lmlx -lXext -lX11 -L./minilibx-linux)
-	$(eval FLAGS = -Wall -Werror -Wextra $(INCLUDES) -fsanitize=address -g -DLINUX)
-#	$(eval FLAGS = -Wall -Werror -Wextra $(INCLUDES) -DLINUX)
+	$(eval FLAGS = -Wall -Werror -Wextra $(INCLUDES) -DLINUX)
 
 clean :
 	@echo "$(RED_TEXT)Cleaning $(NAME) Object Files"
