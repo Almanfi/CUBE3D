@@ -6,7 +6,7 @@
 /*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 18:46:53 by maboulkh          #+#    #+#             */
-/*   Updated: 2023/09/09 15:50:21 by maboulkh         ###   ########.fr       */
+/*   Updated: 2023/09/09 15:59:18 by maboulkh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ static	void	find_texture_id_and_offset(t_cub3d *cub3d,
 	int		direction;
 
 	direction = get_direction(raycaster);
-	if (direction == NORTH || direction == WEST)
+	if (direction == SOUTH || direction == WEST)
 		motion_direction = -1;
 	else
 		motion_direction = +1;
