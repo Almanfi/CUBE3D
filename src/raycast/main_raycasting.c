@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main_raycasting.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 18:46:29 by maboulkh          #+#    #+#             */
-/*   Updated: 2023/09/04 13:19:29 by maboulkh         ###   ########.fr       */
+/*   Updated: 2023/09/09 14:38:24 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,25 +17,25 @@ static void	set_ray_step(t_cub3d *cub3d)
 	t_raycaster_data	*r_c;
 
 	r_c = &cub3d->raycaster;
-	if (r_c->rayX < 0)
+	if (r_c->ray_x < 0)
 	{
 		r_c->step_x = -1;
-		r_c->sideDistX = (r_c->player_x - r_c->mapX) * r_c->deltadistX;
+		r_c->sidedist_x = (r_c->player_x - r_c->map_x) * r_c->deltadist_x;
 	}
 	else
 	{
 		r_c->step_x = 1;
-		r_c->sideDistX = (r_c->mapX + 1.0 - r_c->player_x) * r_c->deltadistX;
+		r_c->sidedist_x = (r_c->map_x + 1.0 - r_c->player_x) * r_c->deltadist_x;
 	}
-	if (r_c->rayY < 0)
+	if (r_c->ray_y < 0)
 	{
 		r_c->step_y = -1;
-		r_c->sideDistY = (r_c->player_y - r_c->mapY) * r_c->deltadistY;
+		r_c->sidedist_y = (r_c->player_y - r_c->map_y) * r_c->deltadist_y;
 	}
 	else
 	{
 		r_c->step_y = 1;
-		r_c->sideDistY = (r_c->mapY + 1.0 - r_c->player_y) * r_c->deltadistY;
+		r_c->sidedist_y = (r_c->map_y + 1.0 - r_c->player_y) * r_c->deltadist_y;
 	}
 }
 
@@ -46,18 +46,18 @@ static void	init_ray(t_raycaster_data *r_c, size_t i)
 	r_c->door = FALSE;
 	r_c->hit = FALSE;
 	projected_ray = ((2 * i) / (double)WINDOW_WIDTH) - 1;
-	r_c->rayX = r_c->direction_x + r_c->camera_x * projected_ray;
-	r_c->rayY = r_c->direction_y + r_c->camera_y * projected_ray;
-	r_c->mapX = r_c->player_x;
-	r_c->mapY = r_c->player_y;
-	if (r_c->rayX == 0.0)
-		r_c->deltadistX = DBL_MAX;
+	r_c->ray_x = r_c->direction_x + r_c->camera_x * projected_ray;
+	r_c->ray_y = r_c->direction_y + r_c->camera_y * projected_ray;
+	r_c->map_x = r_c->player_x;
+	r_c->map_y = r_c->player_y;
+	if (r_c->ray_x == 0.0)
+		r_c->deltadist_x = DBL_MAX;
 	else
-		r_c->deltadistX = ft_abs((double)1 / r_c->rayX);
-	if (r_c->rayY == 0.0)
-		r_c->deltadistY = DBL_MAX;
+		r_c->deltadist_x = ft_abs((double)1 / r_c->ray_x);
+	if (r_c->ray_y == 0.0)
+		r_c->deltadist_y = DBL_MAX;
 	else
-		r_c->deltadistY = ft_abs((double)1 / r_c->rayY);
+		r_c->deltadist_y = ft_abs((double)1 / r_c->ray_y);
 }
 
 void	cast_rays(t_cub3d *cub3d)
@@ -75,11 +75,11 @@ void	cast_rays(t_cub3d *cub3d)
 		set_ray_step(cub3d);
 		perform_dda(cub3d);
 		if (!r_c->side)
-			r_c->perpwallDist = r_c->sideDistX - r_c->deltadistX;
+			r_c->perpwalldist = r_c->sidedist_x - r_c->deltadist_x;
 		else
-			r_c->perpwallDist = r_c->sideDistY - r_c->deltadistY;
-		r_c->perpwallDist /= 2;
-		cub3d->Zbuffer[i] = r_c->perpwallDist;
+			r_c->perpwalldist = r_c->sidedist_y - r_c->deltadist_y;
+		r_c->perpwalldist /= 2;
+		cub3d->zbuffer[i] = r_c->perpwalldist;
 		draw_wall(cub3d, i);
 		i++;
 	}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   movement.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 07:36:11 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/09/08 23:06:37 by maboulkh         ###   ########.fr       */
+/*   Updated: 2023/09/09 15:03:05 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ void	rotate_player(t_cub3d *cub3d)
 
 	rot_const = ROT_SPEED;
 	raycaster = &cub3d->raycaster;
-	rot_speed = cub3d->rotation_dir * rot_const;
+	rot_speed = (cub3d->rotation_dir + 3 * cub3d->mouse_rot_dir) * rot_const;
 	old_direction_x = raycaster->direction_x;
 	old_camera_x = raycaster->camera_x;
 	raycaster->direction_x = old_direction_x * cos(rot_speed)

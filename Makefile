@@ -1,8 +1,42 @@
-SRC_FILES = ${wildcard ./src/**/*.c} ${wildcard ./src/*.c} ${wildcard ./src/**/**/*.c}
+SRC_FILES = ./src/main.c \
+./src/mlx/init_mlx.c	\
+./src/mlx/pixel_put.c	\
+./src/raycast/draw_line_utils.c	\
+./src/raycast/sprites.c	\
+./src/raycast/draw_line.c	\
+./src/raycast/door.c	\
+./src/raycast/hooks.c	\
+./src/raycast/mini_map.c	\
+./src/raycast/movement.c	\
+./src/raycast/main_raycasting.c	\
+./src/raycast/floor.c	\
+./src/raycast/door2.c	\
+./src/raycast/dda.c	\
+./src/raycast/hook_mouse.c	\
+./src/raycast/walls.c	\
+./src/raycast/sprites_utils.c	\
+./src/exit_cub3d.c	\
+./src/utils/array_utils.c	\
+./src/utils/substr.c	\
+./src/utils/strdup.c	\
+./src/utils/set_map.c	\
+./src/utils/camera_start.c	\
+./src/utils/map_utils.c	\
+./src/utils/skip_space.c	\
+./src/utils/texture_reader.c	\
+./src/utils/math_utils.c	\
+./src/parsing/map_parser.c	\
+./src/parsing/main_parser.c	\
+./src/parsing/int_parser.c	\
+./src/parsing/textures_parser.c	\
+./src/parsing/floor_parser.c	\
+
 
 INCLUDES = -I./includes -I./libft/includes -I./minilibx-linux
 
-ifeq ($(where clang), 0)
+ifeq ($(where cc), 0)
+  CC = cc
+else ifeq ($(where clang), 0)
   CC = clang
 else ifeq ($(where gcc), 0)
   CC = gcc
@@ -13,8 +47,6 @@ OBJ_FILES = ${SRC_FILES:%.c=%.o}
 FLAGS = -Wall -Werror -Wextra $(INCLUDES)
 
 NAME = cub3D
-
-OPTIMISATION = -O2
 
 MLX_FLAG = -lmlx -framework OpenGL -framework AppKit 
 
@@ -58,5 +90,7 @@ fclean : clean
 	@echo "$(NC_TEXT)"
 
 re : fclean all
+
+bonus : all
 
 .PHONY : clean fclean re all

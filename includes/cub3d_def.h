@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_def.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 20:39:28 by maboulkh          #+#    #+#             */
-/*   Updated: 2023/09/08 23:08:47 by maboulkh         ###   ########.fr       */
+/*   Updated: 2023/09/09 15:03:46 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 # define HB_RADIUS 0.3
 
 # define MOVE_SPEED 0.1
-# define ROT_SPEED 0.05
+# define ROT_SPEED 0.02
 
 # define DBL_MAX 1.0e30
 
@@ -98,45 +98,45 @@ typedef struct s_raycaster_data
 	double				direction_y;
 	double				camera_x;
 	double				camera_y;
-	double				rayX;
-	double				rayY;
-	int					mapX;
-	int					mapY;
-	double				sideDistX;
-	double				sideDistY;
-	double				deltadistX;
-	double				deltadistY;
-	double				perpwallDist;
+	double				ray_x;
+	double				ray_y;
+	int					map_x;
+	int					map_y;
+	double				sidedist_x;
+	double				sidedist_y;
+	double				deltadist_x;
+	double				deltadist_y;
+	double				perpwalldist;
 	int					step_x;
 	int					step_y;
 	t_boolean			hit;
 	t_boolean			side;
 	t_boolean			door;
 	t_boolean			door_side;
-	int					backX;
-	int					backY;
-	t_boolean			backS;
+	int					back_x;
+	int					back_y;
+	t_boolean			back_s;
 	t_boolean			pass_door;
 	double				angle;
 	double				delta;
 	int					draw_start;
 	int					draw_end;
-	double				wallX;
+	double				wall_x;
 	double				tex_step;
 	double				tex_pos;
-	int					texX;
-	int					texY;
+	int					tex_x;
+	int					tex_y;
 	double				sprite_x;
 	double				sprite_y;
-	double				inv_Det;
-	double				transform_X;
-	double				transform_Y;
-	int					sprite_screenX;
+	double				inv_det;
+	double				transform_x;
+	double				transform_y;
+	int					sprite_screenx;
 	int					sprite_height;
-	int					draw_startX;
-	int					draw_startY;
-	int					draw_endX;
-	int					draw_endY;
+	int					draw_startx;
+	int					draw_starty;
+	int					draw_endx;
+	int					draw_endy;
 	int					sprite_width;
 
 }						t_raycaster_data;
@@ -186,9 +186,10 @@ typedef struct s_cub3d
 	int					move_horizontal;
 	int					move_vertical;
 	int					rotation_dir;
+	int					mouse_rot_dir;
 	t_sprite			**sprites;
 	size_t				sprite_count;
-	double				Zbuffer[WINDOW_WIDTH];
+	double				zbuffer[WINDOW_WIDTH];
 	int					mouse_x;
 	int					mouse_y;
 	double				rot_multiplicator;

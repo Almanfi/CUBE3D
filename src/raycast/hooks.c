@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hooks.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 17:57:45 by maboulkh          #+#    #+#             */
-/*   Updated: 2023/09/08 22:58:20 by maboulkh         ###   ########.fr       */
+/*   Updated: 2023/09/09 15:25:19 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,8 @@ static int	keyboard_release_hooks(int keycode, t_cub3d *cub3d)
 		cub3d->move_vertical = 0;
 	if (keycode == A_KEY || keycode == D_KEY)
 		cub3d->move_horizontal = 0;
+	if (keycode == LEFT_KEY || keycode == RIGHT_KEY)
+		cub3d->rotation_dir = 0;
 	return (0);
 }
 
@@ -64,14 +66,14 @@ int	refresh(t_cub3d *cub3d)
 {
 	static int	fps;
 
-	if (fps > 1000)
+	if (fps > 500)
 	{
 		animate_doors(cub3d, cub3d->door);
-		// if (cub3d->move_vertical || cub3d->move_horizontal)
+		if (cub3d->move_vertical || cub3d->move_horizontal)
 			move_player(cub3d);
-		// if (cub3d->rotation_dir)
+		if (cub3d->rotation_dir || cub3d->mouse_rot_dir)
 			rotate_player(cub3d);
-		cub3d->rotation_dir = 0;
+		cub3d->mouse_rot_dir = 0;
 		draw_cub3d(cub3d);
 		draw_minimap(cub3d);
 		fps = 0;

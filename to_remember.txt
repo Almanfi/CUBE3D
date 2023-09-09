@@ -1,3 +1,0 @@
-
-
-if i do 0 in the end of the map without \n

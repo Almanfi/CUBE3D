@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   walls.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 18:46:53 by maboulkh          #+#    #+#             */
-/*   Updated: 2023/09/04 12:07:26 by maboulkh         ###   ########.fr       */
+/*   Updated: 2023/09/09 14:35:08 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,17 @@
 
 static	void	calculate_text_x(t_raycaster_data *raycaster, int line_height)
 {
-	raycaster->wallX = raycaster->player_x / 2
-		+ raycaster->perpwallDist * raycaster->rayX;
+	raycaster->wall_x = raycaster->player_x / 2
+		+ raycaster->perpwalldist * raycaster->ray_x;
 	if (!raycaster->side)
-		raycaster->wallX = raycaster->player_y / 2
-			+ raycaster->perpwallDist * raycaster->rayY;
-	raycaster->wallX -= floor(raycaster->wallX);
-	raycaster->texX = (int)(raycaster->wallX * (double) TEX_DIMENSIONS);
-	if (!raycaster->side && raycaster->rayX > 0)
-		raycaster->texX = TEX_DIMENSIONS - raycaster->texX - 1;
-	else if (raycaster->side && raycaster->rayY < 0)
-		raycaster->texX = TEX_DIMENSIONS - raycaster->texX - 1;
+		raycaster->wall_x = raycaster->player_y / 2
+			+ raycaster->perpwalldist * raycaster->ray_y;
+	raycaster->wall_x -= floor(raycaster->wall_x);
+	raycaster->tex_x = (int)(raycaster->wall_x * (double) TEX_DIMENSIONS);
+	if (!raycaster->side && raycaster->ray_x > 0)
+		raycaster->tex_x = TEX_DIMENSIONS - raycaster->tex_x - 1;
+	else if (raycaster->side && raycaster->ray_y < 0)
+		raycaster->tex_x = TEX_DIMENSIONS - raycaster->tex_x - 1;
 	raycaster->tex_step = 1.0 * TEX_DIMENSIONS / line_height;
 	raycaster->tex_pos = (raycaster->draw_start - WINDOW_HEIGHT / 2
 			+ line_height / 2) * raycaster->tex_step;
@@ -36,14 +36,14 @@ static	int	get_direction(t_raycaster_data *raycaster)
 
 	if (!raycaster->side)
 	{
-		if (raycaster->rayX > 0)
+		if (raycaster->ray_x > 0)
 			direction = EAST;
 		else
 			direction = WEST;
 	}
 	else
 	{
-		if (raycaster->rayY > 0)
+		if (raycaster->ray_y > 0)
 			direction = NORTH;
 		else
 			direction = SOUTH;
@@ -64,10 +64,10 @@ static	void	find_texture_id_and_offset(t_cub3d *cub3d,
 	else
 		motion_direction = +1;
 	if (raycaster->door
-		&& is_open_door(cub3d->door, raycaster->mapX / 2,
-			raycaster->mapY / 2, &door_open_ratio))
+		&& is_open_door(cub3d->door, raycaster->map_x / 2,
+			raycaster->map_y / 2, &door_open_ratio))
 	{
-		raycaster->texX += door_open_ratio * TEX_DIMENSIONS * motion_direction;
+		raycaster->tex_x += door_open_ratio * TEX_DIMENSIONS * motion_direction;
 		*texture_id = DOOR;
 	}
 	else if (raycaster->door_side)
@@ -88,10 +88,10 @@ static	void	draw_textured_wall(t_cub3d *cub3d, size_t x, int line_height)
 	y = raycaster->draw_start;
 	while (y < raycaster->draw_end)
 	{
-		raycaster->texY = (int) raycaster->tex_pos & (TEX_DIMENSIONS - 1);
+		raycaster->tex_y = (int) raycaster->tex_pos & (TEX_DIMENSIONS - 1);
 		raycaster->tex_pos += raycaster->tex_step;
 		cub3d_pixel_put(cub3d, x, y, cub3d->texture
-			.tx[id][TEX_DIMENSIONS * raycaster->texY + raycaster->texX]);
+			.tx[id][TEX_DIMENSIONS * raycaster->tex_y + raycaster->tex_x]);
 		y++;
 	}
 }
@@ -103,8 +103,8 @@ void	draw_wall(t_cub3d *cub3d, size_t x)
 
 	raycaster = &cub3d->raycaster;
 	line_height = WINDOW_HEIGHT;
-	if (raycaster->perpwallDist > 0.01)
-		line_height = (int )(WINDOW_HEIGHT / raycaster->perpwallDist);
+	if (raycaster->perpwalldist > 0.01)
+		line_height = (int )(WINDOW_HEIGHT / raycaster->perpwalldist);
 	raycaster->draw_start = -line_height / 2 + WINDOW_HEIGHT / 2;
 	if (raycaster->draw_start < 0)
 		raycaster->draw_start = 0;
