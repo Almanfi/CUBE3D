@@ -1,16 +1,16 @@
-NO  ./eagle.xpm     
+NO  ./textures/eagle.xpm     
 
-SO ./redbrick.xpm
+SO ./textures/redbrick.xpm
 
-EA ./colorstone.xpm
+EA ./textures/colorstone.xpm
 
-WE ./FIREBLU2.xpm
+WE ./textures/FIREBLU2.xpm
 
 C       0,0,0
 
 F       255,255,255
 
-DO ./BIGDOOR2.xpm
+DO ./textures/BIGDOOR2.xpm
 
  1
 1N1

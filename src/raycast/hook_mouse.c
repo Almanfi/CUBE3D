@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hook_mouse.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 17:59:16 by maboulkh          #+#    #+#             */
-/*   Updated: 2023/09/08 13:09:57 by bamrouch         ###   ########.fr       */
+/*   Updated: 2023/09/08 23:10:00 by maboulkh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ int	mouse_rotation(int x, int y, t_cub3d *cub3d)
 
 	i++;
 	(void) y;
-	if (x > WINDOW_WIDTH / 2 + 2)
+	if (x > WINDOW_WIDTH / 2)
 		cub3d->rotation_dir = 1;
-	else if (x < WINDOW_WIDTH / 2 - 2)
+	else if (x < WINDOW_WIDTH / 2)
 		cub3d->rotation_dir = -1;
 	if (i % 2)
 		mlx_mouse_move(cub3d->mlx,

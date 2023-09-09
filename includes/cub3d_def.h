@@ -6,7 +6,7 @@
 /*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 20:39:28 by maboulkh          #+#    #+#             */
-/*   Updated: 2023/09/08 21:07:06 by maboulkh         ###   ########.fr       */
+/*   Updated: 2023/09/08 23:08:47 by maboulkh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@
 # define TEX_DIMENSIONS 256
 # define HB_RADIUS 0.3
 
-# define MOVE_SPEED 0.4
-# define ROT_SPEED 4
+# define MOVE_SPEED 0.1
+# define ROT_SPEED 0.05
 
 # define DBL_MAX 1.0e30
 
@@ -153,7 +153,7 @@ typedef struct s_minimap
 {
 	int					width;
 	int					height;
-	int					unitould contain only lowercase characters, digits or '_';
+	int					unit;
 	int					size;
 }						t_minimap;
 

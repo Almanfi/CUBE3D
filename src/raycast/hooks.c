@@ -6,7 +6,7 @@
 /*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 17:57:45 by maboulkh          #+#    #+#             */
-/*   Updated: 2023/09/06 17:59:27 by maboulkh         ###   ########.fr       */
+/*   Updated: 2023/09/08 22:58:20 by maboulkh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,19 +32,19 @@ static int	keyboard_press_hooks(int keycode, t_cub3d *cub3d)
 {
 	if (keycode == ESC_KEY)
 		close_window();
-	else if (keycode == W_KEY)
+	if (keycode == W_KEY)
 		cub3d->move_vertical = 1;
-	else if (keycode == S_KEY)
+	if (keycode == S_KEY)
 		cub3d->move_vertical = -1;
-	else if (keycode == D_KEY)
+	if (keycode == D_KEY)
 		cub3d->move_horizontal = 1;
-	else if (keycode == A_KEY)
+	if (keycode == A_KEY)
 		cub3d->move_horizontal = -1;
-	else if (keycode == LEFT_KEY)
+	if (keycode == LEFT_KEY)
 		cub3d->rotation_dir = -1;
-	else if (keycode == RIGHT_KEY)
+	if (keycode == RIGHT_KEY)
 		cub3d->rotation_dir = 1;
-	else if (keycode == C_KEY)
+	if (keycode == C_KEY)
 		open_door(cub3d, cub3d->door);
 	return (0);
 }
@@ -53,9 +53,9 @@ static int	keyboard_release_hooks(int keycode, t_cub3d *cub3d)
 {
 	if (keycode == ESC_KEY)
 		close_window();
-	else if (keycode == S_KEY || keycode == W_KEY)
+	if (keycode == S_KEY || keycode == W_KEY)
 		cub3d->move_vertical = 0;
-	else if (keycode == A_KEY || keycode == D_KEY)
+	if (keycode == A_KEY || keycode == D_KEY)
 		cub3d->move_horizontal = 0;
 	return (0);
 }
@@ -64,12 +64,12 @@ int	refresh(t_cub3d *cub3d)
 {
 	static int	fps;
 
-	if (fps > 50)
+	if (fps > 1000)
 	{
 		animate_doors(cub3d, cub3d->door);
-		if (cub3d->move_vertical || cub3d->move_horizontal)
+		// if (cub3d->move_vertical || cub3d->move_horizontal)
 			move_player(cub3d);
-		if (cub3d->rotation_dir)
+		// if (cub3d->rotation_dir)
 			rotate_player(cub3d);
 		cub3d->rotation_dir = 0;
 		draw_cub3d(cub3d);

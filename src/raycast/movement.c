@@ -6,7 +6,7 @@
 /*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 07:36:11 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/09/03 17:00:24 by maboulkh         ###   ########.fr       */
+/*   Updated: 2023/09/08 23:06:37 by maboulkh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static	t_boolean	check_sprite_collision(t_cub3d *cub3d, double x, double y)
 	size_t	i;
 	double	sprite_half_width;
 
-	sprite_half_width = 0.3;
+	sprite_half_width = HB_RADIUS;
 	i = 0;
 	while (i < cub3d->sprite_count)
 	{
@@ -71,7 +71,7 @@ void	move_player(t_cub3d *cub3d)
 	double				x;
 	double				y;
 
-	move_speed = 0.2;
+	move_speed = MOVE_SPEED;
 	raycaster = &cub3d->raycaster;
 	y = raycaster->player_x + move_speed
 		* (cub3d->move_vertical * raycaster->direction_x
@@ -95,7 +95,7 @@ void	rotate_player(t_cub3d *cub3d)
 	double				rot_speed;
 	double				rot_const;
 
-	rot_const = 0.08;
+	rot_const = ROT_SPEED;
 	raycaster = &cub3d->raycaster;
 	rot_speed = cub3d->rotation_dir * rot_const;
 	old_direction_x = raycaster->direction_x;

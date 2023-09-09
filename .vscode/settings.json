@@ -1,7 +1,0 @@
-{
-    "files.associations": {
-        "mlx.h": "c",
-        "cub3d.h": "c",
-        "ft_garbage_collector.h": "c"
-    }
-}

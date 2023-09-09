@@ -6,7 +6,7 @@
 /*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 19:47:32 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/09/08 19:54:37 by maboulkh         ###   ########.fr       */
+/*   Updated: 2023/09/08 22:41:40 by maboulkh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ void	read_texture_file(t_cub3d *cub3d, t_tx_type tx_side, char *line)
 	void	*img;
 	void	**temp;
 
-	printf("|%s|\n", line);
 	img = mlx_xpm_file_to_image(cub3d->mlx, line, &(cub3d->img_width),
 			&(cub3d->img_height));
 	if (!img)
