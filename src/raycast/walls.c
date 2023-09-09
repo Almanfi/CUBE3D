@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   walls.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bamrouch <bamrouch@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 18:46:53 by maboulkh          #+#    #+#             */
-/*   Updated: 2023/09/09 14:35:08 by bamrouch         ###   ########.fr       */
+/*   Updated: 2023/09/09 15:50:21 by maboulkh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,9 @@ static	int	get_direction(t_raycaster_data *raycaster)
 	else
 	{
 		if (raycaster->ray_y > 0)
-			direction = NORTH;
-		else
 			direction = SOUTH;
+		else
+			direction = NORTH;
 	}
 	return (direction);
 }
