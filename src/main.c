@@ -6,7 +6,7 @@
 /*   By: maboulkh <maboulkh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 16:55:41 by bamrouch          #+#    #+#             */
-/*   Updated: 2023/09/08 23:04:21 by maboulkh         ###   ########.fr       */
+/*   Updated: 2023/09/09 15:42:57 by maboulkh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,10 @@ int	main(int argc, char *argv[])
 {
 	t_cub3d	cub3d;
 
-	if (MOVE_SPEED > HB_RADIUS)
-		exit_cub3d(-1, "move speed is too high in comparaison to hit_box");
 	ft_bzero(&cub3d, sizeof(t_cub3d));
 	get_cub3d(&cub3d);
+	if (MOVE_SPEED > HB_RADIUS)
+		exit_cub3d(-1, "move speed is too high in comparaison to hit_box");
 	cub3d_mlx_init(&cub3d);
 	cub3d_parser(argc, argv, &cub3d);
 	read_animated_sprites(&cub3d);
